@@ -1,0 +1,5 @@
+report_path -from {a* b*} -to y* -npaths 20 -panel_name {Report Path}
+report_path -from {LessThen*|data*} -to {agtb*|combout} -npaths 20 -panel_name {Report Path}
+
+		 LE | Delay
+IMPL1: 8  |  

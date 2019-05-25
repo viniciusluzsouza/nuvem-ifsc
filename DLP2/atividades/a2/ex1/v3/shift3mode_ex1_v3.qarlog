@@ -1,0 +1,17 @@
+Quartus II Archive log --	/home/vinicius.ls/DLP2/atividades/a2/ex1/v3/shift3mode_ex1_v3.qarlog
+
+Archive:	/home/vinicius.ls/DLP2/atividades/a2/ex1/v3/shift3mode_ex1_v3.qar
+Date:		Tue Apr 30 01:25:47 2019
+Quartus II 32-bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+
+	=========== Files Selected: ===========
+/home/vinicius.ls/DLP2/atividades/a2/ex1/v3/SDC2.sdc
+/home/vinicius.ls/DLP2/atividades/a2/ex1/v3/incremental_db/compiled_partitions/shift3mode.db_info
+/home/vinicius.ls/DLP2/atividades/a2/ex1/v3/shift3mode.qpf
+/home/vinicius.ls/DLP2/atividades/a2/ex1/v3/shift3mode.qsf
+/home/vinicius.ls/DLP2/atividades/a2/ex1/v3/shift3mode.vhd
+/opt/altera/13.0sp1/quartus/linux/assignment_defaults.qdf
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

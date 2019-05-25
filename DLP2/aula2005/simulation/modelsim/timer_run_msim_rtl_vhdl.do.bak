@@ -1,0 +1,13 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {/home/aluno/Downloads/dlp_1005/my_package.vhd}
+vcom -93 -work work {/home/aluno/Downloads/dlp_1005/bin2bcd.vhd}
+vcom -93 -work work {/home/aluno/Downloads/dlp_1005/main_timer.vhd}
+vcom -93 -work work {/home/aluno/Downloads/dlp_1005/timer.vhd}
+vcom -93 -work work {/home/aluno/Downloads/dlp_1005/bin2_ssd.vhd}
+

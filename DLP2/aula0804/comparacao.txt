@@ -1,0 +1,19 @@
+report_path -from {a* b*} -to agtb* -npaths 20 -panel_name {Report Path}
+
+report_path -from {LessThan*|data* LessThan*|cin*} -to { LessThan*|cout* agtb*|combout} -npaths 20 -panel_name {Report Path}
+report_path -from {LessThan*|data* LessThan*|cin*} -to { agtb*|combout} -npaths 20 -panel_name {Report Path}
+
+
+			 LE  | Delay
+comp2mode: 17 |  2.599
+comp2mode: 8  |  1.644
+
+
+report_path -from {LessThan*|data* Equal*|data* LessThan*|cin*} -to {LessThan*|cout* LessThan*|combout Equal*|combout} -npaths 20 -panel_name {Report Path}
+report_path -from {LessThan*|data* LessThan*|cin*} -to {LessThan*|combout aeqb*|combout} -npaths 20 -panel_name {Report Path}
+report_path -from {LessThan*|data* LessThan*|cin* Equal*|data*} -to {LessThan*|combout agtb*|combout} -npaths 20 -panel_name {Report Path}
+
+			 LE  | Delay
+comp3:	  43 | 1.969
+comp3:	  33 | 3.469
+comp3:	  28 | 3.978

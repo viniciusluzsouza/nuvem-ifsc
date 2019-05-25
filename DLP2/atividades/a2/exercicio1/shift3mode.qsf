@@ -1,0 +1,464 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+# Date created = 19:38:30  April 21, 2019
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		shift3mode_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY shift3mode
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:38:30  APRIL 21, 2019"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name VHDL_FILE shift3mode.vhd
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ENABLED ON -section_id Region_0
+set_global_assignment -name LL_AUTO_SIZE ON -section_id Region_0
+set_global_assignment -name LL_STATE FLOATING -section_id Region_0
+set_global_assignment -name LL_RESERVED OFF -section_id Region_0
+set_global_assignment -name LL_SECURITY_ROUTING_INTERFACE OFF -section_id Region_0
+set_global_assignment -name LL_IGNORE_IO_BANK_SECURITY_CONSTRAINT OFF -section_id Region_0
+set_global_assignment -name LL_PR_REGION OFF -section_id Region_0
+set_global_assignment -name LL_WIDTH 1 -section_id Region_0
+set_global_assignment -name LL_HEIGHT 1 -section_id Region_0
+set_global_assignment -name LL_ORIGIN X1_Y1 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux0 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux1 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux10 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux100 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux101 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux102 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux103 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux104 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux105 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux106 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux107 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux108 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux109 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux11 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux110 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux111 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux112 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux113 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux114 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux115 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux116 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux117 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux118 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux119 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux12 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux120 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux121 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux122 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux123 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux124 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux125 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux126 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux127 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux128 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux129 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux13 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux130 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux131 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux132 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux133 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux134 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux135 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux136 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux137 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux138 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux139 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux14 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux140 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux141 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux142 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux143 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux144 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux145 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux146 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux147 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux148 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux149 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux15 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux150 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux151 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux152 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux153 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux154 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux155 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux156 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux157 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux158 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux159 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux16 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux160 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux161 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux162 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux163 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux164 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux165 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux166 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux167 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux168 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux169 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux17 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux170 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux171 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux172 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux173 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux174 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux175 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux176 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux177 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux178 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux179 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux18 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux180 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux181 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux182 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux183 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux184 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux185 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux186 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux187 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux188 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux189 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux19 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux190 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux191 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux192 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux193 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux194 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux195 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux196 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux197 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux198 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux199 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux2 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux20 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux200 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux201 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux202 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux203 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux204 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux205 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux206 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux207 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux208 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux209 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux21 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux210 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux211 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux212 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux213 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux214 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux215 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux216 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux217 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux218 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux219 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux22 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux220 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux221 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux222 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux223 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux224 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux225 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux226 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux227 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux228 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux229 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux23 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux230 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux231 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux232 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux233 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux234 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux235 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux236 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux237 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux238 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux239 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux24 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux240 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux241 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux242 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux243 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux244 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux245 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux246 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux247 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux248 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux249 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux25 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux250 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux251 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux252 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux253 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux254 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux26 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux27 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux28 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux29 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux3 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux30 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux31 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux32 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux33 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux34 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux35 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux36 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux37 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux38 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux39 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux4 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux40 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux41 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux42 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux43 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux44 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux45 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux46 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux47 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux48 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux49 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux5 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux50 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux51 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux52 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux53 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux54 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux55 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux56 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux57 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux58 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux59 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux6 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux60 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux61 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux62 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux63 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux64 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux65 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux66 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux67 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux68 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux69 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux7 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux70 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux71 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux72 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux73 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux74 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux75 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux76 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux77 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux78 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux79 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux8 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux80 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux81 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux82 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux83 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux84 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux85 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux86 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux87 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux88 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux89 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux9 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux90 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux91 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux92 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux93 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux94 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux95 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux96 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux97 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux98 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to Mux99 -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[0] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[10] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[11] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[12] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[13] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[14] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[15] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[16] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[17] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[18] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[19] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[1] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[20] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[21] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[22] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[23] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[24] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[25] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[26] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[27] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[28] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[29] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[2] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[30] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[31] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[32] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[33] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[34] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[35] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[36] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[37] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[38] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[39] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[3] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[40] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[41] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[42] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[43] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[44] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[45] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[46] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[47] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[48] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[49] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[4] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[50] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[51] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[52] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[53] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[54] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[55] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[56] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[57] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[58] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[59] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[5] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[60] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[61] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[62] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[63] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[6] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[7] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[8] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to a[9] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to amt -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to amt[0] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to amt[1] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to amt[2] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to amt[3] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to amt[4] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to amt[5] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to arith_result -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to lar -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to lar[0] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to lar[1] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to logic_result -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to rot_result -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[0] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[10] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[11] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[12] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[13] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[14] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[15] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[16] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[17] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[18] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[19] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[1] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[20] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[21] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[22] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[23] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[24] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[25] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[26] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[27] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[28] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[29] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[2] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[30] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[31] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[32] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[33] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[34] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[35] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[36] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[37] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[38] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[39] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[3] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[40] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[41] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[42] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[43] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[44] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[45] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[46] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[47] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[48] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[49] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[4] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[50] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[51] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[52] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[53] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[54] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[55] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[56] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[57] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[58] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[59] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[5] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[60] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[61] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[62] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[63] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[6] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[7] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[8] -section_id Region_0
+set_instance_assignment -name LL_MEMBER_OF Region_0 -to y[9] -section_id Region_0
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

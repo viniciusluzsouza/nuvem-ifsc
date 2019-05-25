@@ -1,0 +1,233 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/vinicius.ls/DLP2/aula2005/simulation/modelsim
+Ebin2bcd
+Z1 w1558359090
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 d/home/vinicius.ls/DLP2/aula2005/simulation/modelsim
+Z6 8/home/vinicius.ls/DLP2/aula2005/bin2bcd.vhd
+Z7 F/home/vinicius.ls/DLP2/aula2005/bin2bcd.vhd
+l0
+L9
+VJ@SWccl`L4aH_j^50FQ@[0
+Z8 OV;C;10.1d;51
+31
+Z9 !s108 1558696324.135014
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/bin2bcd.vhd|
+Z11 !s107 /home/vinicius.ls/DLP2/aula2005/bin2bcd.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 YnHaRhNZF7Z1>W0IcaHk31
+!i10b 1
+Adouble_dabble
+R2
+R3
+R4
+DEx4 work 7 bin2bcd 0 22 J@SWccl`L4aH_j^50FQ@[0
+l23
+L21
+V@:M`iVEgNQJIlHe8Qf7Rz2
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 Tl[D6a1?Bo2=>mM3MH6@h2
+!i10b 1
+Ebin2ssd
+Z14 w1557485376
+R2
+Z15 DPx4 work 10 my_package 0 22 @zC;]JcDJXXzegDjD5XgZ2
+R3
+R4
+R5
+Z16 8/home/vinicius.ls/DLP2/aula2005/bin2_ssd.vhd
+Z17 F/home/vinicius.ls/DLP2/aula2005/bin2_ssd.vhd
+l0
+L5
+VAF[4K@]`06]lLe]KCB`Oo1
+!s100 z2>Ceo97EHDPJW[3=QI3S2
+R8
+31
+!i10b 1
+Z18 !s108 1558696330.085639
+Z19 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/bin2_ssd.vhd|
+Z20 !s107 /home/vinicius.ls/DLP2/aula2005/bin2_ssd.vhd|
+R12
+R13
+Abin2ssd_arch
+R2
+R15
+R3
+R4
+DEx4 work 7 bin2ssd 0 22 AF[4K@]`06]lLe]KCB`Oo1
+l13
+L12
+V_NN?]BOf?g<:4ZR4Zi_613
+!s100 `Rbl:<l?zU2gRC<gTjWDT3
+R8
+31
+!i10b 1
+R18
+R19
+R20
+R12
+R13
+Cconfig
+amulti_clock_arch
+etimer
+DAx4 work 5 timer 16 multi_clock_arch 22 VB0ejRRc91HNn29zOB<Zc2
+R2
+R3
+R4
+Z21 DEx4 work 5 timer 0 22 1aBX8R2U_K_LMz>CQ;C7U1
+Z22 w1558662796
+R5
+Z23 8/home/vinicius.ls/DLP2/aula2005/timer.vhd
+Z24 F/home/vinicius.ls/DLP2/aula2005/timer.vhd
+l0
+L164
+Vk2]4mTf?R_nGUR=cF`kP[0
+R8
+31
+Z25 !s108 1558696317.897579
+Z26 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/timer.vhd|
+Z27 !s107 /home/vinicius.ls/DLP2/aula2005/timer.vhd|
+R12
+R13
+!s100 :3;m>BKa3L9<;jD;M7dXO1
+!i10b 0
+Emain_timer
+Z28 w1558360792
+R3
+R4
+R5
+Z29 8/home/vinicius.ls/DLP2/aula2005/main_timer.vhd
+Z30 F/home/vinicius.ls/DLP2/aula2005/main_timer.vhd
+l0
+L4
+V0d[Ij1:2NnPoQbCWonhSf1
+R8
+31
+Z31 !s108 1558696327.343623
+Z32 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/main_timer.vhd|
+Z33 !s107 /home/vinicius.ls/DLP2/aula2005/main_timer.vhd|
+R12
+R13
+!s100 Zc32>`a=XzOc7aXD^eU_]2
+!i10b 1
+Amain_timer_impl
+R3
+R4
+DEx4 work 10 main_timer 0 22 0d[Ij1:2NnPoQbCWonhSf1
+l55
+L12
+VT8Hf1Tj?LE_^SjCDlRK^N0
+R8
+31
+R31
+R32
+R33
+R12
+R13
+!s100 L_9;5;W9i]l[<ie1miEOY1
+!i10b 1
+Pmy_package
+R2
+R3
+R4
+Z34 w1557485336
+R5
+Z35 8/home/vinicius.ls/DLP2/aula2005/my_package.vhd
+Z36 F/home/vinicius.ls/DLP2/aula2005/my_package.vhd
+l0
+L7
+V@zC;]JcDJXXzegDjD5XgZ2
+R8
+31
+b1
+Z37 !s108 1558696321.782141
+Z38 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/my_package.vhd|
+Z39 !s107 /home/vinicius.ls/DLP2/aula2005/my_package.vhd|
+R12
+R13
+!s100 n6_4zkDgbGb[ziTFRkG>c1
+!i10b 1
+Bbody
+R15
+R2
+R3
+R4
+l0
+L13
+Vek6V1S:R3H@:NOWI3En?V1
+R8
+31
+R37
+R38
+R39
+R12
+R13
+nbody
+!s100 [9d>`I2PGWg05^CVnbK[z3
+!i10b 1
+Etimer
+R22
+R2
+R3
+R4
+R5
+R23
+R24
+l0
+L7
+V1aBX8R2U_K_LMz>CQ;C7U1
+R8
+31
+R25
+R26
+R27
+R12
+R13
+!s100 cAD3VdB9[4KA]aZAM?he13
+!i10b 1
+Asingle_clock_arch
+R2
+R3
+R4
+R21
+l113
+L102
+VHO[HJCzO5SQ@DOnPD^]S`1
+R8
+31
+R25
+R26
+R27
+R12
+R13
+!s100 @bZbE`HcU?5m^`<LKVBV[1
+!i10b 1
+Amulti_clock_arch
+R2
+R3
+R4
+R21
+l25
+L15
+VVB0ejRRc91HNn29zOB<Zc2
+R8
+31
+R25
+R26
+R27
+R12
+R13
+!s100 _d@HRoTc<oXKXeUe0VOnm2
+!i10b 1

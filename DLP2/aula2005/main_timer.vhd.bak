@@ -1,0 +1,54 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+ENTITY main_timer IS
+	port (
+		RST, CLK : in std_logic;
+		cseg_u, cseg_d, seg_u, seg_d, min_u, min_d : 
+			std_logic_vector(6 downto 0);
+	);
+END ENTITY;
+
+ARCHITECTURE main_timer_impl OF main_timer IS
+---------- Componente timer ----------
+	COMPONENT timer IS
+		PORT (
+			clk, reset: in std_logic;
+			cseg : out std_logic_vector(6 downto 0);
+			sec,min: out std_logic_vector(5 downto 0)
+		);
+	END COMPONENT;
+------------------------------------------
+---------- Componente bin2bcd ----------
+	COMPONENT bin2bcd IS
+		PORT (
+			binIN : in  STD_LOGIC_VECTOR (6 downto 0);
+         ones : out  STD_LOGIC_VECTOR (3 downto 0);
+         tens : out  STD_LOGIC_VECTOR (3 downto 0)
+		);
+	END COMPONENT;
+------------------------------------------
+---------- Componente timer ----------
+	COMPONENT bin2ssd IS
+		PORT (
+			input : in std_logic_vector(3 downto 0);
+			ssd: out std_logic_vector(6 downto 0)
+		);
+	END COMPONENT;
+------------------------------------------
+		signal s_cseg_u, s_cseg_d, s_seg_u, s_seg_d, s_min_u, s_min_d : 
+			std_logic_vector(6 downto 0);
+		signal s_cseg : std_logic_vector(6 downto 0);
+		signal s_seg, s_min : std_logic_vector(5 downto 0);
+BEGIN
+
+	timer_1 : timer
+		PORT MAP(clk => CLK, reset => RST, cseg => s_cseg, sec => s_seg, min => s_min);
+	
+	bin2bcd_1 : bin2bcd
+			PORT MAP(binIN => )
+
+
+
+
+END ARCHITECTURE;

@@ -1,0 +1,12 @@
+Fitter Status : Successful - Fri Mar 29 11:26:27 2019
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : hamming_distance
+Top-level Entity Name : hamming_distance
+Family : Cyclone
+Device : EP1C3T100A8
+Timing Models : Final
+Total logic elements : 68 / 2,910 ( 2 % )
+Total pins : 55 / 65 ( 85 % )
+Total virtual pins : 0
+Total memory bits : 0 / 59,904 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )

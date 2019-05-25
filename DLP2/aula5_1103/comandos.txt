@@ -1,0 +1,2 @@
+report_path -from {diff*|data* Add*|data*} -to {Add*|combout Add*|cout} -npaths 20 -panel_name {Report Path}
+report_path -from {a* b*} -to y* -npaths 20 -panel_name {Report Path}

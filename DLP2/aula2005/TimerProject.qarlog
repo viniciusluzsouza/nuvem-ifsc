@@ -1,0 +1,21 @@
+Quartus II Archive log --	/home/vinicius.ls/DLP2/aula2005/TimerProject.qarlog
+
+Archive:	/home/vinicius.ls/DLP2/aula2005/TimerProject.qar
+Date:		Fri May 24 11:22:11 2019
+Quartus II 32-bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+
+	=========== Files Selected: ===========
+/home/vinicius.ls/DLP2/aula2005/SDC1.sdc
+/home/vinicius.ls/DLP2/aula2005/TimerProject.qpf
+/home/vinicius.ls/DLP2/aula2005/bin2_ssd.vhd
+/home/vinicius.ls/DLP2/aula2005/bin2bcd.vhd
+/home/vinicius.ls/DLP2/aula2005/incremental_db/compiled_partitions/timer.db_info
+/home/vinicius.ls/DLP2/aula2005/main_timer.vhd
+/home/vinicius.ls/DLP2/aula2005/my_package.vhd
+/home/vinicius.ls/DLP2/aula2005/timer.qsf
+/home/vinicius.ls/DLP2/aula2005/timer.vhd
+/opt/altera/13.0sp1/quartus/linux/assignment_defaults.qdf
+	======= Total: 10 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

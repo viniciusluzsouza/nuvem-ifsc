@@ -1,0 +1,42 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/vinicius.ls/DLP2/atividades/a2/testes_qar/ex2/shift3mode_ex2_restored/simulation/modelsim
+Eshift3mode
+Z1 w1556547577
+Z2 DPx4 ieee 9 math_real 0 22 :iME`dTX54_U49lJNF5JI3
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 d/home/vinicius.ls/DLP2/atividades/a2/testes_qar/ex2/shift3mode_ex2_restored/simulation/modelsim
+Z6 8../../shift3mode.vhd
+Z7 F../../shift3mode.vhd
+l0
+L6
+V;[Mh7jmQ_BilgQ2nhEU6D2
+!s100 UC:5kaBlTE?6L^JOzi4nb0
+Z8 OV;C;10.1d;51
+31
+!i10b 1
+Z9 !s108 1556588067.679695
+Z10 !s90 -reportprogress|300|-93|-work|work|../../shift3mode.vhd|
+Z11 !s107 ../../shift3mode.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+Amulti_level_arch
+R2
+R3
+R4
+Z14 DEx4 work 10 shift3mode 0 22 ;[Mh7jmQ_BilgQ2nhEU6D2
+l25
+L19
+Z15 VGY@LYZP1m2iKS52;b8K9j3
+Z16 !s100 n1Wfh_Se7WKCnX0U5m:o01
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13

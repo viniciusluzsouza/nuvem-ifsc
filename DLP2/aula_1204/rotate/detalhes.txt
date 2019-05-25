@@ -1,0 +1,16 @@
+report_path -from {a* b*} -to agtb* -npaths 20 -panel_name {Report Path}
+
+report_path -from {Mux*|data*} -to {Mux*|combout*} -npaths 20 -panel_name {Report Path}
+report_path -from {le*|data*} -to {le*|combout*} -npaths 20 -panel_name {Report Path}
+
+report_path -from {Mux*|data*} -to {Mux*|combout*} -npaths 20 -panel_name {Report Path}
+report_path -from {le*|data*} -to {le*|combout*} -npaths 20 -panel_name {Report Path}
+
+LE | Delay
+24 | 2.322
+24 | 2.322
+24 | 1.793 (com constraint)
+24 | 1.793 (com constraint)
+
+80 | 3.492
+80 | 3.492
