@@ -34,10 +34,10 @@ begin
    end process;
 
    -- next-state logic
-   r_next <= (others=>'0') when r_reg=99 else
+   r_next <= (others=>'0') when r_reg=99999 else
              r_reg + 1;
    -- output logic
-   cclk <= '1' when r_reg < 50 else
+   cclk <= '1' when r_reg < 50000 else
            '0';
  
  
@@ -127,9 +127,9 @@ c_reg <= c_next;
       end if;
    end process;
    -- next-state logic/output logic for mod-1000000 counter
-   r_next <= (others=>'0') when r_reg=99 else
+   r_next <= (others=>'0') when r_reg=99999 else
              r_reg + 1;	 
-c_en <= '1' when r_reg = 50 else
+c_en <= '1' when r_reg = 50000 else
            '0';
  
  
@@ -162,7 +162,7 @@ csec <= std_logic_vector(c_reg);
 end single_clock_arch;
 
 configuration config of timer is
-for multi_clock_arch
---for single_clock_arch
+--for multi_clock_arch
+for single_clock_arch
 end for;	
 end configuration;

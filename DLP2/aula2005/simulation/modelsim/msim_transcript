@@ -21,7 +21,7 @@
 # -- Loading entity timer
 # -- Compiling configuration config
 # -- Loading entity timer
-# -- Loading architecture multi_clock_arch of timer
+# -- Loading architecture single_clock_arch of timer
 # vcom -93 -work work {/home/vinicius.ls/DLP2/aula2005/my_package.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
@@ -56,84 +56,7 @@
 # -- Compiling entity bin2ssd
 # -- Compiling architecture bin2ssd_arch of bin2ssd
 # 
-
-
-add wave -position insertpoint  \
-sim:/main_timer/RST \
-sim:/main_timer/CLK \
-sim:/main_timer/cseg_u \
-sim:/main_timer/cseg_d \
-sim:/main_timer/seg_u \
-sim:/main_timer/seg_d \
-sim:/main_timer/min_u \
-sim:/main_timer/min_d \
-sim:/main_timer/s_cseg \
-sim:/main_timer/s_seg \
-sim:/main_timer/s_min
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-
-
-force -freeze sim:/main_timer/CLK 1 0, 0 {10000 ps} -r 20ns
-# Dataset not found: sim
-force -freeze sim:/main_timer/RST 1 0
-# Dataset not found: sim
-run 50 ns
-# No Design Loaded!
-
-
-force -freeze sim:/main_timer/RST 0 0
-# Dataset not found: sim
-force -freeze sim:/main_timer/s_cseg 1100010 0
-# Dataset not found: sim
-force -freeze sim:/main_timer/s_seg 111010 0
-# Dataset not found: sim
-force -freeze sim:/main_timer/s_min 111010 0
-# Dataset not found: sim
-run 5 us
-# No Design Loaded!
-
-
-
-
-
-
-
-
-
-add wave -position insertpoint  \
-sim:/main_timer/RST \
-sim:/main_timer/CLK \
-sim:/main_timer/cseg_u \
-sim:/main_timer/cseg_d \
-sim:/main_timer/seg_u \
-sim:/main_timer/seg_d \
-sim:/main_timer/min_u \
-sim:/main_timer/min_d \
-sim:/main_timer/s_cseg \
-sim:/main_timer/s_seg \
-sim:/main_timer/s_min
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-# Unrecognized dataset prefix: sim
-vsim work.main_timer
+do test_timer.do
 # vsim work.main_timer 
 # //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.15.18-14-pve
 # //
@@ -153,23 +76,16 @@ vsim work.main_timer
 # Loading work.bin2bcd(double_dabble)
 # Loading work.my_package(body)
 # Loading work.bin2ssd(bin2ssd_arch)
-add wave -position insertpoint  \
-sim:/main_timer/RST \
-sim:/main_timer/CLK \
-sim:/main_timer/cseg_u \
-sim:/main_timer/cseg_d \
-sim:/main_timer/seg_u \
-sim:/main_timer/seg_d \
-sim:/main_timer/min_u \
-sim:/main_timer/min_d \
-sim:/main_timer/s_cseg \
-sim:/main_timer/s_seg \
-sim:/main_timer/s_min
-
-
-force -freeze sim:/main_timer/CLK 1 0, 0 {10000 ps} -r 20ns
-force -freeze sim:/main_timer/RST 1 0
-run 50 ns
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 1 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 2 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
+# ** Error: Cannot lock WLF file: "vsim.wlf"
+#           errno 11: Resource temporarily unavailable.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: vinicius.ls  Hostname: quartus-859785bd96-k7w4f  ProcessID: 14573
+#           Attempting to use alternate WLF file "./wlftKNK6cv".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftKNK6cv
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2ssd_6
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -278,133 +194,5 @@ run 50 ns
 #    Time: 0 ps  Iteration: 3  Instance: /main_timer/bin2ssd_6
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 3  Instance: /main_timer/bin2ssd_4
-
-
-force -freeze sim:/main_timer/RST 0 0
-force -freeze sim:/main_timer/s_cseg 1100010 0
-force -freeze sim:/main_timer/s_seg 111010 0
-force -freeze sim:/main_timer/s_min 111010 0
-run 5 us
-
-run 100 ms
-restart
-force -freeze sim:/main_timer/CLK 1 0, 0 {10000 ps} -r 20ns
-force -freeze sim:/main_timer/RST 1 0
-run 50 ns
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2ssd_6
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2ssd_5
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2ssd_4
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2ssd_3
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2ssd_2
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2ssd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/bin2bcd_1
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/timer_1
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/timer_1
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/timer_1
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/timer_1
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/timer_1
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/timer_1
-# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 0  Instance: /main_timer/timer_1
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_3
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
-#    Time: 0 ps  Iteration: 1  Instance: /main_timer/bin2bcd_2
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /main_timer/bin2ssd_6
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /main_timer/bin2ssd_4
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /main_timer/bin2ssd_2
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 3  Instance: /main_timer/bin2ssd_6
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 3  Instance: /main_timer/bin2ssd_4
-force -freeze sim:/main_timer/RST 0 0
-run 3 us
-run 100 us
-force -freeze sim:/main_timer/s_cseg 0000000 0
-run 10 us
-run 100 us
-noforce sim:/main_timer/s_cseg
-run 100 us
-force -freeze sim:/main_timer/s_cseg 0111000 0 -cancel 10ns
+run 2 ms
+run 1 ms

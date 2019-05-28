@@ -16,7 +16,7 @@ L9
 VJ@SWccl`L4aH_j^50FQ@[0
 Z8 OV;C;10.1d;51
 31
-Z9 !s108 1558696324.135014
+Z9 !s108 1558895203.961835
 Z10 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/bin2bcd.vhd|
 Z11 !s107 /home/vinicius.ls/DLP2/aula2005/bin2bcd.vhd|
 Z12 o-93 -work work -O0
@@ -56,7 +56,7 @@ VAF[4K@]`06]lLe]KCB`Oo1
 R8
 31
 !i10b 1
-Z18 !s108 1558696330.085639
+Z18 !s108 1558895205.700093
 Z19 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/bin2_ssd.vhd|
 Z20 !s107 /home/vinicius.ls/DLP2/aula2005/bin2_ssd.vhd|
 R12
@@ -80,28 +80,28 @@ R20
 R12
 R13
 Cconfig
-amulti_clock_arch
+asingle_clock_arch
 etimer
-DAx4 work 5 timer 16 multi_clock_arch 22 VB0ejRRc91HNn29zOB<Zc2
+DAx4 work 5 timer 17 single_clock_arch 22 R=TAI7nOHknAT@gSJHen70
 R2
 R3
 R4
 Z21 DEx4 work 5 timer 0 22 1aBX8R2U_K_LMz>CQ;C7U1
-Z22 w1558662796
+Z22 w1558895081
 R5
 Z23 8/home/vinicius.ls/DLP2/aula2005/timer.vhd
 Z24 F/home/vinicius.ls/DLP2/aula2005/timer.vhd
 l0
 L164
-Vk2]4mTf?R_nGUR=cF`kP[0
+V0]I`<dBbQ4ITKT857C]bH0
 R8
 31
-Z25 !s108 1558696317.897579
+Z25 !s108 1558895201.459886
 Z26 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/timer.vhd|
 Z27 !s107 /home/vinicius.ls/DLP2/aula2005/timer.vhd|
 R12
 R13
-!s100 :3;m>BKa3L9<;jD;M7dXO1
+!s100 zeLgMWl<CT@1QY?bWTn]]0
 !i10b 0
 Emain_timer
 Z28 w1558360792
@@ -115,7 +115,7 @@ L4
 V0d[Ij1:2NnPoQbCWonhSf1
 R8
 31
-Z31 !s108 1558696327.343623
+Z31 !s108 1558895204.820225
 Z32 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/main_timer.vhd|
 Z33 !s107 /home/vinicius.ls/DLP2/aula2005/main_timer.vhd|
 R12
@@ -152,7 +152,7 @@ V@zC;]JcDJXXzegDjD5XgZ2
 R8
 31
 b1
-Z37 !s108 1558696321.782141
+Z37 !s108 1558895202.718877
 Z38 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/aula2005/my_package.vhd|
 Z39 !s107 /home/vinicius.ls/DLP2/aula2005/my_package.vhd|
 R12
@@ -204,7 +204,7 @@ R4
 R21
 l113
 L102
-VHO[HJCzO5SQ@DOnPD^]S`1
+VR=TAI7nOHknAT@gSJHen70
 R8
 31
 R25
@@ -212,7 +212,7 @@ R26
 R27
 R12
 R13
-!s100 @bZbE`HcU?5m^`<LKVBV[1
+!s100 B8JOj9lECS2=FNd_2KW0I1
 !i10b 1
 Amulti_clock_arch
 R2
@@ -221,7 +221,7 @@ R4
 R21
 l25
 L15
-VVB0ejRRc91HNn29zOB<Zc2
+Vflz5kEm^0?oFUC=EzQl^03
 R8
 31
 R25
@@ -229,5 +229,5 @@ R26
 R27
 R12
 R13
-!s100 _d@HRoTc<oXKXeUe0VOnm2
+!s100 TNDe^[8`0E^I[?m>3A6C]0
 !i10b 1
