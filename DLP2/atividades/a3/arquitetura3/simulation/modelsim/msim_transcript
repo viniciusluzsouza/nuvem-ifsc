@@ -1,0 +1,117 @@
+# do timer_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/timer.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity timer
+# -- Compiling architecture single_clock_arch of timer
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/my_package.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package my_package
+# -- Compiling package body my_package
+# -- Loading package my_package
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/main_timer.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity main_timer
+# -- Compiling architecture main_timer_impl of main_timer
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/bcd2ssd.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package my_package
+# -- Compiling entity bcd2ssd
+# -- Compiling architecture bin2ssd_arch of bcd2ssd
+# 
+vsim work.timer
+# vsim work.timer 
+# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.15.18-14-pve
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.timer(single_clock_arch)
+add wave -position insertpoint  \
+sim:/timer/clk \
+sim:/timer/reset \
+sim:/timer/csec_o \
+sim:/timer/csec_t \
+sim:/timer/sec_o \
+sim:/timer/sec_t \
+sim:/timer/min_o \
+sim:/timer/min_t
+force -freeze sim:/timer/clk 1 0, 0 {10000 ps} -r {20 ns}
+force -freeze sim:/timer/reset 1 0
+run 50 ns
+force -freeze sim:/timer/reset 0 0
+run 1 ms
+run 1 ms
+run 50 ms
+restart
+force -freeze sim:/timer/clk 1 0, 0 {10000 ps} -r {20 ns}
+add wave -position insertpoint  \
+sim:/timer/cseg_u \
+sim:/timer/cseg_d \
+sim:/timer/seg_u \
+sim:/timer/seg_d \
+sim:/timer/min_u \
+sim:/timer/min_d
+force -freeze sim:/timer/reset 1 0
+run 50 ns
+force -freeze sim:/timer/cseg_u 10#9 0
+force -freeze sim:/timer/cseg_d 10#9 0
+force -freeze sim:/timer/seg_u 10#9 0
+force -freeze sim:/timer/seg_d 10#5 0
+force -freeze sim:/timer/min_u 10#9 0
+force -freeze sim:/timer/min_d 10#5 0
+force -freeze sim:/timer/reset 0 0
+run 50 ns
+noforce sim:/timer/cseg_u
+noforce sim:/timer/cseg_d
+noforce sim:/timer/seg_u
+noforce sim:/timer/seg_d
+noforce sim:/timer/min_u
+noforce sim:/timer/min_d
+run 50 ns
+noforce sim:/timer/cseg_u
+noforce sim:/timer/cseg_d
+noforce sim:/timer/seg_u
+noforce sim:/timer/seg_d
+noforce sim:/timer/min_u
+noforce sim:/timer/min_d
+noforce sim:/timer/cseg_u
+noforce sim:/timer/cseg_d
+noforce sim:/timer/seg_u
+noforce sim:/timer/seg_d
+noforce sim:/timer/min_u
+noforce sim:/timer/min_d
+force -freeze sim:/timer/reset 0 0
+run 50 ms

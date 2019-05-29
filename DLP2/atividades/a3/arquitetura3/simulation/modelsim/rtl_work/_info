@@ -1,0 +1,155 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/simulation/modelsim
+Ebcd2ssd
+Z1 w1559095468
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx4 work 10 my_package 0 22 @zC;]JcDJXXzegDjD5XgZ2
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 d/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/simulation/modelsim
+Z7 8/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/bcd2ssd.vhd
+Z8 F/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/bcd2ssd.vhd
+l0
+L5
+Vn<I?VBLN6:8[Q1I9JW:iH0
+!s100 Lioobm2eK5@0P1:nFc<I51
+Z9 OV;C;10.1d;51
+31
+!i10b 1
+Z10 !s108 1559096397.338082
+Z11 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/bcd2ssd.vhd|
+Z12 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/bcd2ssd.vhd|
+Z13 o-93 -work work -O0
+Z14 tExplicit 1
+Abin2ssd_arch
+R2
+R3
+R4
+R5
+DEx4 work 7 bcd2ssd 0 22 n<I?VBLN6:8[Q1I9JW:iH0
+l13
+L12
+Vk3ind[ANgmWj:XRMYO4Qg0
+!s100 eF;;WNYBcEfc1T5o49IdF3
+R9
+31
+!i10b 1
+R10
+R11
+R12
+R13
+R14
+Emain_timer
+Z15 w1559096247
+R4
+R5
+R6
+Z16 8/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/main_timer.vhd
+Z17 F/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/main_timer.vhd
+l0
+L4
+V^McgKV:JZG[[djg<8I=FS0
+R9
+31
+Z18 !s108 1559096396.648210
+Z19 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/main_timer.vhd|
+Z20 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/main_timer.vhd|
+R13
+R14
+!s100 S6M7VR76lU0i=XPWDcO5o3
+!i10b 1
+Amain_timer_impl
+R4
+R5
+DEx4 work 10 main_timer 0 22 ^McgKV:JZG[[djg<8I=FS0
+l43
+L12
+V`eAk@OkIAbD0noCTThOkh3
+R9
+31
+R18
+R19
+R20
+R13
+R14
+!s100 ?5@loQzb[:1k7>]U_kZ@a2
+!i10b 1
+Pmy_package
+R2
+R4
+R5
+Z21 w1559095349
+R6
+Z22 8/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/my_package.vhd
+Z23 F/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/my_package.vhd
+l0
+L7
+V@zC;]JcDJXXzegDjD5XgZ2
+R9
+31
+b1
+Z24 !s108 1559096395.856199
+Z25 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/my_package.vhd|
+Z26 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/my_package.vhd|
+R13
+R14
+!s100 n6_4zkDgbGb[ziTFRkG>c1
+!i10b 1
+Bbody
+R3
+R2
+R4
+R5
+l0
+L13
+Vek6V1S:R3H@:NOWI3En?V1
+R9
+31
+R24
+R25
+R26
+R13
+R14
+nbody
+!s100 [9d>`I2PGWg05^CVnbK[z3
+!i10b 1
+Etimer
+Z27 w1559096237
+R2
+R4
+R5
+R6
+Z28 8/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/timer.vhd
+Z29 F/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/timer.vhd
+l0
+L4
+VEmf:J9^Lk61mfHOLH9Ta=1
+R9
+31
+Z30 !s108 1559096394.553754
+Z31 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/timer.vhd|
+Z32 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/timer.vhd|
+R13
+R14
+!s100 IWL=LY?b9_;z<aB_Vl2^z0
+!i10b 1
+Asingle_clock_arch
+R2
+R4
+R5
+DEx4 work 5 timer 0 22 Emf:J9^Lk61mfHOLH9Ta=1
+l18
+L15
+VNiTZYNC[YIF2gQQmaHEJ>1
+R9
+31
+R30
+R31
+R32
+R13
+R14
+!s100 h=APG[hm=4NdLTlib>cCH3
+!i10b 1
