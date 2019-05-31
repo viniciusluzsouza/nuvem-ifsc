@@ -8,7 +8,7 @@ clc;
 % Especificacoes
 fa = 10000; fp = 2800; fs = 3200;
 Ap = 1; As = 40; GdB = 0;
-wp = fp/fa*2; ws = fs/fa*2
+wp = fp/fa*(2*pi); ws = fs/fa*(2*pi);
 
 %% aa
 wc1 = sqrt(wp*ws); % media geometrica
@@ -16,25 +16,19 @@ Dw1 = ws - wp;
 M1 = ceil(3.32*pi/(Dw1));
 G0 = GdB;
 
-% primeiro ajuste
-G0 = 0.056; % db
-
 % Projeto inicial
 M = M1;
 Dw = Dw1;
 wc = wc1;
 
-% segundo ajuste M
-wp2 = 0.1833*pi; ws2 = 0.2021*pi;
-Dw2 = ws2 -wp2;
+% primeiro ajuste
+G0 = 0.056; % db
+
+% segundo ajuste M (n/2)
+wp2 = 0.5758*pi; ws2 = 0.6347*pi;
+Dw2 = ws2 - wp2;
 M2 = ceil(M1*Dw2/Dw1); % nova ordem do filtro 2*M2
 M = M2;
-
-% terceiro ajuste M
-% wp3 = 0.1807*pi; ws3 = 0.2061*pi;
-% Dw3 = ws3 -wp3;
-% M3 = ceil(M2*Dw3/Dw1); % nova ordem do filtro 2*M2
-% M = M3;
 
 % ajuste deslocamento
 Dws = ws - ws2;
@@ -55,15 +49,17 @@ wk = hann(2*M+1)';
 % wk = triang(2*M+1)';
 % wk = hamming(2*M+1)';
 b = b.*wk*10^(-G0/20); % regular altura do filtro em db
-% 
-% [h, w] = freqz(b, 1, linspace(0,pi,100000));
-% % plot(w/pi, abs(h)); grid on;
-% plot(w/pi, 20*log10(abs(h))); grid on;
-% ylim([-80 10])
-% hold on;
-% plot([0,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-% plot([0,ws/pi,ws/pi,1],[0,0,-As,-As], '-red')
 
+figure(1)
+[h, w] = freqz(b, 1, linspace(0,pi,100000));
+% plot(w/pi, abs(h)); grid on;
+plot(w/pi, 20*log10(abs(h))); grid on;
+ylim([-80 10])
+hold on;
+plot([0,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
+plot([0,ws/pi,ws/pi,1],[0,0,-As,-As], '-red')
+
+figure(2)
 escala = fa/2;
 subplot(3,2,[4 6])
 zplane(b, 1);

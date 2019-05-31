@@ -12,21 +12,31 @@ Ap = 1; As = 40; GdB = 0;
 wp = 2*pi*fp; ws = 2*pi*fs; wa = 2*pi*fa;
 Wp = 1; Ws = ws/wp;
 
-delta = 1.219/2; % fixar mascar
-tetha_s = ws/(wa/2) + ;
+
+tetha_s = ws/(wa/2);
 tetha_p = wp/(wa/2);
 lambda_s = 2*tan(tetha_s * pi/2);
 lambda_p = 2*tan(tetha_p * pi/2);
 Os = lambda_s/lambda_p;
 Op = 1;
 
+% ajuste
+delta_ts = 0.0850/10;
+tetha_s_ajustado = tetha_s + delta_ts;
+tetha_p_ajustado = tetha_p + delta_ts;
+lambda_s_ajustado = 2*tan(tetha_s_ajustado * pi/2);
+lambda_p_ajustado = 2*tan(tetha_p_ajustado * pi/2);
+Os_ajustado = lambda_s_ajustado/lambda_p;
+Op_ajustado = lambda_p_ajustado/lambda_p;
+
 %% IIR Eliptico
-[n, Wn] = ellipord(Op, Os, Ap, As,'s');
+% [n, Wn] = ellipord(Op, Os, Ap, As,'s');
+[n, Wn] = ellipord(Op_ajustado, Os_ajustado, Ap, As,'s');
 [b,a] = ellip(n,Ap,As, Wn, 's');
 
 %% Primeiro plot
 figure(1)
-[h, w] = freqs(b, a, logspace(-2, 1, 100000));
+[h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
 title('H(p)')
 grid on; hold on;
