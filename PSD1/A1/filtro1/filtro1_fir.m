@@ -64,7 +64,7 @@ b = b.*wk*10^(-G0/20); % regular altura do filtro em db
 % plot([0,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
 % plot([0,ws/pi,ws/pi,1],[0,0,-As,-As], '-red')
 
-
+escala = fa/2;
 subplot(3,2,[4 6])
 zplane(b, 1);
 axis([-2 2 -2 2])
@@ -74,13 +74,13 @@ stem(b), grid on;
 subplot(321)
 [h, w] = freqz(b, 1, linspace(0,pi,10000));
 % plot(w/pi, abs(h)); grid on;
-plot(w/pi, 20*log10(abs(h))); grid on;
+plot(w/pi*escala, 20*log10(abs(h))); grid on;
 ylim([-80 5])
 Amim = 80
 % plot([0 wp wp]/pi, -[Ap Ap Amin], 'r');
 
 subplot(323)
-plot(w/pi, unwrap(angle(h))/pi); grid on;
+plot(w/pi*escala, unwrap(angle(h))/pi); grid on;
 subplot(325)
 grpdelay(b, 1)
 

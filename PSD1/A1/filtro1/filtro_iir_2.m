@@ -12,7 +12,8 @@ Ap = 1; As = 40; GdB = 0;
 wp = 2*pi*fp; ws = 2*pi*fs; wa = 2*pi*fa;
 Wp = 1; Ws = ws/wp;
 
-tetha_s = ws/(wa/2);
+delta = 1.219/2; % fixar mascar
+tetha_s = ws/(wa/2) + ;
 tetha_p = wp/(wa/2);
 lambda_s = 2*tan(tetha_s * pi/2);
 lambda_p = 2*tan(tetha_p * pi/2);
