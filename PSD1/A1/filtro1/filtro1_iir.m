@@ -5,53 +5,68 @@ close all;
 clear all;
 clc;
 
-% Especificacoes
-fa = 10000; f1 = 2800; f2 = 3200;
+ExecutarAjuste = 1;
+
+%% Especificacoes
 Ap = 1; As = 40; GdB = 0;
 
-wp = 2*pi*f1; ws = 2*pi*f2;
-Wp = 1; Ws = ws/wp;
+fa_espec = 10000; fp_espec = 2800; fs_espec = 3200;
+wa_espec = 2*pi*fa_espec;
+wp_espec = 2*pi*fp_espec; ws_espec = 2*pi*fs_espec;
+Wp_espec = 1; Ws_espec = ws_espec/wp_espec;
+tetha_s_espec = ws_espec/(wa_espec/2);
+tetha_p_espec = wp_espec/(wa_espec/2);
+lambda_s_espec = 2*tan(tetha_s_espec * pi/2);
+lambda_p_espec = 2*tan(tetha_p_espec * pi/2);
+Os_espec = lambda_s_espec/lambda_p_espec;
+Op_espec = 1;
+
+% Ajustes
+if ExecutarAjuste
+    delta = (3200-3102)/2;
+else
+    delta = 0;
+end
+
+fa = fa_espec;  wa = wa_espec;
+fp = fp_espec + delta; fs = fs_espec + delta;
+wp = 2*pi*fp; ws = 2*pi*fs;
+Wp = wp_espec; Ws = ws/wp;
+tetha_s = ws/(wa/2);
+tetha_p = wp/(wa/2);
+lambda_s = 2*tan(tetha_s * pi/2);
+lambda_p = 2*tan(tetha_p * pi/2);
+Os = lambda_s/lambda_p;
+Op = 1;
 
 %% IIR Eliptico
-[n, Wn] = ellipord(Wp, Ws, Ap, As,'s');
+[n, Wn] = ellipord(Op, Os, Ap, As,'s');
 [b,a] = ellip(n,Ap,As, Wn, 's');
 
 %% Primeiro plot
 figure(1)
-subplot(221)
-[h, w] = freqs(b, a, logspace(-2, 1, 10000));
+[h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
+title('H(p)')
 grid on; hold on;
-semilogx([10^-2 Wp Wp], [-Ap -Ap -500], '-r')
-semilogx([10^-2 Ws Ws 10^2], [Ap Ap -As -As], '-r')
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.5 2]); ylim([-60 10]);
 hold off;
 
-subplot(223)
-semilogx(w, unwrap(angle(h)))
-grid on;
-
-subplot(2,2,[2,4])
-th = 0:pi/50:2*pi; plot(cos(th), sin(th), '--k')
-hold on;
-plot(real(roots(b)), imag(roots(b)), 'o', real(roots(a)), imag(roots(a)), 'x');
-grid on; hold off;
-max = 3; axis([-1.1 1.1 -1.1 1.1]*max); axis square;
-
 %% Transformacao de frequencia
 % LP para LP
-ap = a; bp = b;
 syms p;
-Np(p) = poly2sym(bp, p);
-Dp(p) = poly2sym(ap, p);
+Np(p) = poly2sym(b, p);
+Dp(p) = poly2sym(a, p);
 Hp(p) = Np(p) / Dp(p);
 pretty(vpa(collect(Hp(p)), 5))
 
 %% Normalizando de acordo com p^n
 syms s;
-Hs(s) = collect(subs(Hp(p), s/wp));
-[N, D] = numden(Hs(s));
+Hs(s) = collect(subs(Hp(p), s/lambda_p));
 pretty(vpa(Hs(s), 3))
+[N, D] = numden(Hs(s));
 
 bs = sym2poly(N);
 as = sym2poly(D);
@@ -63,27 +78,70 @@ pretty(vpa(Hsn(s), 5))
 
 %% Resposta em frequencia
 figure(2)
-[hf, wf] = freqs(bsn, asn, logspace(1, 6, 1000));
-semilogx(wf, 20*log10(abs(hf)))
+[hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
+% semilogx(wf, 20*log10(abs(hf)))
+plot(wf,20*log10(abs(hf)));
+ylim([-80 10])
+title('H(s)')
 grid on
 hold on
+plot([0,lambda_s_espec,lambda_s_espec,10],[0,0,-As,-As], 'r')
+plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
+
+%% Transformando em Z (bilinear)
+syms z;
+aux = 2*((z-1)/(z+1));
+Hz(z) = collect(subs(Hs(s), aux));
+pretty(vpa(Hz(z),3))
+
+[Nz,Dz] = numden(Hz(z));
+bz = sym2poly(Nz);
+az = sym2poly(Dz);
+
+an = az(1);
+bzn = bz/an;
+azn = az/an;
+
+Hzn(z) = poly2sym(bzn,z) / poly2sym(azn,z);
+pretty(vpa(Hzn(z),5))
 
 %%
 figure(3)
-subplot(3,2,[4 6])
-zplane(b, 1);
-axis([-2 2 -2 2])
-[h, w] = freqz(b, 1, 'whole');
-subplot(322)
-stem(b), grid on;
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+ylim([-80 10])
+title('H(z)')
+grid on
+hold on
+plot([0,fs_espec,fs_espec,10000],[0,0,-As,-As], 'r')
+plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
+
+%%
+figure(4)
+suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
+
 subplot(321)
-[h, w] = freqz(b, 1, linspace(0,pi,10000));
-% plot(w/pi, abs(h)); grid on;
-plot(w/pi, 20*log10(abs(h))); grid on;
-Amin = 80
-% plot([0 wp wp]/pi, -[Ap Ap Amin], 'r');
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+ylim([-80 10])
+title('Resposta de Magnitude para H(z)')
+grid on
+hold on
+plot([0,fs_espec,fs_espec,10000],[0,0,-As,-As], 'r')
+plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
+
+subplot(3,2,[4 6])
+zplane(bzn, azn);
+title('Diagrama de polos (x) e zeros (o)')
+
+subplot(322)
+stem(bzn), grid on;
+title('Resposta ao impulso')
 
 subplot(323)
-plot(w/pi, unwrap(angle(h))/pi); grid on;
+plot(wz/pi, unwrap(angle(hz))/pi); grid on;
+title('Resposta de Fase para H(z)')
+
 subplot(325)
-grpdelay(b, 1)
+grpdelay(bzn, 1)
+title('Atraso de grupo para H(z)')
