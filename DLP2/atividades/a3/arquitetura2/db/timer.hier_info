@@ -1,5 +1,6 @@
 |main_timer
 RST => timer:timer_1.reset
+RST => ctrl:ctrl_1.rst
 CLK => timer:timer_1.clk
 CLK => ctrl:ctrl_1.clk
 cseg_u[6] <= cseg_u.DB_MAX_OUTPUT_PORT_TYPE
@@ -147,10 +148,24 @@ min[5] <= m_reg[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |main_timer|ctrl:ctrl_1
+clk => sel_reg[0].CLK
+clk => sel_reg[1].CLK
 clk => r_reg[0].CLK
 clk => r_reg[1].CLK
-sel[0] <= r_reg[0].DB_MAX_OUTPUT_PORT_TYPE
-sel[1] <= r_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+clk => r_reg[2].CLK
+clk => r_reg[3].CLK
+clk => r_reg[4].CLK
+clk => r_reg[5].CLK
+rst => sel_reg[0].ACLR
+rst => sel_reg[1].ACLR
+rst => r_reg[0].ACLR
+rst => r_reg[1].ACLR
+rst => r_reg[2].ACLR
+rst => r_reg[3].ACLR
+rst => r_reg[4].ACLR
+rst => r_reg[5].ACLR
+sel[0] <= sel_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+sel[1] <= sel_reg[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |main_timer|bin2bcd:bin2bcd_1

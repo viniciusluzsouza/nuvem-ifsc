@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Wed May 29 02:18:11 2019
+Analysis & Synthesis Status : Successful - Tue Jun  4 16:06:52 2019
 Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : timer
 Top-level Entity Name : main_timer
 Family : Cyclone IV E
-Total logic elements : 108
-    Total combinational functions : 108
-    Dedicated logic registers : 41
-Total registers : 41
+Total logic elements : 127
+    Total combinational functions : 127
+    Dedicated logic registers : 44
+Total registers : 44
 Total pins : 44
 Total virtual pins : 0
 Total memory bits : 0

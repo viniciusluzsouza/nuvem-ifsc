@@ -116,12 +116,12 @@ begin
    begin
       if (reset='1') then
          r_reg <= (others=>'0');
-c_reg <= (others=>'0');
+			c_reg <= (others=>'0');
          s_reg <= (others=>'0');
          m_reg <= (others=>'0');
       elsif (clk'event and clk='1') then
          r_reg <= r_next;
-c_reg <= c_next;
+			c_reg <= c_next;
          s_reg <= s_next;
          m_reg <= m_next;
       end if;
@@ -129,7 +129,7 @@ c_reg <= c_next;
    -- next-state logic/output logic for mod-1000000 counter
    r_next <= (others=>'0') when r_reg=499999 else
              r_reg + 1;	 
-c_en <= '1' when r_reg = 250000 else
+	c_en <= '1' when r_reg = 250000 else
            '0';
  
  
@@ -155,7 +155,7 @@ c_en <= '1' when r_reg = 250000 else
              m_reg;
 
    -- output logic
-csec <= std_logic_vector(c_reg);
+	csec <= std_logic_vector(c_reg);
    sec <= std_logic_vector(s_reg);
    min <= std_logic_vector(m_reg);
 
