@@ -1,5 +1,5 @@
 Analysis & Synthesis report for timer
-Tue Jun  4 15:30:52 2019
+Tue Jun  4 23:37:57 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -44,13 +44,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun  4 15:30:51 2019            ;
+; Analysis & Synthesis Status        ; Successful - Tue Jun  4 23:37:57 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; timer                                            ;
 ; Top-level Entity Name              ; main_timer                                       ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 181                                              ;
-;     Total combinational functions  ; 181                                              ;
+; Total logic elements               ; 178                                              ;
+;     Total combinational functions  ; 178                                              ;
 ;     Dedicated logic registers      ; 46                                               ;
 ; Total registers                    ; 46                                               ;
 ; Total pins                         ; 44                                               ;
@@ -157,11 +157,12 @@ applicable agreement for further details.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-40        ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-40        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -184,16 +185,16 @@ applicable agreement for further details.
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Estimated Total logic elements              ; 181                    ;
+; Estimated Total logic elements              ; 178                    ;
 ;                                             ;                        ;
-; Total combinational functions               ; 181                    ;
+; Total combinational functions               ; 178                    ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 76                     ;
-;     -- 3 input functions                    ; 49                     ;
-;     -- <=2 input functions                  ; 56                     ;
+;     -- 4 input functions                    ; 73                     ;
+;     -- 3 input functions                    ; 50                     ;
+;     -- <=2 input functions                  ; 55                     ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 142                    ;
+;     -- normal mode                          ; 139                    ;
 ;     -- arithmetic mode                      ; 39                     ;
 ;                                             ;                        ;
 ; Total registers                             ; 46                     ;
@@ -204,8 +205,8 @@ applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0                      ;
 ; Maximum fan-out node                        ; ctrl:ctrl_1|sel_reg[1] ;
 ; Maximum fan-out                             ; 51                     ;
-; Total fan-out                               ; 784                    ;
-; Average fan-out                             ; 2.49                   ;
+; Total fan-out                               ; 773                    ;
+; Average fan-out                             ; 2.48                   ;
 +---------------------------------------------+------------------------+
 
 
@@ -214,12 +215,12 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name           ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+--------------+
-; |main_timer                ; 181 (57)          ; 46 (0)       ; 0           ; 0            ; 0       ; 0         ; 44   ; 0            ; |main_timer                   ; work         ;
+; |main_timer                ; 178 (57)          ; 46 (0)       ; 0           ; 0            ; 0       ; 0         ; 44   ; 0            ; |main_timer                   ; work         ;
 ;    |bin2bcd:bin2bcd_1|     ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_timer|bin2bcd:bin2bcd_1 ; work         ;
 ;    |bin2ssd:bin2ssd_1|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_timer|bin2ssd:bin2ssd_1 ; work         ;
 ;    |bin2ssd:bin2ssd_2|     ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_timer|bin2ssd:bin2ssd_2 ; work         ;
 ;    |ctrl:ctrl_1|           ; 13 (13)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_timer|ctrl:ctrl_1       ; work         ;
-;    |timer:timer_1|         ; 82 (82)           ; 38 (38)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_timer|timer:timer_1     ; work         ;
+;    |timer:timer_1|         ; 79 (79)           ; 38 (38)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_timer|timer:timer_1     ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -288,7 +289,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Tue Jun  4 15:30:43 2019
+    Info: Processing started: Tue Jun  4 23:37:50 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TimerArq2 -c timer
 Info (11104): Parallel Compilation has detected 40 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 20 physical processors detected instead.
 Info (12021): Found 4 design units, including 1 entities, in source file timer.vhd
@@ -319,14 +320,14 @@ Info (12128): Elaborating entity "bin2ssd" for hierarchy "bin2ssd:bin2ssd_1"
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 225 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 222 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 181 logic cells
+    Info (21061): Implemented 178 logic cells
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 426 megabytes
-    Info: Processing ended: Tue Jun  4 15:30:52 2019
-    Info: Elapsed time: 00:00:09
+    Info: Peak virtual memory: 422 megabytes
+    Info: Processing ended: Tue Jun  4 23:37:57 2019
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -37,7 +37,7 @@ begin
    r_next <= (others=>'0') when r_reg=499999 else
              r_reg + 1;
    -- output logic
-   cclk <= '1' when r_reg < 250000 else
+   cclk <= '1' when r_reg < 499999 else
            '0';
  
  
@@ -129,7 +129,7 @@ c_reg <= c_next;
    -- next-state logic/output logic for mod-1000000 counter
    r_next <= (others=>'0') when r_reg=499999 else
              r_reg + 1;	 
-c_en <= '1' when r_reg = 250000 else
+c_en <= '1' when r_reg = 499999 else
            '0';
  
  

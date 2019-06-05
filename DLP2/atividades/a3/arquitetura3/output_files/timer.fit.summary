@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue Jun  4 16:07:26 2019
+Fitter Status : Successful - Wed Jun  5 00:29:56 2019
 Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : timer
 Top-level Entity Name : main_timer
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 127 / 114,480 ( < 1 % )
-    Total combinational functions : 127 / 114,480 ( < 1 % )
+Total logic elements : 123 / 114,480 ( < 1 % )
+    Total combinational functions : 123 / 114,480 ( < 1 % )
     Dedicated logic registers : 44 / 114,480 ( < 1 % )
 Total registers : 44
 Total pins : 44 / 529 ( 8 % )

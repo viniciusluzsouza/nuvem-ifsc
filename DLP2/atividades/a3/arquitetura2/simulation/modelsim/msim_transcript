@@ -21,7 +21,7 @@
 # -- Loading entity timer
 # -- Compiling configuration config
 # -- Loading entity timer
-# -- Loading architecture single_clock_arch of timer
+# -- Loading architecture multi_clock_arch of timer
 # vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura2/my_package.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
@@ -76,7 +76,7 @@ do test_timer.do
 # -- Loading entity timer
 # -- Compiling configuration config
 # -- Loading entity timer
-# -- Loading architecture single_clock_arch of timer
+# -- Loading architecture multi_clock_arch of timer
 # vsim work.timer 
 # //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.15.18-14-pve
 # //

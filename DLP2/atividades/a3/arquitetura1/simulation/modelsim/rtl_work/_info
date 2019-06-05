@@ -16,7 +16,7 @@ L9
 VJ@SWccl`L4aH_j^50FQ@[0
 Z8 OV;C;10.1d;51
 31
-Z9 !s108 1559007970.975454
+Z9 !s108 1559692236.307041
 Z10 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/bin2bcd.vhd|
 Z11 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura1/bin2bcd.vhd|
 Z12 o-93 -work work -O0
@@ -54,7 +54,7 @@ L5
 VAF[4K@]`06]lLe]KCB`Oo1
 R8
 31
-Z18 !s108 1559007973.301312
+Z18 !s108 1559692238.702734
 Z19 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/bin2ssd.vhd|
 Z20 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura1/bin2ssd.vhd|
 R12
@@ -82,12 +82,12 @@ R13
 Cconfig
 amulti_clock_arch
 etimer
-DAx4 work 5 timer 16 multi_clock_arch 22 GBl2ezMMXdooIgb[G46>D1
+DAx4 work 5 timer 16 multi_clock_arch 22 mP@NBfzl]1agaS<[=D:b[2
 R2
 R3
 R4
 Z21 DEx4 work 5 timer 0 22 1aBX8R2U_K_LMz>CQ;C7U1
-Z22 w1559007853
+Z22 w1559692068
 R5
 Z23 8../../timer.vhd
 Z24 F../../timer.vhd
@@ -98,7 +98,7 @@ Vk2]4mTf?R_nGUR=cF`kP[0
 R8
 31
 !i10b 0
-Z25 !s108 1559007979.909371
+Z25 !s108 1559692244.852429
 Z26 !s90 -reportprogress|300|-93|-work|work|../../timer.vhd|
 Z27 !s107 ../../timer.vhd|
 R12
@@ -115,7 +115,7 @@ L4
 V^McgKV:JZG[[djg<8I=FS0
 R8
 31
-Z31 !s108 1559007972.301322
+Z31 !s108 1559692237.339390
 Z32 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/main_timer.vhd|
 Z33 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura1/main_timer.vhd|
 R12
@@ -152,7 +152,7 @@ V@zC;]JcDJXXzegDjD5XgZ2
 R8
 31
 b1
-Z37 !s108 1559007970.027442
+Z37 !s108 1559692227.987727
 Z38 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/my_package.vhd|
 Z39 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura1/my_package.vhd|
 R12
@@ -204,8 +204,8 @@ R4
 R21
 l113
 L102
-Z40 V3`^J29a2F;8<aZ=CTK]DU2
-Z41 !s100 c@A>=GJI2`gGenHo;z;A=3
+Z40 Vb;lBLfg_PA`^mfDM=JNDO1
+Z41 !s100 ZIQ4h1ZbMSI33gVhoeS4H2
 R8
 31
 !i10b 1
@@ -221,8 +221,8 @@ R4
 R21
 l25
 L15
-Z42 VGBl2ezMMXdooIgb[G46>D1
-Z43 !s100 JLzP@<f;>^h:jY2L0F^f`0
+Z42 VmP@NBfzl]1agaS<[=D:b[2
+Z43 !s100 <5]3K3=gLF7OKU5YdRY@H3
 R8
 31
 !i10b 1

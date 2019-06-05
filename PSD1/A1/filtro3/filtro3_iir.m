@@ -11,7 +11,7 @@ ExecutarAjuste = 0;
 %% Especificacoes
 Ap = 2; As = 30; GdB = -10;
 
-fa_espec = 10000; wa_espec = 2*pi*fa_espec;
+fa_espec = 12000; wa_espec = 2*pi*fa_espec;
 fp1_espec = 3200; fp2_espec = 3400;
 fs1_espec = 3000; fs2_espec = 3500;
 
@@ -30,7 +30,7 @@ lambda_0 = sqrt(lambda_p1_espec*lambda_p2_espec);
 Os1 = abs(((lambda_0^2 - lambda_s1_espec^2)/lambda_s1_espec)/(Bwp*lambda_s1_espec));
 Os2 = abs(((lambda_0^2 - lambda_s2_espec^2)/lambda_s2_espec)/(Bwp*lambda_s2_espec));
 
-Os_espec = Os1;
+Os_espec = min(Os1, Os2);
 Op_espec = 1;
 
 % Ajustes
@@ -54,7 +54,7 @@ figure(1)
 semilogx(w, 20*log10(abs(h)))
 title('H(p)')
 grid on; hold on;
-plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Os1,Os1,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.5 2]); ylim([-60 10]);
 hold off;
@@ -95,6 +95,10 @@ grid on
 hold on
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec, 10],[-As,-As,Ap,Ap,-As,-As], 'r')
 plot([lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec],[-60,-Ap,-Ap,-60], 'g')
+
+figure(3)
+zplane(bsn, asn);
+
 
 %% Transformando em Z (bilinear)
 syms z;

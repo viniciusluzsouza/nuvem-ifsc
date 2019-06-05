@@ -70,48 +70,53 @@ sim:/timer/min_o \
 sim:/timer/min_t
 force -freeze sim:/timer/clk 1 0, 0 {10000 ps} -r {20 ns}
 force -freeze sim:/timer/reset 1 0
-run 50 ns
+run 30 ns
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 0  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /timer
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ps  Iteration: 1  Instance: /timer
+radix -unsigned
+# unsigned
 force -freeze sim:/timer/reset 0 0
-run 1 ms
-run 1 ms
-run 50 ms
-restart
-force -freeze sim:/timer/clk 1 0, 0 {10000 ps} -r {20 ns}
-add wave -position insertpoint  \
-sim:/timer/cseg_u \
-sim:/timer/cseg_d \
-sim:/timer/seg_u \
-sim:/timer/seg_d \
-sim:/timer/min_u \
-sim:/timer/min_d
-force -freeze sim:/timer/reset 1 0
-run 50 ns
-force -freeze sim:/timer/cseg_u 10#9 0
-force -freeze sim:/timer/cseg_d 10#9 0
-force -freeze sim:/timer/seg_u 10#9 0
-force -freeze sim:/timer/seg_d 10#5 0
-force -freeze sim:/timer/min_u 10#9 0
-force -freeze sim:/timer/min_d 10#5 0
-force -freeze sim:/timer/reset 0 0
-run 50 ns
-noforce sim:/timer/cseg_u
-noforce sim:/timer/cseg_d
-noforce sim:/timer/seg_u
-noforce sim:/timer/seg_d
-noforce sim:/timer/min_u
-noforce sim:/timer/min_d
-run 50 ns
-noforce sim:/timer/cseg_u
-noforce sim:/timer/cseg_d
-noforce sim:/timer/seg_u
-noforce sim:/timer/seg_d
-noforce sim:/timer/min_u
-noforce sim:/timer/min_d
-noforce sim:/timer/cseg_u
-noforce sim:/timer/cseg_d
-noforce sim:/timer/seg_u
-noforce sim:/timer/seg_d
-noforce sim:/timer/min_u
-noforce sim:/timer/min_d
-force -freeze sim:/timer/reset 0 0
+force -freeze sim:/timer/csec_o 10#9 0
+force -freeze sim:/timer/csec_t 10#9 0
+force -freeze sim:/timer/sec_o 10#9 0
+force -freeze sim:/timer/sec_t 10#5 0
+force -freeze sim:/timer/min_o 10#9 0
+force -freeze sim:/timer/min_t 10#5 0
+run 30 ns
+noforce sim:/timer/csec_o
+noforce sim:/timer/csec_t
+noforce sim:/timer/sec_o
+noforce sim:/timer/sec_t
+noforce sim:/timer/min_o
+noforce sim:/timer/min_t
 run 50 ms

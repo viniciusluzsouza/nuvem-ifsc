@@ -19,7 +19,7 @@ Vn<I?VBLN6:8[Q1I9JW:iH0
 Z9 OV;C;10.1d;51
 31
 !i10b 1
-Z10 !s108 1559096397.338082
+Z10 !s108 1559693369.084779
 Z11 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/bcd2ssd.vhd|
 Z12 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/bcd2ssd.vhd|
 Z13 o-93 -work work -O0
@@ -54,7 +54,7 @@ L4
 V^McgKV:JZG[[djg<8I=FS0
 R9
 31
-Z18 !s108 1559096396.648210
+Z18 !s108 1559693366.672464
 Z19 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/main_timer.vhd|
 Z20 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/main_timer.vhd|
 R13
@@ -91,7 +91,7 @@ V@zC;]JcDJXXzegDjD5XgZ2
 R9
 31
 b1
-Z24 !s108 1559096395.856199
+Z24 !s108 1559693365.824256
 Z25 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/my_package.vhd|
 Z26 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/my_package.vhd|
 R13
@@ -117,7 +117,7 @@ nbody
 !s100 [9d>`I2PGWg05^CVnbK[z3
 !i10b 1
 Etimer
-Z27 w1559096237
+Z27 w1559693198
 R2
 R4
 R5
@@ -129,7 +129,7 @@ L4
 VEmf:J9^Lk61mfHOLH9Ta=1
 R9
 31
-Z30 !s108 1559096394.553754
+Z30 !s108 1559693364.028446
 Z31 !s90 -reportprogress|300|-93|-work|work|/home/vinicius.ls/DLP2/atividades/a3/arquitetura3/timer.vhd|
 Z32 !s107 /home/vinicius.ls/DLP2/atividades/a3/arquitetura3/timer.vhd|
 R13
@@ -141,9 +141,9 @@ R2
 R4
 R5
 DEx4 work 5 timer 0 22 Emf:J9^Lk61mfHOLH9Ta=1
-l18
+l26
 L15
-VNiTZYNC[YIF2gQQmaHEJ>1
+V@@aHIWVhYV>lXnh3hNTO@0
 R9
 31
 R30
@@ -151,5 +151,5 @@ R31
 R32
 R13
 R14
-!s100 h=APG[hm=4NdLTlib>cCH3
+!s100 J1AjJ:Pf3h7`gbTebT;3[1
 !i10b 1

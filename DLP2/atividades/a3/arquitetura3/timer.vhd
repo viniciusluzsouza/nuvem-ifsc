@@ -54,14 +54,14 @@ begin
  
     -- next state logic/output logic for center of seconds unit
    c_next_u <= (others=>'0') when (c_reg_u=9 and c_u_en='1') else
-					c_next_u + 1  when c_u_en='1' else
+					c_reg_u + 1  when c_u_en='1' else
 					c_reg_u;
    c_d_en <= '1' when c_reg_u = 9 and c_u_en='1' else
 				 '0';
  
    -- next state logic/output logic for center of seconds tens
    c_next_d <= (others=>'0') when (c_reg_d=9 and c_d_en='1') else
-					c_next_d + 1  when c_d_en='1' else
+					c_reg_d + 1  when c_d_en='1' else
 					c_reg_d;
    s_u_en <= '1' when c_reg_d = 9 and c_d_en='1' else
 				 '0';
