@@ -1,6 +1,6 @@
-% Projeto filtro 3 IIR - Chebyshev 2
-% BP - (fa = 10000 Hz, f1 = 3000 Hz; f2 = 3200 Hz, f3 = 3400 Hz;
-% f4 = 3500 Hz, Ap = 2 dB, As = 30 dB, GdB = -10 dB)
+% Projeto filtro 4 IIR - Chebyshev 1
+% BS - (fa = 8000 Hz, f1 = 1200 Hz; f2 = 1250 Hz, f3 = 1300 Hz;
+% f4 = 1400 Hz, Ap = 0.5 dB, As = 60 dB, GdB = 0 dB)
 
 close all;
 clear all;
@@ -9,11 +9,11 @@ clc;
 ExecutarAjuste = 1;
 
 %% Especificacoes
-Ap = 2; As = 30; GdB = -10;
+Ap = 0.5; As = 60; GdB = 0;
 
-fa_espec = 10000; wa_espec = 2*pi*fa_espec;
-fp1_espec = 3200; fp2_espec = 3400;
-fs1_espec = 3000; fs2_espec = 3500;
+fa_espec = 8000; wa_espec = 2*pi*fa_espec;
+fp1_espec = 1250; fp2_espec = 1300;
+fs1_espec = 1200; fs2_espec = 1400;
 
 wp1_espec = 2*pi*fp1_espec; wp2_espec = 2*pi*fp2_espec;
 ws1_espec = 2*pi*fs1_espec; ws2_espec = 2*pi*fs2_espec;
@@ -31,8 +31,8 @@ lambda_s2_espec = 2*tan(tetha_s2_espec * pi/2);
 lambda_0 = sqrt(lambda_p2_espec*lambda_p1_espec);
 Bwp = lambda_p2_espec - lambda_p1_espec;
 
-Os1 = abs((lambda_0^2 - lambda_s1_espec^2)/(Bwp*lambda_s1_espec));
-Os2 = abs((lambda_0^2 - lambda_s2_espec^2)/(Bwp*lambda_s2_espec));
+Os1 = abs((Bwp*lambda_s1_espec)/(lambda_0^2 - lambda_s1_espec^2));
+Os2 = abs((Bwp*lambda_s2_espec)/(lambda_0^2 - lambda_s2_espec^2));
 
 Os_espec = min(Os1, Os2);
 Op_espec = 1;
@@ -43,7 +43,7 @@ delta_fp2 = 0;
 delta_fs1 = 0;
 delta_fs2 = 0;
 if ExecutarAjuste
-    delta_fp2 = (3423-fp2_espec)/2;
+    delta_fp2 = 0;
 end
 
 fa_ajust = fa_espec;
@@ -69,8 +69,8 @@ lambda_s2_ajust = 2*tan(tetha_s2_ajust * pi/2);
 lambda_0_ajust = sqrt(lambda_p2_ajust*lambda_p1_ajust);
 Bwp_ajust = lambda_p2_ajust - lambda_p1_ajust;
 
-Os1_ajust = abs((lambda_0_ajust^2 - lambda_s1_ajust^2)/(Bwp_ajust*lambda_s1_ajust));
-Os2_ajust = abs((lambda_0_ajust^2 - lambda_s2_ajust^2)/(Bwp_ajust*lambda_s2_ajust));
+Os1_ajust = abs((Bwp_ajust*lambda_s1_ajust)/(lambda_0_ajust^2 - lambda_s1_ajust^2));
+Os2_ajust = abs((Bwp_ajust*lambda_s2_ajust)/(lambda_0_ajust^2 - lambda_s2_ajust^2));
 
 Os_ajust = min(Os1_ajust, Os2_ajust);
 Op_ajust = 1;
@@ -79,9 +79,9 @@ Os = Os_ajust;
 Op = Op_ajust;
 fa = fa_espec;
 
-%% Chebyshev II
-n = cheb2ord(Op, Os, Ap, As,'s');
-[b, a] = cheby2(n,As, Os, 's');
+%% Chebyshev I
+n = cheb1ord(Op, Os, Ap, As,'s');
+[b, a] = cheby1(n,As, Os, 's');
 
 %% Primeiro plot
 figure(1)
@@ -108,7 +108,7 @@ pretty(vpa(collect(Hp(p)), 5))
 
 % Normalizando de acordo com p^n
 syms s;
-eq = (s^2 + lambda_0^2)/s/Bwp;
+eq = (Bwp*s)/(s^2 + lambda_0^2);
 Hs(s) = collect(subs(Hp(p), eq));
 pretty(vpa(Hs(s), 3))
 [N, D] = numden(Hs(s));
