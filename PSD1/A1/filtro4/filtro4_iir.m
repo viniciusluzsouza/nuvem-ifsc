@@ -31,11 +31,15 @@ lambda_s2_espec = 2*tan(tetha_s2_espec * pi/2);
 lambda_0 = sqrt(lambda_p2_espec*lambda_p1_espec);
 Bwp = lambda_p2_espec - lambda_p1_espec;
 
-Os1 = abs((Bwp*lambda_s1_espec)/(lambda_0^2 - lambda_s1_espec^2));
-Os2 = abs((Bwp*lambda_s2_espec)/(lambda_0^2 - lambda_s2_espec^2));
+Os1 = abs((Bwp*lambda_s1_espec)/((lambda_0^2) - (lambda_s1_espec^2)));
+Os2 = abs((Bwp*lambda_s2_espec)/((lambda_0^2) - (lambda_s2_espec^2)));
 
 Os_espec = min(Os1, Os2);
 Op_espec = 1;
+
+Os = Os_espec;
+Op = Op_espec;
+fa = fa_espec;
 
 % Ajustes
 delta_fp1 = 0;
@@ -46,42 +50,10 @@ if ExecutarAjuste
     delta_fp2 = 0;
 end
 
-fa_ajust = fa_espec;
-fp1_ajust = fp1_espec + delta_fp1;
-fp2_ajust = fp2_espec + delta_fp2;
-fs1_ajust = fs1_espec + delta_fs1;
-fs2_ajust = fs2_espec + delta_fs2;
-
-wa_ajust = wa_espec;
-wp1_ajust = 2*pi*fp1_ajust; wp2_ajust = 2*pi*fp2_ajust;
-ws1_ajust = 2*pi*fs1_ajust; ws2_ajust = 2*pi*fs2_ajust;
-
-tetha_p1_ajust = wp1_ajust/(wa_ajust/2);
-tetha_p2_ajust = wp2_ajust/(wa_ajust/2);
-tetha_s1_ajust = ws1_ajust/(wa_ajust/2);
-tetha_s2_ajust = ws2_ajust/(wa_ajust/2);
-
-lambda_p1_ajust = 2*tan(tetha_p1_ajust * pi/2);
-lambda_p2_ajust = 2*tan(tetha_p2_ajust * pi/2);
-lambda_s1_ajust = 2*tan(tetha_s1_ajust * pi/2);
-lambda_s2_ajust = 2*tan(tetha_s2_ajust * pi/2);
-
-lambda_0_ajust = sqrt(lambda_p2_ajust*lambda_p1_ajust);
-Bwp_ajust = lambda_p2_ajust - lambda_p1_ajust;
-
-Os1_ajust = abs((Bwp_ajust*lambda_s1_ajust)/(lambda_0_ajust^2 - lambda_s1_ajust^2));
-Os2_ajust = abs((Bwp_ajust*lambda_s2_ajust)/(lambda_0_ajust^2 - lambda_s2_ajust^2));
-
-Os_ajust = min(Os1_ajust, Os2_ajust);
-Op_ajust = 1;
-
-Os = Os_ajust;
-Op = Op_ajust;
-fa = fa_espec;
 
 %% Chebyshev I
 n = cheb1ord(Op, Os, Ap, As,'s');
-[b, a] = cheby1(n,As, Os, 's');
+[b, a] = cheby1(n,Ap, Op, 's');
 
 %% Primeiro plot
 figure(1)
@@ -92,7 +64,7 @@ title('H(p)')
 grid on; hold on;
 plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
-ylim([-60 10]);
+ylim([-80 10]);
 hold off;
 subplot(122)
 zplane(b, a);
@@ -108,7 +80,7 @@ pretty(vpa(collect(Hp(p)), 5))
 
 % Normalizando de acordo com p^n
 syms s;
-eq = (Bwp*s)/(s^2 + lambda_0^2);
+eq = (Bwp*s)/((s^2) + (lambda_0^2));
 Hs(s) = collect(subs(Hp(p), eq));
 pretty(vpa(Hs(s), 3))
 [N, D] = numden(Hs(s));

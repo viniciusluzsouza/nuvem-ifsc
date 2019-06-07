@@ -1,15 +1,15 @@
 % Projeto filtro 1
-% LP - (fa = 10000 Hz, f1 = 2800 Hz; f2 = 3200 Hz, Ap = 1 dB, As = 40 dB, GdB = 0 dB)
+% LP - (fa = 10000 Hz, f1 = 2800 Hz; f2 = 3200 Hz, Ap = 0.5 dB, As = 20 dB, GdB = 0 dB)
 
 close all;
 clear all;
 clc;
 
-ExecutarAjuste = 1;
+ExecutarAjuste = 0;
 
 %% Especificacoes
 fa = 10000; fp = 2800; fs = 3200;
-Ap = 1; As = 40; GdB = 0;
+Ap = 0.5; As = 20; GdB = 0;
 wp = fp/fa*(2*pi); ws = fs/fa*(2*pi);
 
 wc1 = sqrt(wp*ws); % media geometrica
@@ -39,18 +39,19 @@ if ExecutarAjuste
 end
     
 k = 1:M;
-% Low Pass
-bi = sin(wc*k)./(pi*k);
-b0 = wc/pi;
+% High Pass
+bi = -(sin(wc*k)./(pi*k));
+b0 = 1 - (wc/pi);
 b = [flip(bi) b0 bi];
 
 m = -M:M;
-% wk = 0.5 + 0.5*cos(2*pi*m/(2*M+1)); % Hann
-wk = hann(2*M+1)';
-% wk = bartlett(2*M+1)';
-% wk = triang(2*M+1)';
-% wk = hamming(2*M+1)';
-b = b.*wk*10^(-G0/20); % regular altura do filtro em db
+N = 2*M+1;
+wcheb = chebwin(N, As)';
+% betha = 0.5842*(As-21)^0.4 + 0.07886*(As-21);
+betha = 0;
+keiser_ord = ceil((As - 8)/(2.285*Dw)+1);
+wkeiser = transpose(kaiser(N, betha));
+b = b.*wkeiser*10^(-G0/20); % regular altura do filtro em db
 
 %%
 figure(1)
@@ -60,10 +61,10 @@ title('Resposta de magnitude')
 % plot(w/pi, abs(h)); grid on;
 plot(w/pi, 20*log10(abs(h))); grid on;
 title('Resposta em magnitude')
-ylim([-80 10])
+xlim([0.4 1]); ylim([-60 10]);
 hold on;
-plot([0,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-plot([0,ws/pi,ws/pi,1],[0,0,-As,-As], '-red')
+plot([ws,ws,pi]/pi,[-60,-Ap,-Ap], '-red')
+plot([pi,wp,wp,0.1]/pi,[Ap,Ap,-As,-As], '-red')
 
 subplot(222)
 zplane(b, 1); axis([-2 2 -2 2]);

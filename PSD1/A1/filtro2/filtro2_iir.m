@@ -1,29 +1,26 @@
-% Projeto filtro 1
-% LP - (fa = 10000 Hz, f1 = 2800 Hz; f2 = 3200 Hz, Ap = 1 dB, As = 40 dB, GdB = 0 dB)
-
 close all;
 clear all;
 clc;
 
-ExecutarAjuste = 1;
+ExecutarAjuste = 0;
 
 %% Especificacoes
-Ap = 1; As = 40; GdB = 0;
+Ap = 0.5; As = 20; GdB = 0;
 
 fa_espec = 10000; fp_espec = 2800; fs_espec = 3200;
 wa_espec = 2*pi*fa_espec;
 wp_espec = 2*pi*fp_espec; ws_espec = 2*pi*fs_espec;
-Wp_espec = 1; Ws_espec = ws_espec/wp_espec;
+Wp_espec = 1; Ws_espec = wp_espec/ws_espec;
 tetha_s_espec = ws_espec/(wa_espec/2);
 tetha_p_espec = wp_espec/(wa_espec/2);
 lambda_s_espec = 2*tan(tetha_s_espec * pi/2);
 lambda_p_espec = 2*tan(tetha_p_espec * pi/2);
-Os_espec = lambda_s_espec/lambda_p_espec;
+Os_espec = 1 + (lambda_p_espec/lambda_s_espec);
 Op_espec = 1;
 
 % Ajustes
 if ExecutarAjuste
-    delta = (3200-3102)/2;
+    delta = 0;
 else
     delta = 0;
 end
@@ -31,22 +28,29 @@ end
 fa = fa_espec;  wa = wa_espec;
 fp = fp_espec + delta; fs = fs_espec + delta;
 wp = 2*pi*fp; ws = 2*pi*fs;
-Wp = wp_espec; Ws = ws/wp;
+Wp = wp_espec; Ws = wp/ws;
 tetha_s = ws/(wa/2);
 tetha_p = wp/(wa/2);
 lambda_s = 2*tan(tetha_s * pi/2);
 lambda_p = 2*tan(tetha_p * pi/2);
-Os = lambda_s/lambda_p;
+Os = 1 + lambda_p/lambda_s;
 Op = 1;
 
-%% IIR Eliptico
-[n, Wn] = ellipord(Op, Os, Ap, As,'s');
-[b,a] = ellip(n,Ap,As, Wn, 's');
+%% IIR Butterworth
+[n, Wn] = buttord(Op, Os, Ap, As,'s')
+[b, a] = butter(n, Wn, 's');
+
+% calculo na mao
+% n = ceil(log(10^(0.1*As) -1) / (2*log(Os/Op))) % obtendo ordem
+% k = 1:n;
+% pk = exp((1j*(2*k+n-1)/(2*n))*pi); % polos
+% b = 1;
+% a = poly(pk); a = real(a);
+
+
 
 %% Primeiro plot
 figure(1)
-suptitle('Protótipo Passa Baixa')
-subplot(221)
 [h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
 title('H(p)')
@@ -55,17 +59,6 @@ plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.5 2]); ylim([-60 10]);
 hold off;
-subplot(222)
-zplane(b, a);
-title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
-semilogx(w, 20*log10(abs(h)))
-title('H(p) - Banda Passagem')
-grid on; hold on;
-plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
-plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
-xlim([0.6 1.33]); ylim([-2 1]);
-
 
 %% Transformacao de frequencia
 % LP para LP
@@ -91,8 +84,6 @@ pretty(vpa(Hsn(s), 5))
 
 %% Resposta em frequencia
 figure(2)
-suptitle('Transformação LP -> LP')
-subplot(221)
 [hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
 % semilogx(wf, 20*log10(abs(hf)))
 plot(wf,20*log10(abs(hf)));
@@ -100,19 +91,8 @@ ylim([-80 10])
 title('H(s)')
 grid on
 hold on
-plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
+plot([0,lambda_s_espec,lambda_s_espec,10],[0,0,-As,-As], 'r')
 plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
-
-subplot(222)
-zplane(bsn, asn);
-title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
-plot(wf,20*log10(abs(hf)));
-title('H(s) - Banda Passagem')
-grid on; hold on;
-plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
-plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
-xlim([1.6 3.3]); ylim([-2 1]);
 
 %% Transformando em Z (bilinear)
 syms z;
@@ -133,27 +113,14 @@ pretty(vpa(Hzn(z),5))
 
 %%
 figure(3)
-suptitle('Transformação analógico -> digital')
-subplot(221)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
 ylim([-80 10])
 title('H(z)')
 grid on
 hold on
-plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
+plot([0,fs_espec,fs_espec,10000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
-
-subplot(222)
-zplane(bzn, azn);
-title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
-plot(wz/pi*fa/2, 20*log10(abs(hz)));
-title('H(z) - Banda Passagem')
-grid on; hold on;
-plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
-plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
-xlim([2000 3500]); ylim([-2 1]);
 
 %%
 figure(4)
