@@ -1,0 +1,1 @@
+create_clock -name CLK -period 240MHz [get_ports {CLK}]

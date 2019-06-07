@@ -47,11 +47,12 @@ b = [flip(bi) b0 bi];
 m = -M:M;
 N = 2*M+1;
 wcheb = chebwin(N, As)';
-% betha = 0.5842*(As-21)^0.4 + 0.07886*(As-21);
+As_b = 24;
+% betha = 0.5842*(As_b-21)^0.4 + 0.07886*(As_b-21);
 betha = 0;
 keiser_ord = ceil((As - 8)/(2.285*Dw)+1);
-wkeiser = transpose(kaiser(N, betha));
-b = b.*wkeiser*10^(-G0/20); % regular altura do filtro em db
+wkeiser = kaiser(keiser_ord+1, betha);
+% b = b.*wkeiser*10^(-G0/20); % regular altura do filtro em db
 
 %%
 figure(1)
@@ -88,7 +89,7 @@ xlim([0.4 0.7]); ylim([-50 -30]);
 
 %%
 figure(2)
-suptitle(['LP FIR ' num2str(fp) '-' num2str(fs) ' Ordem: ' num2str(2*M+1)])
+% suptitle(['LP FIR ' num2str(fp) '-' num2str(fs) ' Ordem: ' num2str(2*M+1)])
 
 escala = fa/2;
 subplot(3,2,[4 6])

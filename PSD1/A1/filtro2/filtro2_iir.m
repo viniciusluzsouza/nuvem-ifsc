@@ -7,7 +7,7 @@ ExecutarAjuste = 0;
 %% Especificacoes
 Ap = 0.5; As = 20; GdB = 0;
 
-fa_espec = 10000; fp_espec = 2800; fs_espec = 3200;
+fa_espec = 10000; fs_espec = 2800; fp_espec = 3200;
 wa_espec = 2*pi*fa_espec;
 wp_espec = 2*pi*fp_espec; ws_espec = 2*pi*fs_espec;
 Wp_espec = 1; Ws_espec = wp_espec/ws_espec;
@@ -15,7 +15,7 @@ tetha_s_espec = ws_espec/(wa_espec/2);
 tetha_p_espec = wp_espec/(wa_espec/2);
 lambda_s_espec = 2*tan(tetha_s_espec * pi/2);
 lambda_p_espec = 2*tan(tetha_p_espec * pi/2);
-Os_espec = 1 + (lambda_p_espec/lambda_s_espec);
+Os_espec = lambda_p_espec/lambda_s_espec;
 Op_espec = 1;
 
 % Ajustes
@@ -33,19 +33,19 @@ tetha_s = ws/(wa/2);
 tetha_p = wp/(wa/2);
 lambda_s = 2*tan(tetha_s * pi/2);
 lambda_p = 2*tan(tetha_p * pi/2);
-Os = 1 + lambda_p/lambda_s;
+Os = lambda_p/lambda_s;
 Op = 1;
 
 %% IIR Butterworth
-[n, Wn] = buttord(Op, Os, Ap, As,'s')
-[b, a] = butter(n, Wn, 's');
+[n1, Wn1] = buttord(Op, Os, Ap, As,'s')
+[b1, a1] = butter(n1, Wn1, 's');
 
 % calculo na mao
-% n = ceil(log(10^(0.1*As) -1) / (2*log(Os/Op))) % obtendo ordem
-% k = 1:n;
-% pk = exp((1j*(2*k+n-1)/(2*n))*pi); % polos
-% b = 1;
-% a = poly(pk); a = real(a);
+n = ceil(log(10^(0.1*As) -1) / (2*log(Os_espec))) % obtendo ordem
+k = 1:n;
+pk = exp((1j*(2*k+n-1)/(2*n))*pi); % polos
+a = poly(pk); a = real(a);
+b = end(a);
 
 
 

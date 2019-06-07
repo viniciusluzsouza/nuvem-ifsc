@@ -85,7 +85,8 @@ n = cheb2ord(Op, Os, Ap, As,'s');
 
 %% Primeiro plot
 figure(1)
-suptitle('Protótipo Passa Baixa')
+text( 0.5, 0, 'My Nice Title', 'FontSize', 14', 'FontWeight', 'Bold', ...
+      'HorizontalAlignment', 'Center', 'VerticalAlignment', 'Bottom' ) ;
 subplot(221)
 [h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
@@ -133,7 +134,7 @@ pretty(vpa(Hsn(s), 5))
 
 %% Resposta em frequencia
 figure(2)
-suptitle('Transformação LP -> BP')
+suptitle('Transforma????o LP -> BP')
 subplot(221)
 [hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
 % semilogx(wf, 20*log10(abs(hf)))
@@ -175,7 +176,7 @@ pretty(vpa(Hzn(z),5))
 
 %%
 figure(3)
-suptitle('Transformação analógico -> digital')
+suptitle('Transforma????o anal??gico -> digital')
 subplot(221)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
 plot(wz/pi*fa/2, 20*log10(abs(hz)));

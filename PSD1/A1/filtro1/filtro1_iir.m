@@ -45,7 +45,7 @@ Op = 1;
 
 %% Primeiro plot
 figure(1)
-suptitle('Protótipo Passa Baixa')
+% suptitle('Prot??tipo Passa Baixa')
 subplot(221)
 [h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
@@ -91,7 +91,7 @@ pretty(vpa(Hsn(s), 5))
 
 %% Resposta em frequencia
 figure(2)
-suptitle('Transformação LP -> LP')
+% suptitle('Transforma????o LP -> LP')
 subplot(221)
 [hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
 % semilogx(wf, 20*log10(abs(hf)))
@@ -133,7 +133,7 @@ pretty(vpa(Hzn(z),5))
 
 %%
 figure(3)
-suptitle('Transformação analógico -> digital')
+% suptitle('Transforma????o anal??gico -> digital')
 subplot(221)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
@@ -157,7 +157,7 @@ xlim([2000 3500]); ylim([-2 1]);
 
 %%
 figure(4)
-suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
+% suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
 
 subplot(321)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
@@ -166,7 +166,7 @@ ylim([-80 10])
 title('Resposta de Magnitude para H(z)')
 grid on
 hold on
-plot([0,fs_espec,fs_espec,10000],[0,0,-As,-As], 'r')
+plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
 
 subplot(3,2,[4 6])
@@ -174,7 +174,9 @@ zplane(bzn, azn);
 title('Diagrama de polos (x) e zeros (o)')
 
 subplot(322)
-stem(bzn), grid on;
+delta = [1, zeros(1, 10)];
+imp = filter(bzn, azn, delta);
+stem(imp); grid on;
 title('Resposta ao impulso')
 
 subplot(323)
@@ -182,5 +184,6 @@ plot(wz/pi, unwrap(angle(hz))/pi); grid on;
 title('Resposta de Fase para H(z)')
 
 subplot(325)
-grpdelay(bzn, 1)
+grpdelay(bzn, azn)
+
 title('Atraso de grupo para H(z)')
