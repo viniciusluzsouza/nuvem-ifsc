@@ -85,14 +85,12 @@ n = cheb2ord(Op, Os, Ap, As,'s');
 
 %% Primeiro plot
 figure(1)
-text( 0.5, 0, 'My Nice Title', 'FontSize', 14', 'FontWeight', 'Bold', ...
-      'HorizontalAlignment', 'Center', 'VerticalAlignment', 'Bottom' ) ;
 subplot(221)
 [h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
 title('H(p)')
 grid on; hold on;
-plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Os_espec,Os_espec,10^1],[Ap,Ap,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 ylim([-60 10]);
 hold off;
@@ -104,7 +102,7 @@ subplot(2,2,[3 4])
 semilogx(w, 20*log10(abs(h)))
 title('H(p) - Banda Passagem')
 grid on; hold on;
-plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Os_espec,Os_espec,10^1],[Ap,Ap,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.6 2.2]); ylim([-3 1]);
 
@@ -209,7 +207,7 @@ ylim([-80 10])
 title('Resposta de Magnitude para H(z)')
 grid on
 hold on
-plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 10000],[-As,-As,Ap,Ap,-As,-As], 'r')
+plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,Ap,Ap,-As,-As], 'r')
 plot([fp1_espec,fp1_espec,fp2_espec, fp2_espec],[-60,-Ap,-Ap,-60], 'g')
 
 subplot(3,2,[4 6])
@@ -217,7 +215,9 @@ zplane(bzn, azn);
 title('Diagrama de polos (x) e zeros (o)')
 
 subplot(322)
-stem(bzn), grid on;
+delta = [1, zeros(1, 10)];
+imp = filter(bzn, azn, delta);
+stem(imp); grid on;
 title('Resposta ao impulso')
 
 subplot(323)
@@ -225,5 +225,5 @@ plot(wz/pi, unwrap(angle(hz))/pi); grid on;
 title('Resposta de Fase para H(z)')
 
 subplot(325)
-grpdelay(bzn, 1)
+grpdelay(bzn, azn)
 title('Atraso de grupo para H(z)')
