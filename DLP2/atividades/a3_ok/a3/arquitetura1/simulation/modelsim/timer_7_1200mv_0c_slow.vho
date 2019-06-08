@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 32-bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
 
--- DATE "06/07/2019 08:56:59"
+-- DATE "06/08/2019 13:33:27"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -359,12 +359,12 @@ SIGNAL \timer_1|s_reg\ : std_logic_vector(5 DOWNTO 0);
 SIGNAL \timer_1|r_reg\ : std_logic_vector(19 DOWNTO 0);
 SIGNAL \timer_1|m_reg\ : std_logic_vector(5 DOWNTO 0);
 SIGNAL \timer_1|c_reg\ : std_logic_vector(6 DOWNTO 0);
-SIGNAL \bin2ssd_6|ALT_INV_Mux1~9_combout\ : std_logic;
-SIGNAL \bin2ssd_4|ALT_INV_Mux1~9_combout\ : std_logic;
 SIGNAL \bin2ssd_5|ALT_INV_Mux6~0_combout\ : std_logic;
 SIGNAL \bin2ssd_3|ALT_INV_Mux6~0_combout\ : std_logic;
 SIGNAL \bin2ssd_2|ALT_INV_Mux6~0_combout\ : std_logic;
 SIGNAL \bin2ssd_1|ALT_INV_Mux6~0_combout\ : std_logic;
+SIGNAL \bin2ssd_6|ALT_INV_Mux1~9_combout\ : std_logic;
+SIGNAL \bin2ssd_4|ALT_INV_Mux1~9_combout\ : std_logic;
 
 BEGIN
 
@@ -381,12 +381,12 @@ ww_devclrn <= devclrn;
 ww_devpor <= devpor;
 
 \CLK~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \CLK~input_o\);
-\bin2ssd_6|ALT_INV_Mux1~9_combout\ <= NOT \bin2ssd_6|Mux1~9_combout\;
-\bin2ssd_4|ALT_INV_Mux1~9_combout\ <= NOT \bin2ssd_4|Mux1~9_combout\;
 \bin2ssd_5|ALT_INV_Mux6~0_combout\ <= NOT \bin2ssd_5|Mux6~0_combout\;
 \bin2ssd_3|ALT_INV_Mux6~0_combout\ <= NOT \bin2ssd_3|Mux6~0_combout\;
 \bin2ssd_2|ALT_INV_Mux6~0_combout\ <= NOT \bin2ssd_2|Mux6~0_combout\;
 \bin2ssd_1|ALT_INV_Mux6~0_combout\ <= NOT \bin2ssd_1|Mux6~0_combout\;
+\bin2ssd_6|ALT_INV_Mux1~9_combout\ <= NOT \bin2ssd_6|Mux1~9_combout\;
+\bin2ssd_4|ALT_INV_Mux1~9_combout\ <= NOT \bin2ssd_4|Mux1~9_combout\;
 
 -- Location: LCCOMB_X76_Y2_N4
 \timer_1|Add1~0\ : cycloneive_lcell_comb

@@ -5,8 +5,8 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/timer.vhd}
-vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/my_package.vhd}
-vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/main_timer.vhd}
-vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/bcd2ssd.vhd}
+vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/timer.vhd}
+vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/my_package.vhd}
+vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/main_timer.vhd}
+vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/bcd2ssd.vhd}
 

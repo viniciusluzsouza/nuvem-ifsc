@@ -1,5 +1,5 @@
 Flow report for timer
-Fri Jun  7 08:56:59 2019
+Sat Jun  8 13:33:28 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Fri Jun  7 08:56:59 2019            ;
+; Flow Status                        ; Successful - Sat Jun  8 13:33:28 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; timer                                            ;
 ; Top-level Entity Name              ; main_timer                                       ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/07/2019 08:56:23 ;
+; Start date & time ; 06/08/2019 13:32:14 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; timer               ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 30902523540315.155990858319152 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 11373243925251.156000073321260 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
@@ -94,26 +94,26 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 392 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:16     ; 1.8                     ; 747 MB              ; 00:00:24                           ;
-; Assembler                 ; 00:00:05     ; 1.0                     ; 342 MB              ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 439 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 319 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:27     ; --                      ; --                  ; 00:00:36                           ;
+; Analysis & Synthesis      ; 00:00:08     ; 1.0                     ; 418 MB              ; 00:00:03                           ;
+; Fitter                    ; 00:00:28     ; 4.0                     ; 983 MB              ; 00:00:41                           ;
+; Assembler                 ; 00:00:09     ; 1.0                     ; 345 MB              ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:12     ; 1.0                     ; 502 MB              ; 00:00:04                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 320 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:59     ; --                      ; --                  ; 00:00:56                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                                 ;
-+---------------------------+--------------------+------------------+------------+----------------+
-; Module Name               ; Machine Hostname   ; OS Name          ; OS Version ; Processor type ;
-+---------------------------+--------------------+------------------+------------+----------------+
-; Analysis & Synthesis      ; sj-lin-sidi-756048 ; Debian GNU/Linux ; 9          ; x86_64         ;
-; Fitter                    ; sj-lin-sidi-756048 ; Debian GNU/Linux ; 9          ; x86_64         ;
-; Assembler                 ; sj-lin-sidi-756048 ; Debian GNU/Linux ; 9          ; x86_64         ;
-; TimeQuest Timing Analyzer ; sj-lin-sidi-756048 ; Debian GNU/Linux ; 9          ; x86_64         ;
-; EDA Netlist Writer        ; sj-lin-sidi-756048 ; Debian GNU/Linux ; 9          ; x86_64         ;
-+---------------------------+--------------------+------------------+------------+----------------+
++-----------------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                                     ;
++---------------------------+--------------------------+----------------+------------+----------------+
+; Module Name               ; Machine Hostname         ; OS Name        ; OS Version ; Processor type ;
++---------------------------+--------------------------+----------------+------------+----------------+
+; Analysis & Synthesis      ; quartus-859785bd96-k7w4f ; Ubuntu 18.04.2 ; 18         ; x86_64         ;
+; Fitter                    ; quartus-859785bd96-k7w4f ; Ubuntu 18.04.2 ; 18         ; x86_64         ;
+; Assembler                 ; quartus-859785bd96-k7w4f ; Ubuntu 18.04.2 ; 18         ; x86_64         ;
+; TimeQuest Timing Analyzer ; quartus-859785bd96-k7w4f ; Ubuntu 18.04.2 ; 18         ; x86_64         ;
+; EDA Netlist Writer        ; quartus-859785bd96-k7w4f ; Ubuntu 18.04.2 ; 18         ; x86_64         ;
++---------------------------+--------------------------+----------------+------------+----------------+
 
 
 ------------

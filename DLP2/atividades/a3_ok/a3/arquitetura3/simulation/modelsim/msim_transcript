@@ -9,7 +9,7 @@
 # ** Warning: Copied /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/timer.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/timer.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -17,7 +17,7 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity timer
 # -- Compiling architecture single_clock_arch of timer
-# vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/my_package.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/my_package.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -26,14 +26,14 @@
 # -- Compiling package my_package
 # -- Compiling package body my_package
 # -- Loading package my_package
-# vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/main_timer.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/main_timer.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity main_timer
 # -- Compiling architecture main_timer_impl of main_timer
-# vcom -93 -work work {/home/aluno/Downloads/a3/arquitetura3/bcd2ssd.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura3/bcd2ssd.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -52,7 +52,7 @@ do test_timer.do
 # -- Compiling entity timer
 # -- Compiling architecture single_clock_arch of timer
 # vsim work.timer 
-# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.9.0-9-amd64
+# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.15.18-14-pve
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
 # //  All Rights Reserved.
@@ -61,30 +61,6 @@ do test_timer.do
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.timer(single_clock_arch)
-# ** Error: invalid command name "sim:/timer/c_reg_d"
-# Error in macro ./test_timer.do line 19
-# invalid command name "sim:/timer/c_reg_d"
-#     while executing
-# "sim:/timer/c_reg_d \
-# sim:/timer/c_reg_u \
-# sim:/timer/s_reg_d \
-# sim:/timer/s_reg_u \
-# sim:/timer/m_reg_d \
-# sim:/timer/m_reg_u"
-do test_timer.do
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity timer
-# -- Compiling architecture single_clock_arch of timer
-# vsim work.timer 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)

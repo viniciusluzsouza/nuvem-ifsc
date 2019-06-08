@@ -1,5 +1,5 @@
 Analysis & Synthesis report for timer
-Fri Jun  7 08:56:26 2019
+Sat Jun  8 13:32:22 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -47,7 +47,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun  7 08:56:26 2019            ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun  8 13:32:21 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; timer                                            ;
 ; Top-level Entity Name              ; main_timer                                       ;
@@ -156,30 +156,29 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 40          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ; < 0.1%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-40        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                         ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
-; timer.vhd                        ; yes             ; User VHDL File  ; /home/aluno/Downloads/a3/arquitetura1/timer.vhd      ;         ;
-; my_package.vhd                   ; yes             ; User VHDL File  ; /home/aluno/Downloads/a3/arquitetura1/my_package.vhd ;         ;
-; bin2ssd.vhd                      ; yes             ; User VHDL File  ; /home/aluno/Downloads/a3/arquitetura1/bin2ssd.vhd    ;         ;
-; bin2bcd.vhd                      ; yes             ; User VHDL File  ; /home/aluno/Downloads/a3/arquitetura1/bin2bcd.vhd    ;         ;
-; main_timer.vhd                   ; yes             ; User VHDL File  ; /home/aluno/Downloads/a3/arquitetura1/main_timer.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                  ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
+; timer.vhd                        ; yes             ; User VHDL File  ; /home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/timer.vhd      ;         ;
+; my_package.vhd                   ; yes             ; User VHDL File  ; /home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/my_package.vhd ;         ;
+; bin2ssd.vhd                      ; yes             ; User VHDL File  ; /home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/bin2ssd.vhd    ;         ;
+; bin2bcd.vhd                      ; yes             ; User VHDL File  ; /home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/bin2bcd.vhd    ;         ;
+; main_timer.vhd                   ; yes             ; User VHDL File  ; /home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/main_timer.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -314,7 +313,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -324,13 +323,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Jun  7 08:56:23 2019
+    Info: Processing started: Sat Jun  8 13:32:12 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TimerArq1 -c timer
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 4 design units, including 1 entities, in source file timer.vhd
-    Info (12022): Found design unit 1: timer-multi_clock_arch
-    Info (12022): Found design unit 2: timer-single_clock_arch
-    Info (12022): Found design unit 3: config
+Info (11104): Parallel Compilation has detected 40 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 20 physical processors detected instead.
+Info (12021): Found 3 design units, including 1 entities, in source file timer.vhd
+    Info (12022): Found design unit 1: timer-single_clock_arch
+    Info (12022): Found design unit 2: config
     Info (12023): Found entity 1: timer
 Info (12021): Found 2 design units, including 0 entities, in source file my_package.vhd
     Info (12022): Found design unit 1: my_package
@@ -356,9 +354,9 @@ Info (21057): Implemented 207 device resources after synthesis - the final resou
     Info (21059): Implemented 42 output pins
     Info (21061): Implemented 163 logic cells
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 392 megabytes
-    Info: Processing ended: Fri Jun  7 08:56:26 2019
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 418 megabytes
+    Info: Processing ended: Sat Jun  8 13:32:22 2019
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -9,20 +9,18 @@
 # ** Warning: Copied /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/timer.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/timer.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity timer
-# -- Compiling architecture multi_clock_arch of timer
 # -- Compiling architecture single_clock_arch of timer
-# -- Loading entity timer
 # -- Compiling configuration config
 # -- Loading entity timer
-# -- Loading architecture multi_clock_arch of timer
-# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/my_package.vhd}
+# -- Loading architecture single_clock_arch of timer
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/my_package.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -31,7 +29,7 @@
 # -- Compiling package my_package
 # -- Compiling package body my_package
 # -- Loading package my_package
-# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/bin2bcd.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/bin2bcd.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -39,14 +37,14 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity bin2bcd
 # -- Compiling architecture double_dabble of bin2bcd
-# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/main_timer.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/main_timer.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity main_timer
 # -- Compiling architecture main_timer_impl of main_timer
-# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3/arquitetura1/bin2ssd.vhd}
+# vcom -93 -work work {/home/vinicius.ls/DLP2/atividades/a3_ok/a3/arquitetura1/bin2ssd.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -63,12 +61,10 @@ do test_timer.do
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity timer
-# -- Compiling architecture multi_clock_arch of timer
 # -- Compiling architecture single_clock_arch of timer
-# -- Loading entity timer
 # -- Compiling configuration config
 # -- Loading entity timer
-# -- Loading architecture multi_clock_arch of timer
+# -- Loading architecture single_clock_arch of timer
 # vsim work.timer 
 # //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.15.18-14-pve
 # //
