@@ -6,14 +6,14 @@ close all;
 clear all;
 clc;
 
-ExecutarAjuste = 1;
+ExecutarAjuste = 0;
 
 %% Especificacoes
 Ap = 0.5; As = 60; GdB = 0;
 
 fa_espec = 8000; wa_espec = 2*pi*fa_espec;
-fp1_espec = 1250; fp2_espec = 1300;
-fs1_espec = 1200; fs2_espec = 1400;
+fp1_espec = 1200; fp2_espec = 1400;
+fs1_espec = 1250; fs2_espec = 1300;
 
 wp1_espec = 2*pi*fp1_espec; wp2_espec = 2*pi*fp2_espec;
 ws1_espec = 2*pi*fs1_espec; ws2_espec = 2*pi*fs2_espec;
@@ -57,7 +57,7 @@ n = cheb1ord(Op, Os, Ap, As,'s');
 
 %% Primeiro plot
 figure(1)
-subplot(121)
+subplot(221)
 [h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
 title('H(p)')
@@ -66,8 +66,17 @@ plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 ylim([-80 10]);
 hold off;
-subplot(122)
+
+subplot(222)
 zplane(b, a);
+title('Diagrama de polos e zeros')
+subplot(2,2,[3 4])
+semilogx(w, 20*log10(abs(h)))
+title('H(p) - Banda Passagem')
+grid on; hold on;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
+xlim([0.91 1.1]); ylim([-2 1]);
 
 %% Transformacao de frequencia
 % LP para BP
@@ -95,18 +104,27 @@ pretty(vpa(Hsn(s), 5))
 
 %% Resposta em frequencia
 figure(2)
-subplot(121)
+subplot(221)
 [hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
 % semilogx(wf, 20*log10(abs(hf)))
 plot(wf,20*log10(abs(hf)));
-ylim([-60 10])
+xlim([0.9 1.25]); ylim([-80 5])
 title('H(s)')
 grid on
 hold on
-plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec, 10],[-As,-As,Ap,Ap,-As,-As], 'r')
-plot([lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec],[-60,-Ap,-Ap,-60], 'g')
-subplot(122)
-zplane(bsn, asn)
+plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
+plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
+
+subplot(222)
+zplane(bsn, asn);
+title('Diagrama de polos e zeros')
+subplot(2,2,[3 4])
+plot(wf,20*log10(abs(hf)));
+title('H(s) - Banda Passagem')
+grid on; hold on;
+plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
+plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
+% xlim([2.5 4]); ylim([-2 1]);
 
 %% Transformando em Z (bilinear)
 syms z;
@@ -127,35 +145,50 @@ pretty(vpa(Hzn(z),5))
 
 %%
 figure(3)
-[hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
+subplot(221)
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 1000000));
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
-ylim([-60 10])
+xlim([1100 1500]);ylim([-80 10]);
 title('H(z)')
 grid on
 hold on
-plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 10000],[-As,-As,Ap,Ap,-As,-As], 'r')
-plot([fp1_espec,fp1_espec,fp2_espec, fp2_espec],[-60,-Ap,-Ap,-60], 'g')
+plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
+plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
+
+subplot(222)
+zplane(bzn, azn);
+title('Diagrama de polos e zeros')
+subplot(2,2,[3 4])
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+title('H(z) - Banda Passagem')
+grid on; hold on;
+plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
+plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
+% xlim([3000 3400]); ylim([-2 1]);
+
 
 %%
 figure(4)
 % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
 
 subplot(321)
-[hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
-ylim([-80 10])
+xlim([1100 1500]);ylim([-80 10]);
 title('Resposta de Magnitude para H(z)')
 grid on
 hold on
-plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 10000],[-As,-As,Ap,Ap,-As,-As], 'r')
-plot([fp1_espec,fp1_espec,fp2_espec, fp2_espec],[-60,-Ap,-Ap,-60], 'g')
+plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
+plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
 
 subplot(3,2,[4 6])
 zplane(bzn, azn);
 title('Diagrama de polos (x) e zeros (o)')
 
 subplot(322)
-stem(bzn), grid on;
+delta = [1, zeros(1, 10)];
+imp = filter(bzn, azn, delta);
+stem(imp); grid on;
 title('Resposta ao impulso')
 
 subplot(323)
@@ -163,5 +196,5 @@ plot(wz/pi, unwrap(angle(hz))/pi); grid on;
 title('Resposta de Fase para H(z)')
 
 subplot(325)
-grpdelay(bzn, 1)
+grpdelay(bzn, azn)
 title('Atraso de grupo para H(z)')

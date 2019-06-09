@@ -19,17 +19,17 @@ G0 = GdB;
 %% Projeto inicial
 Dw = Dw1;
 wc = wc1;
-Ask = As + 2;
+Ask = As + 9;
 betha = 0.5842*(Ask-21)^0.4 + 0.07886*(Ask-21);
 M1 = ceil((Ask - 8)/(2.285*Dw)+1);
 M = M1;
 
 if ExecutarAjuste
     % primeiro ajuste
-    G0 = 0.63-0.5; % db
+    G0 = 0.295; % db
 
     % segundo ajuste M (n/2)
-    wp2 = 0.6196*pi; ws2 = 0.5814*pi;
+    wp2 = 0.6196*pi; ws2 = 0.5813*pi;
     Dw2 = wp2 -ws2;
     M2 = ceil(M1*Dw2/Dw1); % nova ordem do filtro 2*M2
     M = M2;
@@ -61,7 +61,7 @@ title('Resposta em magnitude')
 ylim([-80 10])
 hold on;
 plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-plot([0,ws/pi,ws/pi,1],[-As,-As,Ap,Ap], '-red')
+plot([0,ws/pi,ws/pi,1],[-As,-As,0,0], '-red')
 
 subplot(222)
 zplane(b, 1); axis([-2 2 -2 2]);
@@ -72,7 +72,7 @@ plot(w/pi, 20*log10(abs(h)));
 title('Banda Passagem')
 grid on; hold on;
 plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-plot([0,ws/pi,ws/pi,1],[-As,-As,Ap,Ap], '-red')
+plot([0,ws/pi,ws/pi,1],[-As,-As,0,0], '-red')
 xlim([0.62 0.7]); ylim([-2 1]);
 
 subplot(224)
@@ -80,8 +80,8 @@ plot(w/pi, 20*log10(abs(h)));
 title('Banda de Rejeição')
 grid on; hold on;
 plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-plot([0,ws/pi,ws/pi,1],[-As,-As,Ap,Ap], '-red')
-xlim([0.5 0.58]); ylim([-23 -18]);
+plot([0,ws/pi,ws/pi,1],[-As,-As,0,0], '-red')
+xlim([0.5 0.58]); ylim([-25 -18]);
 
 %%
 figure(2)
@@ -108,7 +108,7 @@ hold on;
 title('Resposta de Magnitude')
 ylim([-80 5])
 Amin = 80;
-plot([0,fs,fs,fa/2],[-As,-As,Ap,Ap], 'r')
+plot([0,fs,fs,fa/2],[-As,-As,0,0], 'r')
 plot([fa/2,fp,fp,],[-Ap,-Ap,-80], 'r')
 xlim([0 fa/2])
 

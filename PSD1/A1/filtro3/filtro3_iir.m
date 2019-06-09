@@ -37,6 +37,9 @@ Os2 = abs((lambda_0^2 - lambda_s2_espec^2)/(Bwp*lambda_s2_espec));
 Os_espec = min(Os1, Os2);
 Op_espec = 1;
 
+G0 = 10^(GdB/20);
+% Ap = Ap + G0*Ap; As = As + G0*As;
+
 % Ajustes
 delta_fp1 = 0;
 delta_fp2 = 0;
@@ -90,7 +93,7 @@ subplot(221)
 semilogx(w, 20*log10(abs(h)))
 title('H(p)')
 grid on; hold on;
-plot([10^-2,Os_espec,Os_espec,10^1],[Ap,Ap,-As,-As], 'r')
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 ylim([-60 10]);
 hold off;
@@ -102,7 +105,7 @@ subplot(2,2,[3 4])
 semilogx(w, 20*log10(abs(h)))
 title('H(p) - Banda Passagem')
 grid on; hold on;
-plot([10^-2,Os_espec,Os_espec,10^1],[Ap,Ap,-As,-As], 'r')
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.6 2.2]); ylim([-3 1]);
 
@@ -141,7 +144,7 @@ ylim([-60 10])
 title('H(s)')
 grid on
 hold on
-plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec, 6],[-As,-As,Ap,Ap,-As,-As], 'r')
+plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec, 6],[-As,-As,0,0,-As,-As], 'r')
 plot([lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec],[-60,-Ap,-Ap,-60], 'g')
 
 subplot(222)
@@ -151,7 +154,7 @@ subplot(2,2,[3 4])
 plot(wf,20*log10(abs(hf)));
 title('H(s) - Banda Passagem')
 grid on; hold on;
-plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec, 6],[-As,-As,Ap,Ap,-As,-As], 'r')
+plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec, 6],[-As,-As,0,0,-As,-As], 'r')
 plot([lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec],[-60,-Ap,-Ap,-60], 'g')
 xlim([2.6 4.2]); ylim([-6 3]);
 
@@ -182,7 +185,7 @@ ylim([-60 10])
 title('H(z)')
 grid on
 hold on
-plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,Ap,Ap,-As,-As], 'r')
+plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,0,0,-As,-As], 'r')
 plot([fp1_espec,fp1_espec,fp2_espec, fp2_espec],[-60,-Ap,-Ap,-60], 'g')
 
 subplot(222)
@@ -192,7 +195,7 @@ subplot(2,2,[3 4])
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
 title('H(z) - Banda Passagem')
 grid on; hold on;
-plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,Ap,Ap,-As,-As], 'r')
+plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,0,0,-As,-As], 'r')
 plot([fp1_espec,fp1_espec,fp2_espec, fp2_espec],[-60,-Ap,-Ap,-60], 'g')
 xlim([2900 3600]); ylim([-6 4]);
 
@@ -207,7 +210,7 @@ ylim([-80 10])
 title('Resposta de Magnitude para H(z)')
 grid on
 hold on
-plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,Ap,Ap,-As,-As], 'r')
+plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,0,0,-As,-As], 'r')
 plot([fp1_espec,fp1_espec,fp2_espec, fp2_espec],[-60,-Ap,-Ap,-60], 'g')
 
 subplot(3,2,[4 6])
