@@ -77,15 +77,15 @@ xlim([0.62 0.7]); ylim([-2 1]);
 
 subplot(224)
 plot(w/pi, 20*log10(abs(h)));
-title('Banda Stop')
+title('Banda de Rejeição')
 grid on; hold on;
 plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
 plot([0,ws/pi,ws/pi,1],[-As,-As,Ap,Ap], '-red')
-xlim([0.5 0.58]); ylim([-25 -18]);
+xlim([0.5 0.58]); ylim([-23 -18]);
 
 %%
 figure(2)
-suptitle(['HP FIR ' num2str(fs) '-' num2str(fp) ' Ordem: ' num2str(N)])
+%suptitle(['HP FIR ' num2str(fs) '-' num2str(fp) ' Ordem: ' num2str(N)])
 
 escala = fa/2;
 subplot(3,2,[4 6])
@@ -119,4 +119,3 @@ title('Resposta de Fase')
 subplot(325)
 grpdelay(b, 1)
 title('Atraso de grupo')
-
