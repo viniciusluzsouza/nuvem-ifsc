@@ -41,6 +41,8 @@ Amin = 80;
 % ylim([-Amin 10])
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [Ap, Ap, -As, -As, Ap,Ap], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
+xlim([500 2500]); 
+
 
 
 
