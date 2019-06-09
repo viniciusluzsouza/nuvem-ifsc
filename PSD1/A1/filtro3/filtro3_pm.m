@@ -33,17 +33,77 @@ fcuts = fcuts + [0 -15 10 0];
 h_pm = firpm(n,f0,a0,w0);
 h_pm = h_pm*10^(G0/20);
 
-[Hw,w] = freqz(h_pm, 1, 10000);
-plot(w*fa/2/pi,20*log10(abs(Hw)))
-title_txt = ['PM Filter N = ' num2str(n)];
-title(title_txt)
-hold on
+%%
+figure(1)
+subplot(221)
+title('Resposta de magnitude')
+[h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
+% plot(w/pi, abs(h)); grid on;
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Resposta em magnitude')
+xlim([2000 5000]);ylim([-80 10]);
+hold on;
 Amin = 80;
-ylim([-Amin 10])
 As = As - G0;
 Ap = Ap + G0;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
 
+subplot(222)
+zplane(h_pm, 1); axis([-2 2 -2 2]);
+title('Diagrama de polos e zeros')
 
+subplot(223)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Banda Passagem')
+grid on; hold on;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+% xlim([0.4 0.7]); ylim([-2 0.5]);
+
+subplot(224)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Banda de Rejeição')
+grid on; hold on;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+% xlim([0.5 0.7]); ylim([-50 -30]);
+
+%%
+figure(2)
+%suptitle(['LP FIR ' num2str(fp) '-' num2str(fs) ' Ordem: ' num2str(2*M+1)])
+
+escala = fa/2;
+subplot(3,2,[4 6])
+zplane(h_pm, 1);
+axis([-2 2 -2 2])
+title('Diagrama de polos (x) e zeros (o)')
+
+clear h w
+[h, w] = freqz(h_pm, 1, 'whole');
+
+subplot(322)
+stem(h_pm), grid on;
+title('Resposta ao impulso')
+
+subplot(321)
+[h, w] = freqz(h_pm, 1, linspace(0,pi,10000));
+% plot(w/pi, abs(h)); grid on;
+% plot(w/pi*escala, 20*log10(abs(h))); grid on;
+plot(w*fa/2/pi,20*log10(abs(h)))
+hold on;
+title('Resposta de Magnitude')
+ylim([-80 5])
+Amin = 80;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+xlim([0 fa/2])
+
+subplot(323)
+plot(w/pi*escala, unwrap(angle(h))/pi); grid on;
+title('Resposta de Fase')
+
+subplot(325)
+grpdelay(h_pm, 1)
+title('Atraso de grupo')
 

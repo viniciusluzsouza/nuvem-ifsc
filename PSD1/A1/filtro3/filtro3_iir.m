@@ -38,7 +38,6 @@ Os_espec = min(Os1, Os2);
 Op_espec = 1;
 
 G0 = 10^(GdB/20);
-% Ap = Ap + G0*Ap; As = As + G0*As;
 
 % Ajustes
 delta_fp1 = 0;
@@ -85,6 +84,8 @@ fa = fa_espec;
 %% Chebyshev II
 n = cheb2ord(Op, Os, Ap, As,'s');
 [b, a] = cheby2(n,As, Os, 's');
+b = b*G0;
+a = a*G0;
 
 %% Primeiro plot
 figure(1)

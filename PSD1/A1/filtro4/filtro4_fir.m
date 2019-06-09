@@ -6,7 +6,7 @@ close all;
 clear all;
 clc;
 
-ExecutarAjuste = 0;
+ExecutarAjuste = 1;
 
 %% Especificacoes
 Ap = 0.5; As = 60; GdB = 0;
@@ -25,6 +25,10 @@ devs_Ap = 1-10^(-Ap/20);
 devs = [devs_Ap devs_As devs_Ap];
 G0 = GdB;
 
+if ExecutarAjuste
+    G0 = G0 - 0.23;
+end
+
 % calculo da ordem com firpmord
 [n,f0,a0,w0] = firpmord(fcuts,mags,devs,fa);
 
@@ -32,18 +36,77 @@ G0 = GdB;
 h_pm = firpm(n,f0,a0,w0);
 h_pm = h_pm*10^(G0/20);
 
-[Hw,w] = freqz(h_pm, 1, 10000);
-plot(w*fa/2/pi,20*log10(abs(Hw)))
-title_txt = ['PM Filter N = ' num2str(n)];
-title(title_txt)
-hold on
+%%
+figure(1)
+subplot(221)
+title('Resposta de magnitude')
+[h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
+% plot(w/pi, abs(h)); grid on;
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Resposta em magnitude')
+xlim([1000 1500]); ylim([-80 10]);
+hold on;
 Amin = 80;
-% ylim([-Amin 10])
-plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [Ap, Ap, -As, -As, Ap,Ap], '-m')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
-xlim([500 2500]); 
 
+subplot(222)
+zplane(h_pm, 1); axis([-2 2 -2 2]);
+title('Diagrama de polos e zeros')
 
+subplot(223)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Banda Passagem')
+grid on; hold on;
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
+plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
+% xlim([0.4 0.7]); ylim([-2 0.5]);
+
+subplot(224)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Banda de Rejeição')
+grid on; hold on;
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
+plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
+% xlim([0.5 0.7]); ylim([-50 -30]);
+
+%%
+figure(2)
+%suptitle(['LP FIR ' num2str(fp) '-' num2str(fs) ' Ordem: ' num2str(2*M+1)])
+
+escala = fa/2;
+subplot(3,2,[4 6])
+zplane(h_pm, 1);
+axis([-2 2 -2 2])
+title('Diagrama de polos (x) e zeros (o)')
+
+clear h w
+[h, w] = freqz(h_pm, 1, 'whole');
+
+subplot(322)
+stem(h_pm), grid on;
+title('Resposta ao impulso')
+
+subplot(321)
+[h, w] = freqz(h_pm, 1, linspace(0,pi,10000));
+% plot(w/pi, abs(h)); grid on;
+% plot(w/pi*escala, 20*log10(abs(h))); grid on;
+plot(w*fa/2/pi,20*log10(abs(h)))
+hold on;
+title('Resposta de Magnitude')
+xlim([1000 1500]); ylim([-80 10]);
+Amin = 80;
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
+plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
+xlim([0 fa/2])
+
+subplot(323)
+plot(w/pi*escala, unwrap(angle(h))/pi); grid on;
+title('Resposta de Fase')
+
+subplot(325)
+grpdelay(h_pm, 1)
+title('Atraso de grupo')
 
 
 
