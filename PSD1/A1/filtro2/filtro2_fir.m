@@ -81,7 +81,7 @@ title('Banda de Rejeição')
 grid on; hold on;
 plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
 plot([0,ws/pi,ws/pi,1],[-As,-As,0,0], '-red')
-xlim([0.5 0.58]); ylim([-25 -18]);
+xlim([0.5 0.65]); ylim([-25 -18]);
 
 %%
 figure(2)
