@@ -58,13 +58,23 @@ hold off;
 subplot(222)
 zplane(b, a);
 title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
+subplot(2,2,3)
 semilogx(w, 20*log10(abs(h)))
 title('H(p) - Banda Passagem')
 grid on; hold on;
+
 plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.6 1.33]); ylim([-2 1]);
+
+subplot(2,2,4)
+semilogx(w, 20*log10(abs(h)))
+title('H(p) - Banda Rejeição')
+grid on; hold on;
+
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
+xlim([0.8 2]); ylim([-50 -30]);
 
 
 %% Transformacao de frequencia
@@ -106,13 +116,21 @@ plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
 subplot(222)
 zplane(bsn, asn);
 title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
+subplot(2,2,3)
 plot(wf,20*log10(abs(hf)));
 title('H(s) - Banda Passagem')
 grid on; hold on;
 plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
 plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
 xlim([1.6 3.3]); ylim([-2 1]);
+
+subplot(2,2,4)
+plot(wf,20*log10(abs(hf)));
+title('H(s) - Banda de Rejeição')
+grid on; hold on;
+plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
+plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
+xlim([2.2 3.5]); ylim([-45 -35]);
 
 %% Transformando em Z (bilinear)
 syms z;
@@ -147,13 +165,21 @@ plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
 subplot(222)
 zplane(bzn, azn);
 title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
+subplot(2,2,3)
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
 title('H(z) - Banda Passagem')
 grid on; hold on;
 plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
 xlim([2000 3500]); ylim([-2 1]);
+
+subplot(2,2,4)
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+title('H(z) - Banda de Rejeição')
+grid on; hold on;
+plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
+plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
+xlim([2600 3500]); ylim([-45 -35]);
 
 %%
 figure(4)
