@@ -64,7 +64,7 @@ hold off;
 subplot(222)
 zplane(b, a);
 title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
+subplot(2,2,3)
 semilogx(w, 20*log10(abs(h)))
 title('H(p) - Banda Passagem')
 grid on; hold on;
@@ -72,6 +72,14 @@ plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.91 1.1]); ylim([-2 1]);
 
+
+subplot(2,2,4)
+semilogx(w, 20*log10(abs(h)))
+title('H(p) - Banda de Rejeição')
+grid on; hold on;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
+xlim([0.95 1.4]); ylim([-25 -15]);
 %% Transformacao de frequencia
 % LP para HP
 syms p;
@@ -110,7 +118,7 @@ plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], 'r')
 subplot(222)
 zplane(bsn, asn);
 title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
+subplot(2,2,3)
 plot(wf,20*log10(abs(hf)));
 title('H(s) - Banda Passagem')
 grid on; hold on;
@@ -118,7 +126,13 @@ plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], 'r')
 plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], 'r')
 xlim([2.5 4]); ylim([-2 1]);
 
-
+subplot(2,2,4)
+plot(wf,20*log10(abs(hf)));
+title('H(s) - Banda de Rejeição')
+grid on; hold on;
+plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], 'r')
+plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], 'r')
+xlim([2 3.5]); ylim([-22 -18]);
 %% Transformando em Z (bilinear)
 syms z;
 aux = 2*((z-1)/(z+1));
@@ -151,13 +165,21 @@ plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
 subplot(222)
 zplane(bzn, azn);
 title('Diagrama de polos e zeros')
-subplot(2,2,[3 4])
+subplot(2,2,3)
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
 title('H(z) - Banda Passagem')
 grid on; hold on;
 plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], 'r')
 plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
 xlim([3000 3400]); ylim([-2 1]);
+
+subplot(2,2,4)
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+title('H(z) - Banda de Rejeição')
+grid on; hold on;
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], 'r')
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
+xlim([2200 3300]); ylim([-22 -18]);
 
 %%
 figure(4)
