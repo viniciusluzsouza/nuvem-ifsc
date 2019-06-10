@@ -38,7 +38,7 @@ h_pm = h_pm*10^(G0/20);
 
 %%
 figure(1)
-subplot(221)
+subplot(321)
 title('Resposta de magnitude')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
@@ -50,25 +50,34 @@ Amin = 80;
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
 
-subplot(222)
+subplot(322)
 zplane(h_pm, 1); axis([-2 2 -2 2]);
 title('Diagrama de polos e zeros')
 
-subplot(223)
+subplot(3,2,3)
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('Banda Passagem')
 grid on; hold on;
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
-% xlim([0.4 0.7]); ylim([-2 0.5]);
+xlim([1050 1275]); ylim([-140 10]);
 
-subplot(224)
+subplot(3,2,4)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Banda Passagem')
+grid on; hold on;
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
+plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
+xlim([1275 1500]); ylim([-140 10]);
+
+
+subplot(3,2,5:6)
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('Banda de Rejeição')
 grid on; hold on;
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
-% xlim([0.5 0.7]); ylim([-50 -30]);
+xlim([1180 1420]); ylim([-140 10]);
 
 %%
 figure(2)
@@ -88,13 +97,15 @@ stem(h_pm), grid on;
 title('Resposta ao impulso')
 
 subplot(321)
-[h, w] = freqz(h_pm, 1, linspace(0,pi,10000));
+title('Resposta de magnitude')
+[h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
-% plot(w/pi*escala, 20*log10(abs(h))); grid on;
-plot(w*fa/2/pi,20*log10(abs(h)))
-hold on;
-title('Resposta de Magnitude')
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Resposta em magnitude')
 xlim([1000 1500]); ylim([-80 10]);
+grid on; hold on;
+
+
 Amin = 80;
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
@@ -106,7 +117,5 @@ title('Resposta de Fase')
 
 subplot(325)
 grpdelay(h_pm, 1)
+
 title('Atraso de grupo')
-
-
-
