@@ -35,7 +35,7 @@ h_pm = h_pm*10^(G0/20);
 
 %%
 figure(1)
-subplot(221)
+subplot(321)
 title('Resposta de magnitude')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
@@ -49,25 +49,33 @@ Ap = Ap + G0;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
 
-subplot(222)
+subplot(322)
 zplane(h_pm, 1); axis([-2 2 -2 2]);
 title('Diagrama de polos e zeros')
 
-subplot(223)
+subplot(3,2,3:4)
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('Banda Passagem')
 grid on; hold on;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
-% xlim([0.4 0.7]); ylim([-2 0.5]);
+xlim([2850 3650]); ylim([-80 0]);
 
-subplot(224)
+subplot(3,2,5)
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('Banda de Rejeição')
 grid on; hold on;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
-% xlim([0.5 0.7]); ylim([-50 -30]);
+xlim([2500 3250]); ylim([-80 0]);
+
+subplot(3,2,6)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('Banda de Rejeição')
+grid on; hold on;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+xlim([3350 4000]); ylim([-80 0]);
 
 %%
 figure(2)
@@ -106,4 +114,3 @@ title('Resposta de Fase')
 subplot(325)
 grpdelay(h_pm, 1)
 title('Atraso de grupo')
-
