@@ -14,7 +14,7 @@ wp = fp/fa*(2*pi); ws = fs/fa*(2*pi);
 
 wc1 = sqrt(wp*ws); % media geometrica
 Dw1 = ws - wp;
-M1 = ceil(3.32*pi/(Dw1));
+M1 = ceil(3.11*pi/(Dw1));
 G0 = GdB;
 
 %%
@@ -28,7 +28,7 @@ if ExecutarAjuste
     G0 = 0.056; % db
 
     % segundo ajuste M (n/2)
-    wp2 = 0.5758*pi; ws2 = 0.6347*pi;
+    wp2 = 0.5741*pi; ws2 = 0.6375*pi;
     Dw2 = ws2 - wp2;
     M2 = ceil(M1*Dw2/Dw1); % nova ordem do filtro 2*M2
     M = M2;
@@ -47,6 +47,7 @@ b = [flip(bi) b0 bi];
 m = -M:M;
 % wk = 0.5 + 0.5*cos(2*pi*m/(2*M+1)); % Hann
 wk = hann(2*M+1)';
+% wk = barthannwin(2*M+1)';
 % wk = bartlett(2*M+1)';
 % wk = triang(2*M+1)';
 % wk = hamming(2*M+1)';

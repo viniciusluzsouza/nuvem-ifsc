@@ -76,6 +76,10 @@ plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.8 2]); ylim([-50 -30]);
 
+% eixos = axes;
+% titulo = title('Prototipo LP', 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);
+% eixos.Visible = 'off';
+% titulo.Visible = 'on';
 
 %% Transformacao de frequencia
 % LP para LP
@@ -132,6 +136,11 @@ plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
 plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
 xlim([2.2 3.5]); ylim([-45 -35]);
 
+% eixos = axes;
+% titulo = title('Transformacao LP -> LP', 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);
+% eixos.Visible = 'off';
+% titulo.Visible = 'on';
+
 %% Transformando em Z (bilinear)
 syms z;
 aux = 2*((z-1)/(z+1));
@@ -181,6 +190,11 @@ plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
 xlim([2600 3500]); ylim([-45 -35]);
 
+% eixos = axes;
+% titulo = title('Transformacao Analogico -> Digital', 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);
+% eixos.Visible = 'off';
+% titulo.Visible = 'on';
+
 %%
 figure(4)
 % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
@@ -213,3 +227,9 @@ subplot(325)
 grpdelay(bzn, azn)
 
 title('Atraso de grupo para H(z)')
+
+% eixos = axes;
+% texto = ['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)];
+% titulo = title(texto, 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);
+% eixos.Visible = 'off';
+% titulo.Visible = 'on';

@@ -19,10 +19,16 @@ G0 = GdB;
 %% Projeto inicial
 Dw = Dw1;
 wc = wc1;
-Ask = As + 9;
+Ask = As;
+if ExecutarAjuste
+    Ask = Ask + 9; % Ajuste BP
+end
+
 betha = 0.5842*(Ask-21)^0.4 + 0.07886*(Ask-21);
 M1 = ceil((Ask - 8)/(2.285*Dw)+1);
 M = M1;
+% M = 20;
+% G0 = -5.5 + 1;
 
 if ExecutarAjuste
     % primeiro ajuste
@@ -39,8 +45,14 @@ if ExecutarAjuste
     wc = wc2;
 end
 
+
 N = 2*M+1;
-wkeiser = kaiser(N, betha)';
+betha = 0.5842*(Ask-21)^0.4 + 0.07886*(Ask-21);
+wk = kaiser(N, betha)';
+% wk = chebwin(N, As)';
+% wk = gausswin(N, 1/As)';
+% wk = tukeywin(N)';
+% wk = taylorwin(N)';
 
 k = 1:M;
 % HP
@@ -48,7 +60,7 @@ bi = -sin(wc*k)./(pi*k);
 b0 = 1-wc/pi;
 b = [flip(bi) b0 bi];
 
-b = b.*wkeiser*10^(-G0/20); % janela de keiser
+b = b.*wk*10^(-G0/20); % janela de keiser
 
 %%
 figure(1)
