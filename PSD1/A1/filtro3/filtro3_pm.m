@@ -6,7 +6,7 @@ close all;
 clear all;
 clc;
 
-ExecutarAjuste = 0;
+ExecutarAjuste = 1;
 
 %% Especificacoes
 Ap = 2; As = 30; GdB = -10;
@@ -26,7 +26,10 @@ devs = [devs_As devs_Ap devs_As];
 G0 = GdB;
 
 % calculo da ordem com firpmord
-fcuts = fcuts + [0 -15 10 0];
+if ExecutarAjuste
+    fcuts = fcuts + [0 -15 10 0];
+end
+
 [n,f0,a0,w0] = firpmord(fcuts,mags,devs,fa);
 
 % calculo algoritmo PM
@@ -36,11 +39,11 @@ h_pm = h_pm*10^(G0/20);
 %%
 figure(1)
 subplot(321)
-title('Resposta de magnitude')
+title('Resposta de Frequencia')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
-title('Resposta em magnitude')
+title('Resposta de Frequencia')
 xlim([2000 5000]);ylim([-80 10]);
 hold on;
 Amin = 80;
@@ -100,7 +103,7 @@ subplot(321)
 % plot(w/pi*escala, 20*log10(abs(h))); grid on;
 plot(w*fa/2/pi,20*log10(abs(h)))
 hold on;
-title('Resposta de Magnitude')
+title('Resposta de Frequencia')
 ylim([-80 5])
 Amin = 80;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')

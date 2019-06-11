@@ -41,6 +41,7 @@ Op = 1;
 
 %% IIR Eliptico
 [n, Wn] = ellipord(Op, Os, Ap, As,'s');
+% n = n - 1;
 [b,a] = ellip(n,Ap,As, Wn, 's');
 
 %% Primeiro plot
@@ -164,7 +165,7 @@ figure(3)
 subplot(221)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
-ylim([-80 10])
+xlim([0 fa/2]);ylim([-80 10])
 title('H(z)')
 grid on
 hold on
@@ -198,12 +199,12 @@ xlim([2600 3500]); ylim([-45 -35]);
 %%
 figure(4)
 % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
-
+escala = fa/2;
 subplot(321)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
-plot(wz/pi*fa/2, 20*log10(abs(hz)));
-ylim([-80 10])
-title('Resposta de Magnitude para H(z)')
+plot(wz/pi*escala, 20*log10(abs(hz)));
+xlim([0 fa/2]);ylim([-80 10])
+title('Resposta de Frequência para H(z)')
 grid on
 hold on
 plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
@@ -220,7 +221,7 @@ stem(imp); grid on;
 title('Resposta ao impulso')
 
 subplot(323)
-plot(wz/pi, unwrap(angle(hz))/pi); grid on;
+plot(wz/pi*escala, unwrap(angle(hz))/pi); grid on;
 title('Resposta de Fase para H(z)')
 
 subplot(325)

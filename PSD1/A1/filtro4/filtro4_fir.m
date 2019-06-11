@@ -43,7 +43,7 @@ title('Resposta de magnitude')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
-title('Resposta em magnitude')
+title('Resposta de Frequencia')
 xlim([1000 1500]); ylim([-80 10]);
 hold on;
 Amin = 80;
@@ -97,11 +97,11 @@ stem(h_pm), grid on;
 title('Resposta ao impulso')
 
 subplot(321)
-title('Resposta de magnitude')
+title('Resposta de Frequencia')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
-title('Resposta em magnitude')
+title('Resposta de Frequencia')
 xlim([1000 1500]); ylim([-80 10]);
 grid on; hold on;
 

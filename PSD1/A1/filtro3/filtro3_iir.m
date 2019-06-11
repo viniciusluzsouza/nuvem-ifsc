@@ -244,12 +244,12 @@ xlim([3350 3600]); ylim([-45 -35]);
 %%
 figure(4)   
 % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
-
+escala = fa/2;
 subplot(321)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
-plot(wz/pi*fa/2, 20*log10(abs(hz)));
+plot(wz/pi*escala, 20*log10(abs(hz)));
 ylim([-80 0])
-title('Resposta de Magnitude para H(z)')
+title('Resposta de Frequencia para H(z)')
 grid on
 hold on
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec, 6000],[-As,-As,GdB,GdB,-As,-As], 'r')
@@ -266,7 +266,7 @@ stem(imp); grid on;
 title('Resposta ao impulso')
 
 subplot(323)
-plot(wz/pi, unwrap(angle(hz))/pi); grid on;
+plot(wz/pi*escala, unwrap(angle(hz))/pi); grid on;
 title('Resposta de Fase para H(z)')
 
 subplot(325)

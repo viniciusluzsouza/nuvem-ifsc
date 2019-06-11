@@ -65,11 +65,11 @@ b = b.*wk*10^(-G0/20); % janela de keiser
 %%
 figure(1)
 subplot(221)
-title('Resposta de magnitude')
+title('Resposta de frequencia')
 [h, w] = freqz(b, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w/pi, 20*log10(abs(h))); grid on;
-title('Resposta em magnitude')
+title('Resposta de frequencia')
 ylim([-80 10])
 hold on;
 plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
@@ -117,7 +117,7 @@ subplot(321)
 % plot(w/pi, abs(h)); grid on;
 plot(w/pi*escala, 20*log10(abs(h))); grid on;
 hold on;
-title('Resposta de Magnitude')
+title('Resposta de Frequencia')
 ylim([-80 5])
 Amin = 80;
 plot([0,fs,fs,fa/2],[-As,-As,0,0], 'r')
