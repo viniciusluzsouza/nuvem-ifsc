@@ -50,18 +50,22 @@ figure(1)
 subplot(221)
 [h, w] = freqs(b, a, logspace(-2, 1, 1000000));
 semilogx(w, 20*log10(abs(h)))
-title('H(p)')
+title('(a) H(p)')
 grid on; hold on;
 plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
 plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
 xlim([0.5 2]); ylim([-60 10]);
+xlabel('Omega (adm)');
+ylabel('Magnitude (dB)');
 hold off;
 subplot(222)
 zplane(b, a);
-title('Diagrama de polos e zeros')
+title('b) Diagrama de polos e zeros')
 subplot(2,2,3)
 semilogx(w, 20*log10(abs(h)))
-title('H(p) - Banda Passagem')
+title('c) H(p) - Banda Passagem')
+xlabel('Omega (adm)');
+ylabel('Magnitude (dB)');
 grid on; hold on;
 
 plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
@@ -70,7 +74,9 @@ xlim([0.6 1.33]); ylim([-2 1]);
 
 subplot(2,2,4)
 semilogx(w, 20*log10(abs(h)))
-title('H(p) - Banda Rejeição')
+title('d) H(p) - Banda Rejeicao')
+xlabel('Omega (adm)');
+ylabel('Magnitude (dB)');
 grid on; hold on;
 
 plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
@@ -111,31 +117,37 @@ subplot(221)
 [hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
 % semilogx(wf, 20*log10(abs(hf)))
 plot(wf,20*log10(abs(hf)));
-ylim([-80 10])
-title('H(s)')
+ylim([-60 10])
+title('a) H(s)')
 grid on
 hold on
 plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
 plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
+xlabel('Lambda (Hz)');
+ylabel('Magnitude (dB)');
 
 subplot(222)
 zplane(bsn, asn);
-title('Diagrama de polos e zeros')
+title('b) Diagrama de polos e zeros')
 subplot(2,2,3)
 plot(wf,20*log10(abs(hf)));
-title('H(s) - Banda Passagem')
+title('c) H(s) - Banda Passagem')
 grid on; hold on;
 plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
 plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
 xlim([1.6 3.3]); ylim([-2 1]);
+xlabel('Lambda (Hz)');
+ylabel('Magnitude (dB)');
 
 subplot(2,2,4)
 plot(wf,20*log10(abs(hf)));
-title('H(s) - Banda de Rejeição')
+title('d) H(s) - Banda de Rejeicao')
 grid on; hold on;
 plot([0,lambda_s_espec,lambda_s_espec,(fa/2/1000)+1],[0,0,-As,-As], 'r')
 plot([0,lambda_p_espec,lambda_p_espec],[-Ap,-Ap,-80], 'r')
 xlim([2.2 3.5]); ylim([-45 -35]);
+xlabel('Lambda (Hz)');
+ylabel('Magnitude (dB)');
 
 % eixos = axes;
 % titulo = title('Transformacao LP -> LP', 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);
@@ -165,31 +177,37 @@ figure(3)
 subplot(221)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
-xlim([0 fa/2]);ylim([-80 10])
-title('H(z)')
+xlim([0 fa/2]);ylim([-60 10])
+title('a) H(z)')
 grid on
 hold on
 plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
 
 subplot(222)
 zplane(bzn, azn);
-title('Diagrama de polos e zeros')
+title('b) Diagrama de polos e zeros')
 subplot(2,2,3)
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
-title('H(z) - Banda Passagem')
+title('c) H(z) - Banda Passagem')
 grid on; hold on;
 plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
 xlim([2000 3500]); ylim([-2 1]);
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
 
 subplot(2,2,4)
 plot(wz/pi*fa/2, 20*log10(abs(hz)));
-title('H(z) - Banda de Rejeição')
+title('d) H(z) - Banda de Rejeicao')
 grid on; hold on;
 plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
 xlim([2600 3500]); ylim([-45 -35]);
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
 
 % eixos = axes;
 % titulo = title('Transformacao Analogico -> Digital', 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);
@@ -203,31 +221,43 @@ escala = fa/2;
 subplot(321)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
 plot(wz/pi*escala, 20*log10(abs(hz)));
-xlim([0 fa/2]);ylim([-80 10])
-title('Resposta de Frequência para H(z)')
+xlim([0 fa/2]);ylim([-60 10])
+title('a) Resposta de Frequencia para H(z)')
 grid on
 hold on
 plot([0,fs_espec,fs_espec,(fa/2)+1000],[0,0,-As,-As], 'r')
 plot([0,fp_espec,fp_espec,],[-Ap,-Ap,-80], 'r')
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
 
 subplot(3,2,[4 6])
 zplane(bzn, azn);
-title('Diagrama de polos (x) e zeros (o)')
+title('e) Diagrama de polos (x) e zeros (o)')
+xlabel('Real');
+ylabel('Imaginario');
+
 
 subplot(322)
 delta = [1, zeros(1, 10)];
 imp = filter(bzn, azn, delta);
-stem(imp); grid on;
-title('Resposta ao impulso')
+x_imp = [0:length(delta)-1]/fa*1000;
+stem(x_imp, imp); grid on;
+title('b) Resposta ao impulso')
+xlabel('Amostras (ms)');
+ylabel('Amplitude (adm)');
 
 subplot(323)
 plot(wz/pi*escala, unwrap(angle(hz))/pi); grid on;
-title('Resposta de Fase para H(z)')
+title('c) Resposta de Fase para H(z)')
+xlabel('Frequencia (Hz)');
+ylabel('Fase (rad)');
 
 subplot(325)
-grpdelay(bzn, azn)
-
-title('Atraso de grupo para H(z)')
+[del_y, del_x] = grpdelay(bzn, azn);
+plot(del_x/pi*fa/2, del_y/fa*1000);
+xlabel('Frequencia (Hz)');
+ylabel('Tempo (ms)');
+title('d) Atraso de grupo para H(z)')
 
 % eixos = axes;
 % texto = ['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)];
