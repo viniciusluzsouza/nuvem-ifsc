@@ -39,10 +39,10 @@ h_pm = h_pm*10^(G0/20);
 %%
 figure(1)
 subplot(321)
-title('a) Resposta em Frequencia')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('a) Resposta em Frequencia')
 xlim([0 fa/2]);ylim([-60 -5]);
 hold on;
 Amin = 80;

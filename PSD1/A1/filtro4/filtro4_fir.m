@@ -39,10 +39,10 @@ h_pm = h_pm*10^(G0/20);
 %%
 figure(1)
 subplot(321)
-title('a) Resposta em Frequencia')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('a) Resposta em Frequencia')
 xlim([1100 1500]); ylim([-80 5]);
 hold on;
 Amin = 80;
@@ -110,10 +110,10 @@ xlabel('Amostras (ms)');
 ylabel('Amplitude (adm)');
 
 subplot(321)
-title('a) Resposta em Frequencia')
 [h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('a) Resposta em Frequencia')
 xlim([1100 1500]); ylim([-80 5]);
 grid on; hold on;
 xlabel('Frequencia (Hz)');

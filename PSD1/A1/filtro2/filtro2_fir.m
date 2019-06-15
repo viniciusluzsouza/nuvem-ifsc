@@ -65,10 +65,10 @@ b = b.*wk*10^(-G0/20); % janela de keiser
 %%
 figure(1)
 subplot(221)
-title('a) Resposta em frequencia')
 [h, w] = freqz(b, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
 plot(w/pi, 20*log10(abs(h))); grid on;
+title('a) Resposta em frequencia')
 ylim([-40 5])
 hold on;
 plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
