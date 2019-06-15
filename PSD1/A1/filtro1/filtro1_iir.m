@@ -244,7 +244,7 @@ ylabel('Imaginario');
 
 
 subplot(322)
-delta = [1, zeros(1, 10)];
+delta = [1, zeros(1, 61)];
 imp = filter(bzn, azn, delta);
 x_imp = [0:length(delta)-1]/fa*1000;
 stem(x_imp, imp); grid on;

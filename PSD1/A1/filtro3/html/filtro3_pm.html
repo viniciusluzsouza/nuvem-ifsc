@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>filtro3_pm</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-06-14"><meta name="DC.source" content="filtro3_pm.m"><style type="text/css">
+      --><title>filtro3_pm</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-06-15"><meta name="DC.source" content="filtro3_pm.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -129,7 +129,7 @@ title(<span class="string">'c) Banda Passagem'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
-xlim([2850 3650]); ylim([-60 -5]);
+xlim([3150 3450]); ylim([-20 -5]);
 xlabel(<span class="string">'Frequencia (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 
@@ -139,7 +139,7 @@ title(<span class="string">'d) Banda de Rejeicao'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
-xlim([2850 3250]); ylim([-60 -5]);
+xlim([2950 3050]); ylim([-50 -30]);
 xlabel(<span class="string">'Frequencia (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 
@@ -149,7 +149,7 @@ title(<span class="string">'e) Banda de Rejeicao'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
-xlim([3350 3600]); ylim([-60 -5]);
+xlim([3450 3550]); ylim([-50 -30]);
 xlabel(<span class="string">'Frequencia (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 </pre><img vspace="5" hspace="5" src="filtro3_pm_01.png" alt=""> <pre class="codeinput">figure(2)
@@ -269,7 +269,7 @@ title('c) Banda Passagem')
 grid on; hold on;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
-xlim([2850 3650]); ylim([-60 -5]);
+xlim([3150 3450]); ylim([-20 -5]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -279,7 +279,7 @@ title('d) Banda de Rejeicao')
 grid on; hold on;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
-xlim([2850 3250]); ylim([-60 -5]);
+xlim([2950 3050]); ylim([-50 -30]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -289,7 +289,7 @@ title('e) Banda de Rejeicao')
 grid on; hold on;
 plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
-xlim([3350 3600]); ylim([-60 -5]);
+xlim([3450 3550]); ylim([-50 -30]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 

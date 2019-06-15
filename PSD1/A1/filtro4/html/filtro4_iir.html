@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>filtro4_iir</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-06-14"><meta name="DC.source" content="filtro4_iir.m"><style type="text/css">
+      --><title>filtro4_iir</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-06-15"><meta name="DC.source" content="filtro4_iir.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -245,7 +245,7 @@ title(<span class="string">'d) H(s) - Banda Passagem'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], <span class="string">'r'</span>)
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], <span class="string">'g'</span>)
-xlim([1.1 1.3]); ylim([-10 5]);
+xlim([1.225 1.226]); ylim([-1 1]);
 
 subplot(3,2,3)
 plot(wf,20*log10(abs(hf)));
@@ -253,7 +253,7 @@ title(<span class="string">'c) H(s) - Banda Passagem'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], <span class="string">'r'</span>)
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], <span class="string">'g'</span>)
-xlim([0.9 1.1]); ylim([-10 5]);
+xlim([1.015 1.025]); ylim([-1 1]);
 xlabel(<span class="string">'Lambda (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 
@@ -264,7 +264,7 @@ title(<span class="string">'e) H(s) - Banda de Rejeicao'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], <span class="string">'r'</span>)
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], <span class="string">'g'</span>)
-xlim([1 1.25]); ylim([-80 -40])
+xlim([1.05 1.2]); ylim([-65 -55])
 xlabel(<span class="string">'Lambda (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 </pre><img vspace="5" hspace="5" src="filtro4_iir_02.png" alt=""> <h2 id="7">Transformando em Z (bilinear)</h2><pre class="codeinput">syms <span class="string">z</span>;
@@ -345,7 +345,7 @@ title(<span class="string">'c) H(z) - Banda Passagem'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], <span class="string">'r'</span>)
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], <span class="string">'g'</span>)
-xlim([1125 1275]); ylim([-20 5]);
+xlim([1195 1205]); ylim([-2 2]);
 xlabel(<span class="string">'Frequencia (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 
@@ -355,7 +355,7 @@ title(<span class="string">'d) H(z) - Banda Passagem'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], <span class="string">'r'</span>)
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], <span class="string">'g'</span>)
-xlim([1275 1425]); ylim([-20 5]);
+xlim([1395 1405]); ylim([-2 2]);
 xlabel(<span class="string">'Frequencia (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 
@@ -365,7 +365,7 @@ title(<span class="string">'e) H(z) - Banda de Rejeicao'</span>)
 grid <span class="string">on</span>; hold <span class="string">on</span>;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], <span class="string">'r'</span>)
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], <span class="string">'g'</span>)
-xlim([1175 1450]); ylim([-80 -40]);
+xlim([1225 1325]); ylim([-65 -55]);
 xlabel(<span class="string">'Frequencia (Hz)'</span>);
 ylabel(<span class="string">'Magnitude (dB)'</span>);
 </pre><img vspace="5" hspace="5" src="filtro4_iir_03.png" alt=""> <pre class="codeinput">figure(4)
@@ -391,7 +391,7 @@ xlabel(<span class="string">'Real'</span>);
 ylabel(<span class="string">'Imaginario'</span>);
 
 subplot(322)
-delta = [1, zeros(1, 10)];
+delta = [1, zeros(1, 35)];
 imp = filter(bzn, azn, delta);
 x_imp = [0:length(delta)-1]/fa*1000;
 stem(x_imp, imp); grid <span class="string">on</span>;
@@ -411,7 +411,7 @@ plot(del_x/pi*fa/2, del_y/fa*1000);
 xlabel(<span class="string">'Frequencia (Hz)'</span>);
 ylabel(<span class="string">'Tempo (ms)'</span>);
 title(<span class="string">'d) Atraso de grupo para H(z)'</span>)
-</pre><img vspace="5" hspace="5" src="filtro4_iir_04.png" alt=""> <img vspace="5" hspace="5" src="filtro4_iir_05.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="filtro4_iir_04.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 % Projeto filtro 4 IIR - Chebyshev 1
 % BS - (fa = 8000 Hz, f1 = 1200 Hz; f2 = 1250 Hz, f3 = 1300 Hz;
@@ -560,7 +560,7 @@ title('d) H(s) - Banda Passagem')
 grid on; hold on;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1.1 1.3]); ylim([-10 5]);
+xlim([1.225 1.226]); ylim([-1 1]);
 
 subplot(3,2,3)
 plot(wf,20*log10(abs(hf)));
@@ -568,7 +568,7 @@ title('c) H(s) - Banda Passagem')
 grid on; hold on;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([0.9 1.1]); ylim([-10 5]);
+xlim([1.015 1.025]); ylim([-1 1]);
 xlabel('Lambda (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -579,7 +579,7 @@ title('e) H(s) - Banda de Rejeicao')
 grid on; hold on;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1 1.25]); ylim([-80 -40])
+xlim([1.05 1.2]); ylim([-65 -55])
 xlabel('Lambda (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -625,7 +625,7 @@ title('c) H(z) - Banda Passagem')
 grid on; hold on;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1125 1275]); ylim([-20 5]);
+xlim([1195 1205]); ylim([-2 2]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -635,7 +635,7 @@ title('d) H(z) - Banda Passagem')
 grid on; hold on;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1275 1425]); ylim([-20 5]);
+xlim([1395 1405]); ylim([-2 2]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -645,7 +645,7 @@ title('e) H(z) - Banda de Rejeicao')
 grid on; hold on;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1175 1450]); ylim([-80 -40]);
+xlim([1225 1325]); ylim([-65 -55]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -673,7 +673,7 @@ xlabel('Real');
 ylabel('Imaginario');
 
 subplot(322)
-delta = [1, zeros(1, 10)];
+delta = [1, zeros(1, 35)];
 imp = filter(bzn, azn, delta);
 x_imp = [0:length(delta)-1]/fa*1000;
 stem(x_imp, imp); grid on;

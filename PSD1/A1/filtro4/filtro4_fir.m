@@ -63,7 +63,7 @@ title('c) Banda Passagem')
 grid on; hold on;
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
-xlim([1150 1275]); ylim([-40 5]);
+xlim([1195 1205]); ylim([-2 2]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -73,7 +73,7 @@ title('d) Banda Passagem')
 grid on; hold on;
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
-xlim([1275 1450]); ylim([-40 5]);
+xlim([1395 1405]); ylim([-2 2]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -83,7 +83,7 @@ title('e) Banda de Rejeicao')
 grid on; hold on;
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
 plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
-xlim([1180 1420]); ylim([-80 -40]);
+xlim([1225 1325]); ylim([-65 -55]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 

@@ -145,7 +145,7 @@ title('d) H(s) - Banda Passagem')
 grid on; hold on;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1.1 1.3]); ylim([-10 5]);
+xlim([1.225 1.226]); ylim([-1 1]);
 
 subplot(3,2,3)
 plot(wf,20*log10(abs(hf)));
@@ -153,7 +153,7 @@ title('c) H(s) - Banda Passagem')
 grid on; hold on;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([0.9 1.1]); ylim([-10 5]);
+xlim([1.015 1.025]); ylim([-1 1]);
 xlabel('Lambda (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -164,7 +164,7 @@ title('e) H(s) - Banda de Rejeicao')
 grid on; hold on;
 plot([0,lambda_s1_espec,lambda_s1_espec,lambda_s2_espec, lambda_s2_espec,2],[0,0,-As,-As,0,0], 'r')
 plot([0,lambda_p1_espec,lambda_p1_espec,lambda_p2_espec, lambda_p2_espec,2],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1 1.25]); ylim([-80 -40])
+xlim([1.05 1.2]); ylim([-65 -55])
 xlabel('Lambda (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -210,7 +210,7 @@ title('c) H(z) - Banda Passagem')
 grid on; hold on;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1125 1275]); ylim([-20 5]);
+xlim([1195 1205]); ylim([-2 2]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -220,7 +220,7 @@ title('d) H(z) - Banda Passagem')
 grid on; hold on;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1275 1425]); ylim([-20 5]);
+xlim([1395 1405]); ylim([-2 2]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -230,7 +230,7 @@ title('e) H(z) - Banda de Rejeicao')
 grid on; hold on;
 plot([0,fs1_espec,fs1_espec,fs2_espec, fs2_espec,2000],[0,0,-As,-As,0,0], 'r')
 plot([0,fp1_espec,fp1_espec,fp2_espec, fp2_espec,2000],-[Ap,Ap,As+10,As+10,Ap,Ap], 'g')
-xlim([1175 1450]); ylim([-80 -40]);
+xlim([1225 1325]); ylim([-65 -55]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
@@ -258,7 +258,7 @@ xlabel('Real');
 ylabel('Imaginario');
 
 subplot(322)
-delta = [1, zeros(1, 10)];
+delta = [1, zeros(1, 35)];
 imp = filter(bzn, azn, delta);
 x_imp = [0:length(delta)-1]/fa*1000;
 stem(x_imp, imp); grid on;
