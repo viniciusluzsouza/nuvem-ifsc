@@ -266,7 +266,7 @@ pretty(vpa(Hzn(z),5))
      5              4           3            2
     z  + 0.0058624 z  + 1.3167 z  - 0.32649 z  + 0.44365 z - 0.17764
 
-</pre><img vspace="5" hspace="5" src="filtro1_iir_03.png" alt=""> <pre class="codeinput">figure(3)
+</pre><pre class="codeinput">figure(3)
 <span class="comment">% suptitle('Transforma????o anal??gico -&gt; digital')</span>
 subplot(221)
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
@@ -309,7 +309,7 @@ ylabel(<span class="string">'Magnitude (dB)'</span>);
 <span class="comment">% titulo = title('Transformacao Analogico -&gt; Digital', 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);</span>
 <span class="comment">% eixos.Visible = 'off';</span>
 <span class="comment">% titulo.Visible = 'on';</span>
-</pre><pre class="codeinput">figure(4)
+</pre><img vspace="5" hspace="5" src="filtro1_iir_03.png" alt=""> <pre class="codeinput">figure(4)
 <span class="comment">% suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])</span>
 escala = fa/2;
 subplot(321)
@@ -358,7 +358,7 @@ title(<span class="string">'d) Atraso de grupo para H(z)'</span>)
 <span class="comment">% titulo = title(texto, 'FontSize', 14, 'Color', [0.6350 0.0780 0.1840]);</span>
 <span class="comment">% eixos.Visible = 'off';</span>
 <span class="comment">% titulo.Visible = 'on';</span>
-</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="filtro1_iir_04.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 % Projeto filtro 1
 % LP - (fa = 10000 Hz, f1 = 2800 Hz; f2 = 3200 Hz, Ap = 1 dB, As = 40 dB, GdB = 0 dB)
