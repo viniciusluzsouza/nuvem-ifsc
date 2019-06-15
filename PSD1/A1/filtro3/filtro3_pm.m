@@ -138,3 +138,8 @@ plot(del_x/pi*fa/2, del_y/fa*1000);
 title('d) Atraso de grupo')
 xlabel('Frequencia (Hz)');
 ylabel('Tempo (ms)');
+
+%%
+syms z
+H(z) = poly2sym(h_pm, z);
+pretty(vpa(collect(H(z)), 3))

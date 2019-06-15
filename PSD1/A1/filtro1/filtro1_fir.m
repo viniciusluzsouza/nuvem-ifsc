@@ -143,8 +143,10 @@ title('d) Atraso de grupo')
 xlabel('Frequencia (Hz)');
 ylabel('Tempo (ms)');
 
-
-
+%%
+syms z
+H(z) = poly2sym(b, z);
+pretty(vpa(collect(H(z)), 3))
 
 % %% Simulacao com PM
 % % Specs:

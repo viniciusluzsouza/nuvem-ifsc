@@ -96,6 +96,14 @@ Dp(p) = poly2sym(a, p);
 Hp(p) = Np(p) / Dp(p);
 pretty(vpa(collect(Hp(p)), 5))
 
+[Npn, Dpn] = numden(Hp(p));
+bp = sym2poly(Npn);
+ap = sym2poly(Dpn);
+bpn = bp/ap(1);
+apn = ap/ap(1);
+Hpn(p) = poly2sym(bpn, p)/poly2sym(apn, p);
+pretty(vpa(Hpn(p), 5))
+
 %% Normalizando de acordo com p^n
 syms s;
 Hs(s) = collect(subs(Hp(p), lambda_p/s));
