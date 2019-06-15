@@ -93,20 +93,26 @@ subplot(321)
 escala = fa/2;
 [hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
 plot(wz/pi*escala, 20*log10(abs(hz)));
-xlim([1500 5000]); ylim([-30 5]);
-title('IIR - Resposta em Frequencia')
+xlim([1500 5000]); ylim([-40 5]);
+title('a) IIR - Resposta em Frequencia')
 grid on
 hold on
 plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], 'r')
 plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
 
 subplot(323)
 plot(wz/pi*escala, unwrap(angle(hz))/pi); grid on;
-title('IIR - Resposta de Fase')
+title('c) IIR - Resposta de Fase')
+xlabel('Frequencia (Hz)');
+ylabel('Fase (rad)');
 
 subplot(325)
 zplane(bzn, azn);
-title('IIR - Diagrama de polos e zeros')
+title('e) IIR - Diagrama de polos e zeros')
+xlabel('Real');
+ylabel('Imaginario');
 
 %% Calculos filtro FIR
 
@@ -179,18 +185,24 @@ escala = fa/2;
 % plot(w/pi, abs(h)); grid on;
 plot(w/pi*escala, 20*log10(abs(h))); grid on;
 hold on;
-title('FIR - Resposta em Frequencia')
-ylim([-80 5])
+title('b) FIR - Resposta em Frequencia')
+ylim([-40 5])
 Amin = 80;
 plot([0,fs,fs,fa/2],[-As,-As,0,0], 'r')
 plot([fa/2,fp,fp,],[-Ap,-Ap,-80], 'r')
 xlim([0 fa/2])
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
 
 subplot(324)
 plot(w/pi*escala, unwrap(angle(h))/pi); grid on;
-title('FIR - Resposta de Fase')
+title('d) FIR - Resposta de Fase')
+xlabel('Frequencia (Hz)');
+ylabel('Fase (rad)');
 
 subplot(326)
 zplane(b, 1);
 axis([-2 2 -2 2])
-title('FIR - Diagrama de polos e zeros')
+title('f) FIR - Diagrama de polos e zeros')
+xlabel('Real');
+ylabel('Imaginario');

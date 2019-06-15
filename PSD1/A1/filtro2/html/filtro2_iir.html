@@ -1,0 +1,633 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>filtro2_iir</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-06-14"><meta name="DC.source" content="filtro2_iir.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Especificacoes</a></li><li><a href="#3">IIR Butterworth</a></li><li><a href="#4">Primeiro plot</a></li><li><a href="#5">Transformacao de frequencia</a></li><li><a href="#6">Normalizando de acordo com p^n</a></li><li><a href="#7">Resposta em frequencia</a></li><li><a href="#8">Transformando em Z (bilinear)</a></li></ul></div><pre class="codeinput">close <span class="string">all</span>;
+clear <span class="string">all</span>;
+clc;
+
+ExecutarAjuste = 1;
+</pre><h2 id="2">Especificacoes</h2><pre class="codeinput">Ap = 0.5; As = 20; GdB = 0;
+
+fa_espec = 10000; fs_espec = 2800; fp_espec = 3200;
+wa_espec = 2*pi*fa_espec;
+wp_espec = 2*pi*fp_espec; ws_espec = 2*pi*fs_espec;
+Wp_espec = 1; Ws_espec = wp_espec/ws_espec;
+tetha_s_espec = ws_espec/(wa_espec/2);
+tetha_p_espec = wp_espec/(wa_espec/2);
+lambda_s_espec = 2*tan(tetha_s_espec * pi/2);
+lambda_p_espec = 2*tan(tetha_p_espec * pi/2);
+Os_espec = lambda_p_espec/lambda_s_espec;
+Op_espec = 1;
+
+<span class="comment">% Ajustes</span>
+delta = 0;
+<span class="keyword">if</span> ExecutarAjuste
+    delta = -(2812-2800)/2;
+<span class="keyword">end</span>
+
+fa = fa_espec;  wa = wa_espec;
+fp = fp_espec + delta; fs = fs_espec + delta;
+wp = 2*pi*fp; ws = 2*pi*fs;
+Wp = wp_espec; Ws = wp/ws;
+tetha_s = ws/(wa/2);
+tetha_p = wp/(wa/2);
+lambda_s = 2*tan(tetha_s * pi/2);
+lambda_p = 2*tan(tetha_p * pi/2);
+Os = lambda_p/lambda_s;
+Op = 1;
+</pre><h2 id="3">IIR Butterworth</h2><p>[n1, Wn1] = buttord(Op, Os, Ap, As,'s'); [b1, a1] = butter(n1, Wn1, 's');</p><pre class="codeinput"><span class="comment">% calculo na mao</span>
+epson = sqrt((10^(0.1*Ap))-1);
+n = ceil(log(((10^(0.1*As))-1)/epson) / (2*log(Os_espec)));
+n = n + 2;
+k = 1:n;
+pk = (epson^(-1/n))*exp((1j*(2*k+n-1)/(2*n))*pi);
+b = 1/epson;
+a = poly(pk); a = real(a);
+</pre><h2 id="4">Primeiro plot</h2><pre class="codeinput">figure(1)
+subplot(221)
+[h, w] = freqs(b, a, logspace(-2, 1, 1000000));
+semilogx(w, 20*log10(abs(h)))
+title(<span class="string">'a) H(p)'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], <span class="string">'r'</span>)
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], <span class="string">'r'</span>)
+xlim([0.5 2]); ylim([-40 5]);
+hold <span class="string">off</span>;
+xlabel(<span class="string">'Omega (adm)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(222)
+zplane(b, a);
+title(<span class="string">'b) Diagrama de polos e zeros'</span>)
+xlabel(<span class="string">'Real'</span>);
+ylabel(<span class="string">'Imaginario'</span>);
+subplot(2,2,3)
+semilogx(w, 20*log10(abs(h)))
+title(<span class="string">'c) H(p) - Banda Passagem'</span>)
+xlabel(<span class="string">'Omega (adm)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], <span class="string">'r'</span>)
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], <span class="string">'r'</span>)
+xlim([0.91 1.1]); ylim([-2 1]);
+
+
+subplot(2,2,4)
+semilogx(w, 20*log10(abs(h)))
+title(<span class="string">'d) H(p) - Banda de Rejeicao'</span>)
+xlabel(<span class="string">'Omega (adm)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], <span class="string">'r'</span>)
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], <span class="string">'r'</span>)
+xlim([0.95 1.4]); ylim([-25 -15]);
+</pre><img vspace="5" hspace="5" src="filtro2_iir_01.png" alt=""> <h2 id="5">Transformacao de frequencia</h2><p>LP para HP</p><pre class="codeinput">syms <span class="string">p</span>;
+Np(p) = poly2sym(b, p);
+Dp(p) = poly2sym(a, p);
+Hp(p) = Np(p) / Dp(p);
+pretty(vpa(collect(Hp(p)), 5))
+</pre><pre class="codeoutput">          15            15  13            16  12            16  11
+(6.4464 10  )/(2.2518 10   p   + 2.0256 10   p   + 9.1104 10   p
+
+              17  10            17  9            17  8            18  7
+   + 2.7047 10   p   + 5.9004 10   p  + 9.9722 10   p  + 1.3419 10   p
+
+             18  6            18  5            17  4            17  3
+   + 1.455 10   p  + 1.2712 10   p  + 8.8424 10   p  + 4.7652 10   p
+
+             17  2            16              15
+   + 1.887 10   p  + 4.9324 10   p + 6.4464 10  )
+
+</pre><h2 id="6">Normalizando de acordo com p^n</h2><pre class="codeinput">syms <span class="string">s</span>;
+Hs(s) = collect(subs(Hp(p), lambda_p/s));
+pretty(vpa(Hs(s), 3))
+[N, D] = numden(Hs(s));
+
+bs = sym2poly(N);
+as = sym2poly(D);
+an = as(1);
+bsn = bs/an;
+asn = as/an;
+Hsn(s) = poly2sym(bsn, s)/poly2sym(asn, s);
+pretty(vpa(Hsn(s), 5))
+</pre><pre class="codeoutput">                201  12          202  11         203  10          204  9
+#1/(#1 + 2.63 10    s   + 3.16 10    s   + 2.5 10    s   + 1.46 10    s
+
+            204  8          205  7          205  6         206  5
+   + 6.58 10    s  + 2.36 10    s  + 6.84 10    s  + 1.6 10    s
+
+            206  4          206  3         206  2          206
+   + 2.96 10    s  + 4.26 10    s  + 4.5 10    s  + 3.14 10    s
+
+           206
+   + 1.1 10   )
+
+where
+
+               200  13
+   #1 == 1.1 10    s
+
+
+ 13   13           12           11           10            9            8
+s  /(s   + 24.013 s   + 288.32 s   + 2285.0 s   + 13307.0 s  + 60039.0 s
+
+               7             6            6  5            6  4
+   + 215699.0 s  + 624299.0 s  + 1.4559 10  s  + 2.7036 10  s
+
+              6  3            6  2           6             6
+   + 3.8895 10  s  + 4.1117 10  s  + 2.869 10  s + 1.001 10 )
+
+</pre><h2 id="7">Resposta em frequencia</h2><pre class="codeinput">figure(2)
+subplot(221)
+[hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
+<span class="comment">% semilogx(wf, 20*log10(abs(hf)))</span>
+plot(wf,20*log10(abs(hf)));
+xlim([0 5]); ylim([-40 5]);
+title(<span class="string">'a) H(s)'</span>)
+grid <span class="string">on</span>
+hold <span class="string">on</span>
+plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], <span class="string">'r'</span>)
+plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], <span class="string">'r'</span>)
+xlabel(<span class="string">'Lambda (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(222)
+zplane(bsn, asn);
+title(<span class="string">'b) Diagrama de polos e zeros'</span>)
+xlabel(<span class="string">'Real'</span>);
+ylabel(<span class="string">'Imaginario'</span>);
+subplot(2,2,3)
+plot(wf,20*log10(abs(hf)));
+title(<span class="string">'c) H(s) - Banda Passagem'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], <span class="string">'r'</span>)
+plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], <span class="string">'r'</span>)
+xlim([2.5 4]); ylim([-2 1]);
+xlabel(<span class="string">'Lambda (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(2,2,4)
+plot(wf,20*log10(abs(hf)));
+title(<span class="string">'d) H(s) - Banda de Rejeicao'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], <span class="string">'r'</span>)
+plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], <span class="string">'r'</span>)
+xlim([2 3.5]); ylim([-22 -18]);
+xlabel(<span class="string">'Lambda (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+</pre><img vspace="5" hspace="5" src="filtro2_iir_02.png" alt=""> <h2 id="8">Transformando em Z (bilinear)</h2><pre class="codeinput">syms <span class="string">z</span>;
+aux = 2*((z-1)/(z+1));
+Hz(z) = collect(subs(Hs(s), aux));
+pretty(vpa(Hz(z),3))
+
+[Nz,Dz] = numden(Hz(z));
+bz = sym2poly(Nz);
+az = sym2poly(Dz);
+
+an = az(1);
+bzn = bz/an;
+azn = az/an;
+
+Hzn(z) = poly2sym(bzn,z) / poly2sym(azn,z);
+pretty(vpa(Hzn(z),5))
+</pre><pre class="codeoutput">        203  13          205  12         205  11          206  10
+(8.98 10    z   - 1.17 10    z   + 7.0 10    z   - 2.57 10    z
+
+            206  9          207  8          207  7          207  6
+   + 6.42 10    z  - 1.16 10    z  + 1.54 10    z  - 1.54 10    z
+
+            207  5          206  4          206  3         205  2
+   + 1.16 10    z  - 6.42 10    z  + 2.57 10    z  - 7.0 10    z
+
+            205            203         208  13          208  12
+   + 1.17 10    z - 8.98 10   )/(2.6 10    z   + 7.75 10    z
+
+            209  11          209  10          209  9          209  8
+   + 1.48 10    z   + 1.89 10    z   + 1.84 10    z  + 1.37 10    z
+
+           208  7          208  6          208  5          207  4
+   + 8.1 10    z  + 3.76 10    z  + 1.37 10    z  + 3.81 10    z
+
+            206  3          206  2          205            203
+   + 7.94 10    z  + 1.16 10    z  + 1.07 10    z + 4.63 10   )
+
+              13               12              11              10
+(0.000034576 z   - 0.00044948 z   + 0.0026969 z   - 0.0098886 z
+
+               9             8             7             6             5
+   + 0.024722 z  - 0.044499 z  + 0.059332 z  - 0.059332 z  + 0.044499 z
+
+               4              3              2
+   - 0.024722 z  + 0.0098886 z  - 0.0026969 z  + 0.00044948 z
+
+                    13           12           11           10           9
+   - 0.000034576)/(z   + 2.9853 z   + 5.6831 z   + 7.2858 z   + 7.0854 z
+
+             8           7           6            5            4
+   + 5.2939 z  + 3.1209 z  + 1.4468 z  + 0.52602 z  + 0.14696 z
+
+               3              2
+   + 0.030594 z  + 0.0044727 z  + 0.00041083 z + 0.000017848)
+
+</pre><pre class="codeinput">figure(3)
+subplot(221)
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+xlim([1500 5000]); ylim([-40 5]);
+title(<span class="string">'a) H(z)'</span>)
+grid <span class="string">on</span>
+hold <span class="string">on</span>
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], <span class="string">'r'</span>)
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], <span class="string">'r'</span>)
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(222)
+zplane(bzn, azn);
+title(<span class="string">'b) Diagrama de polos e zeros'</span>)
+xlabel(<span class="string">'Real'</span>);
+ylabel(<span class="string">'Imaginario'</span>);
+subplot(2,2,3)
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+title(<span class="string">'c) H(z) - Banda Passagem'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], <span class="string">'r'</span>)
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], <span class="string">'r'</span>)
+xlim([3000 3400]); ylim([-2 1]);
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(2,2,4)
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+title(<span class="string">'d) H(z) - Banda de Rejeicao'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], <span class="string">'r'</span>)
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], <span class="string">'r'</span>)
+xlim([2200 3300]); ylim([-22 -18]);
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+</pre><img vspace="5" hspace="5" src="filtro2_iir_03.png" alt=""> <pre class="codeinput">figure(4)
+<span class="comment">% suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])</span>
+
+subplot(321)
+escala = fa/2;
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
+plot(wz/pi*escala, 20*log10(abs(hz)));
+xlim([1500 5000]); ylim([-40 5]);
+title(<span class="string">'a) Resposta em Frequencia para H(z)'</span>)
+grid <span class="string">on</span>
+hold <span class="string">on</span>
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], <span class="string">'r'</span>)
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], <span class="string">'r'</span>)
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(3,2,[4 6])
+zplane(bzn, azn);
+title(<span class="string">'e) Diagrama de polos (x) e zeros (o)'</span>)
+xlabel(<span class="string">'Real'</span>);
+ylabel(<span class="string">'Imaginario'</span>);
+
+subplot(322)
+delta = [1, zeros(1, 10)];
+imp = filter(bzn, azn, delta);
+x_imp = [0:length(delta)-1]/fa*1000;
+stem(x_imp, imp); grid <span class="string">on</span>;
+title(<span class="string">'b) Resposta ao impulso'</span>)
+xlabel(<span class="string">'Amostras (ms)'</span>);
+ylabel(<span class="string">'Amplitude (adm)'</span>);
+
+subplot(323)
+plot(wz/pi*escala, unwrap(angle(hz))/pi); grid <span class="string">on</span>;
+title(<span class="string">'c) Resposta de Fase para H(z)'</span>)
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Fase (rad)'</span>);
+
+subplot(325)
+[del_y, del_x] = grpdelay(bzn, azn);
+plot(del_x/pi*fa/2, del_y/fa*1000);
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Tempo (ms)'</span>);
+title(<span class="string">'d) Atraso de grupo para H(z)'</span>)
+</pre><img vspace="5" hspace="5" src="filtro2_iir_04.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+close all;
+clear all;
+clc;
+
+ExecutarAjuste = 1;
+
+%% Especificacoes
+Ap = 0.5; As = 20; GdB = 0;
+
+fa_espec = 10000; fs_espec = 2800; fp_espec = 3200;
+wa_espec = 2*pi*fa_espec;
+wp_espec = 2*pi*fp_espec; ws_espec = 2*pi*fs_espec;
+Wp_espec = 1; Ws_espec = wp_espec/ws_espec;
+tetha_s_espec = ws_espec/(wa_espec/2);
+tetha_p_espec = wp_espec/(wa_espec/2);
+lambda_s_espec = 2*tan(tetha_s_espec * pi/2);
+lambda_p_espec = 2*tan(tetha_p_espec * pi/2);
+Os_espec = lambda_p_espec/lambda_s_espec;
+Op_espec = 1;
+
+% Ajustes
+delta = 0;
+if ExecutarAjuste
+    delta = -(2812-2800)/2;
+end
+
+fa = fa_espec;  wa = wa_espec;
+fp = fp_espec + delta; fs = fs_espec + delta;
+wp = 2*pi*fp; ws = 2*pi*fs;
+Wp = wp_espec; Ws = wp/ws;
+tetha_s = ws/(wa/2);
+tetha_p = wp/(wa/2);
+lambda_s = 2*tan(tetha_s * pi/2);
+lambda_p = 2*tan(tetha_p * pi/2);
+Os = lambda_p/lambda_s;
+Op = 1;
+
+%% IIR Butterworth
+% [n1, Wn1] = buttord(Op, Os, Ap, As,'s');
+% [b1, a1] = butter(n1, Wn1, 's');
+
+% calculo na mao
+epson = sqrt((10^(0.1*Ap))-1);
+n = ceil(log(((10^(0.1*As))-1)/epson) / (2*log(Os_espec)));
+n = n + 2;
+k = 1:n;
+pk = (epson^(-1/n))*exp((1j*(2*k+n-1)/(2*n))*pi);
+b = 1/epson;
+a = poly(pk); a = real(a);
+
+
+%% Primeiro plot
+figure(1)
+subplot(221)
+[h, w] = freqs(b, a, logspace(-2, 1, 1000000));
+semilogx(w, 20*log10(abs(h)))
+title('a) H(p)')
+grid on; hold on;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
+xlim([0.5 2]); ylim([-40 5]);
+hold off;
+xlabel('Omega (adm)');
+ylabel('Magnitude (dB)');
+
+subplot(222)
+zplane(b, a);
+title('b) Diagrama de polos e zeros')
+xlabel('Real');
+ylabel('Imaginario');
+subplot(2,2,3)
+semilogx(w, 20*log10(abs(h)))
+title('c) H(p) - Banda Passagem')
+xlabel('Omega (adm)');
+ylabel('Magnitude (dB)');
+grid on; hold on;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
+xlim([0.91 1.1]); ylim([-2 1]);
+
+
+subplot(2,2,4)
+semilogx(w, 20*log10(abs(h)))
+title('d) H(p) - Banda de Rejeicao')
+xlabel('Omega (adm)');
+ylabel('Magnitude (dB)');
+grid on; hold on;
+plot([10^-2,Os_espec,Os_espec,10^1],[0,0,-As,-As], 'r')
+plot([10^-2,Op_espec,Op_espec],[-Ap,-Ap,-80], 'r')
+xlim([0.95 1.4]); ylim([-25 -15]);
+%% Transformacao de frequencia
+% LP para HP
+syms p;
+Np(p) = poly2sym(b, p);
+Dp(p) = poly2sym(a, p);
+Hp(p) = Np(p) / Dp(p);
+pretty(vpa(collect(Hp(p)), 5))
+
+%% Normalizando de acordo com p^n
+syms s;
+Hs(s) = collect(subs(Hp(p), lambda_p/s));
+pretty(vpa(Hs(s), 3))
+[N, D] = numden(Hs(s));
+
+bs = sym2poly(N);
+as = sym2poly(D);
+an = as(1);
+bsn = bs/an;
+asn = as/an;
+Hsn(s) = poly2sym(bsn, s)/poly2sym(asn, s);
+pretty(vpa(Hsn(s), 5))
+
+%% Resposta em frequencia
+figure(2)
+subplot(221)
+[hf, wf] = freqs(bsn, asn, linspace(0, 6, 100000));
+% semilogx(wf, 20*log10(abs(hf)))
+plot(wf,20*log10(abs(hf)));
+xlim([0 5]); ylim([-40 5]);
+title('a) H(s)')
+grid on
+hold on
+plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], 'r')
+plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], 'r')
+xlabel('Lambda (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(222)
+zplane(bsn, asn);
+title('b) Diagrama de polos e zeros')
+xlabel('Real');
+ylabel('Imaginario');
+subplot(2,2,3)
+plot(wf,20*log10(abs(hf)));
+title('c) H(s) - Banda Passagem')
+grid on; hold on;
+plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], 'r')
+plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], 'r')
+xlim([2.5 4]); ylim([-2 1]);
+xlabel('Lambda (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(2,2,4)
+plot(wf,20*log10(abs(hf)));
+title('d) H(s) - Banda de Rejeicao')
+grid on; hold on;
+plot([0,lambda_s_espec,lambda_s_espec,10],[-As,-As,0,0], 'r')
+plot([lambda_p_espec,lambda_p_espec,10],[-60,-Ap,-Ap], 'r')
+xlim([2 3.5]); ylim([-22 -18]);
+xlabel('Lambda (Hz)');
+ylabel('Magnitude (dB)');
+
+%% Transformando em Z (bilinear)
+syms z;
+aux = 2*((z-1)/(z+1));
+Hz(z) = collect(subs(Hs(s), aux));
+pretty(vpa(Hz(z),3))
+
+[Nz,Dz] = numden(Hz(z));
+bz = sym2poly(Nz);
+az = sym2poly(Dz);
+
+an = az(1);
+bzn = bz/an;
+azn = az/an;
+
+Hzn(z) = poly2sym(bzn,z) / poly2sym(azn,z);
+pretty(vpa(Hzn(z),5))
+
+%%
+figure(3)
+subplot(221)
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 100000));
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+xlim([1500 5000]); ylim([-40 5]);
+title('a) H(z)')
+grid on
+hold on
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], 'r')
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(222)
+zplane(bzn, azn);
+title('b) Diagrama de polos e zeros')
+xlabel('Real');
+ylabel('Imaginario');
+subplot(2,2,3)
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+title('c) H(z) - Banda Passagem')
+grid on; hold on;
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], 'r')
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
+xlim([3000 3400]); ylim([-2 1]);
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(2,2,4)
+plot(wz/pi*fa/2, 20*log10(abs(hz)));
+title('d) H(z) - Banda de Rejeicao')
+grid on; hold on;
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], 'r')
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
+xlim([2200 3300]); ylim([-22 -18]);
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+%%
+figure(4)
+% suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
+
+subplot(321)
+escala = fa/2;
+[hz, wz] = freqz(bzn, azn, linspace(0, pi, 10000));
+plot(wz/pi*escala, 20*log10(abs(hz)));
+xlim([1500 5000]); ylim([-40 5]);
+title('a) Resposta em Frequencia para H(z)')
+grid on
+hold on
+plot([0,fs_espec,fs_espec,10000],[-As,-As,0,0], 'r')
+plot([fp_espec,fp_espec,10000],[-60,-Ap,-Ap], 'r')
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(3,2,[4 6])
+zplane(bzn, azn);
+title('e) Diagrama de polos (x) e zeros (o)')
+xlabel('Real');
+ylabel('Imaginario');
+
+subplot(322)
+delta = [1, zeros(1, 10)];
+imp = filter(bzn, azn, delta);
+x_imp = [0:length(delta)-1]/fa*1000;
+stem(x_imp, imp); grid on;
+title('b) Resposta ao impulso')
+xlabel('Amostras (ms)');
+ylabel('Amplitude (adm)');
+
+subplot(323)
+plot(wz/pi*escala, unwrap(angle(hz))/pi); grid on;
+title('c) Resposta de Fase para H(z)')
+xlabel('Frequencia (Hz)');
+ylabel('Fase (rad)');
+
+subplot(325)
+[del_y, del_x] = grpdelay(bzn, azn);
+plot(del_x/pi*fa/2, del_y/fa*1000);
+xlabel('Frequencia (Hz)');
+ylabel('Tempo (ms)');
+title('d) Atraso de grupo para H(z)')
+
+##### SOURCE END #####
+--></body></html>
