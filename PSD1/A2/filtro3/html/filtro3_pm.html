@@ -1,0 +1,347 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>filtro3_pm</title><meta name="generator" content="MATLAB 9.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-06-15"><meta name="DC.source" content="filtro3_pm.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Especificacoes</a></li></ul></div><pre class="codeinput"><span class="comment">% Projeto filtro 3 FIR PM</span>
+<span class="comment">% BP - (fa = 10000 Hz, f1 = 3000 Hz; f2 = 3200 Hz, f3 = 3400 Hz;</span>
+<span class="comment">% f4 = 3500 Hz, Ap = 2 dB, As = 30 dB, GdB = -10 dB)</span>
+
+close <span class="string">all</span>;
+clear <span class="string">all</span>;
+clc;
+
+ExecutarAjuste = 1;
+</pre><h2 id="2">Especificacoes</h2><pre class="codeinput">Ap = 2; As = 30; GdB = -10;
+
+fa = 10000;
+fp1 = 3200; fp2 = 3400;
+fs1 = 3000; fs2 = 3500;
+
+fcuts = [fs1 fp1 fp2 fs2];
+w = fcuts/fa*(2*pi);
+ws1 = w(1)/pi; wp1 = w(2)/pi; wp2 = w(3)/pi; ws2 = w(4)/pi;
+
+mags = [0 1 0];
+devs_As = 10^(-(As+1.6)/20);
+devs_Ap = 1-10^(-Ap/20);
+devs = [devs_As devs_Ap devs_As];
+G0 = GdB;
+
+<span class="comment">% calculo da ordem com firpmord</span>
+<span class="keyword">if</span> ExecutarAjuste
+    fcuts = fcuts + [0 -15 10 0];
+<span class="keyword">end</span>
+
+[n,f0,a0,w0] = firpmord(fcuts,mags,devs,fa);
+
+<span class="comment">% calculo algoritmo PM</span>
+h_pm = firpm(n,f0,a0,w0);
+h_pm = h_pm*10^(G0/20);
+</pre><pre class="codeinput">figure(1)
+subplot(321)
+title(<span class="string">'a) Resposta em Frequencia'</span>)
+[h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
+<span class="comment">% plot(w/pi, abs(h)); grid on;</span>
+plot(w*fa/2/pi,20*log10(abs(h))); grid <span class="string">on</span>;
+xlim([0 fa/2]);ylim([-60 -5]);
+hold <span class="string">on</span>;
+Amin = 80;
+As = As - G0;
+Ap = Ap + G0;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(322)
+zplane(h_pm, 1); axis([-2 2 -2 2]);
+title(<span class="string">'b) Diagrama de polos e zeros'</span>)
+xlabel(<span class="string">'Real'</span>);
+ylabel(<span class="string">'Imaginario'</span>);
+
+subplot(3,2,3:4)
+plot(w*fa/2/pi,20*log10(abs(h))); grid <span class="string">on</span>;
+title(<span class="string">'c) Banda Passagem'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
+xlim([3150 3450]); ylim([-20 -5]);
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(3,2,5)
+plot(w*fa/2/pi,20*log10(abs(h))); grid <span class="string">on</span>;
+title(<span class="string">'d) Banda de Rejeicao'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
+xlim([2950 3050]); ylim([-50 -30]);
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(3,2,6)
+plot(w*fa/2/pi,20*log10(abs(h))); grid <span class="string">on</span>;
+title(<span class="string">'e) Banda de Rejeicao'</span>)
+grid <span class="string">on</span>; hold <span class="string">on</span>;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
+xlim([3450 3550]); ylim([-50 -30]);
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+</pre><img vspace="5" hspace="5" src="filtro3_pm_01.png" alt=""> <pre class="codeinput">figure(2)
+<span class="comment">%suptitle(['LP FIR ' num2str(fp) '-' num2str(fs) ' Ordem: ' num2str(2*M+1)])</span>
+
+escala = fa/2;
+subplot(3,2,[4 6])
+zplane(h_pm, 1);
+axis([-2 2 -2 2])
+title(<span class="string">'e) Diagrama de polos (x) e zeros (o)'</span>)
+xlabel(<span class="string">'Real'</span>);
+ylabel(<span class="string">'Imaginario'</span>);
+
+clear <span class="string">h</span> <span class="string">w</span>
+[h, w] = freqz(h_pm, 1, <span class="string">'whole'</span>);
+
+subplot(322)
+x_imp = [0:length(h_pm)-1]/fa*1000;
+stem(x_imp, h_pm); grid <span class="string">on</span>;
+title(<span class="string">'b) Resposta ao impulso'</span>)
+xlabel(<span class="string">'Amostras (ms)'</span>);
+ylabel(<span class="string">'Amplitude (adm)'</span>);
+
+subplot(321)
+[h, w] = freqz(h_pm, 1, linspace(0,pi,10000));
+<span class="comment">% plot(w/pi, abs(h)); grid on;</span>
+<span class="comment">% plot(w/pi*escala, 20*log10(abs(h))); grid on;</span>
+plot(w*fa/2/pi,20*log10(abs(h)))
+hold <span class="string">on</span>;
+title(<span class="string">'a) Resposta em Frequencia'</span>)
+ylim([-60 -5])
+Amin = 80;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], <span class="string">'-r'</span>)
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], <span class="string">'-m'</span>)
+xlim([0 fa/2])
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Magnitude (dB)'</span>);
+
+subplot(323)
+plot(w/pi*escala, unwrap(angle(h))/pi); grid <span class="string">on</span>;
+title(<span class="string">'Resposta de Fase'</span>)
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Fase (rad)'</span>);
+
+subplot(325)
+[del_y, del_x] = grpdelay(h_pm, 1);
+plot(del_x/pi*fa/2, del_y/fa*1000);
+title(<span class="string">'d) Atraso de grupo'</span>)
+xlabel(<span class="string">'Frequencia (Hz)'</span>);
+ylabel(<span class="string">'Tempo (ms)'</span>);
+</pre><img vspace="5" hspace="5" src="filtro3_pm_02.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% Projeto filtro 3 FIR PM
+% BP - (fa = 10000 Hz, f1 = 3000 Hz; f2 = 3200 Hz, f3 = 3400 Hz;
+% f4 = 3500 Hz, Ap = 2 dB, As = 30 dB, GdB = -10 dB)
+
+close all;
+clear all;
+clc;
+
+ExecutarAjuste = 1;
+
+%% Especificacoes
+Ap = 2; As = 30; GdB = -10;
+
+fa = 10000;
+fp1 = 3200; fp2 = 3400;
+fs1 = 3000; fs2 = 3500;
+
+fcuts = [fs1 fp1 fp2 fs2];
+w = fcuts/fa*(2*pi);
+ws1 = w(1)/pi; wp1 = w(2)/pi; wp2 = w(3)/pi; ws2 = w(4)/pi;
+
+mags = [0 1 0];
+devs_As = 10^(-(As+1.6)/20);
+devs_Ap = 1-10^(-Ap/20);
+devs = [devs_As devs_Ap devs_As];
+G0 = GdB;
+
+% calculo da ordem com firpmord
+if ExecutarAjuste
+    fcuts = fcuts + [0 -15 10 0];
+end
+
+[n,f0,a0,w0] = firpmord(fcuts,mags,devs,fa);
+
+% calculo algoritmo PM
+h_pm = firpm(n,f0,a0,w0);
+h_pm = h_pm*10^(G0/20);
+
+%%
+figure(1)
+subplot(321)
+title('a) Resposta em Frequencia')
+[h, w] = freqz(h_pm, 1, linspace(0,pi,100000));
+% plot(w/pi, abs(h)); grid on;
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+xlim([0 fa/2]);ylim([-60 -5]);
+hold on;
+Amin = 80;
+As = As - G0;
+Ap = Ap + G0;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(322)
+zplane(h_pm, 1); axis([-2 2 -2 2]);
+title('b) Diagrama de polos e zeros')
+xlabel('Real');
+ylabel('Imaginario');
+
+subplot(3,2,3:4)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('c) Banda Passagem')
+grid on; hold on;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+xlim([3150 3450]); ylim([-20 -5]);
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(3,2,5)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('d) Banda de Rejeicao')
+grid on; hold on;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+xlim([2950 3050]); ylim([-50 -30]);
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(3,2,6)
+plot(w*fa/2/pi,20*log10(abs(h))); grid on;
+title('e) Banda de Rejeicao')
+grid on; hold on;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+xlim([3450 3550]); ylim([-50 -30]);
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+%%
+figure(2)
+%suptitle(['LP FIR ' num2str(fp) '-' num2str(fs) ' Ordem: ' num2str(2*M+1)])
+
+escala = fa/2;
+subplot(3,2,[4 6])
+zplane(h_pm, 1);
+axis([-2 2 -2 2])
+title('e) Diagrama de polos (x) e zeros (o)')
+xlabel('Real');
+ylabel('Imaginario');
+
+clear h w
+[h, w] = freqz(h_pm, 1, 'whole');
+
+subplot(322)
+x_imp = [0:length(h_pm)-1]/fa*1000;
+stem(x_imp, h_pm); grid on;
+title('b) Resposta ao impulso')
+xlabel('Amostras (ms)');
+ylabel('Amplitude (adm)');
+
+subplot(321)
+[h, w] = freqz(h_pm, 1, linspace(0,pi,10000));
+% plot(w/pi, abs(h)); grid on;
+% plot(w/pi*escala, 20*log10(abs(h))); grid on;
+plot(w*fa/2/pi,20*log10(abs(h)))
+hold on;
+title('a) Resposta em Frequencia')
+ylim([-60 -5])
+Amin = 80;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+xlim([0 fa/2])
+xlabel('Frequencia (Hz)');
+ylabel('Magnitude (dB)');
+
+subplot(323)
+plot(w/pi*escala, unwrap(angle(h))/pi); grid on;
+title('Resposta de Fase')
+xlabel('Frequencia (Hz)');
+ylabel('Fase (rad)');
+
+subplot(325)
+[del_y, del_x] = grpdelay(h_pm, 1);
+plot(del_x/pi*fa/2, del_y/fa*1000);
+title('d) Atraso de grupo')
+xlabel('Frequencia (Hz)');
+ylabel('Tempo (ms)');
+
+##### SOURCE END #####
+--></body></html>
