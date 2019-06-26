@@ -6,6 +6,7 @@ source_file = 1, /home/vinicius.ls/DLP2/aula1006/controlador_memoria/mem_ctrl_4.
 source_file = 1, /home/vinicius.ls/DLP2/aula1006/controlador_memoria/mem_ctrl_5.vhd
 source_file = 1, /home/vinicius.ls/DLP2/aula1006/controlador_memoria/mem_ctrl_6.vhd
 source_file = 1, /home/vinicius.ls/DLP2/aula1006/controlador_memoria/SDC1.sdc
+source_file = 1, /home/vinicius.ls/DLP2/aula1006/controlador_memoria/comparativo.txt
 source_file = 1, /home/vinicius.ls/DLP2/aula1006/controlador_memoria/db/mem_ctrl_1.cbx.xml
 source_file = 1, /opt/altera/13.0sp1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, /opt/altera/13.0sp1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd

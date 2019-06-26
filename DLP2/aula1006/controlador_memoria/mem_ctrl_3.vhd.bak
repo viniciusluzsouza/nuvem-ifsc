@@ -1,9 +1,6 @@
 --=============================
 -- Listing 10.3
 --=============================
-
--- NAO UTILIZAR !!
-
 library ieee;
 use ieee.std_logic_1164.all;
 entity mem_ctrl_3 is

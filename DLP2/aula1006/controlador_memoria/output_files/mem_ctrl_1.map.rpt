@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mem_ctrl_1
-Mon Jun 10 14:16:10 2019
+Mon Jun 17 13:21:38 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -43,7 +43,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 10 14:16:10 2019            ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 17 13:21:37 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; mem_ctrl_1                                       ;
 ; Top-level Entity Name              ; mem_ctrl_6                                       ;
@@ -156,11 +156,12 @@ applicable agreement for further details.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-40        ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-40        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -267,7 +268,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Jun 10 14:16:01 2019
+    Info: Processing started: Mon Jun 17 13:21:30 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MemoryController -c mem_ctrl_1
 Info (11104): Parallel Compilation has detected 40 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 20 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file mem_ctrl_1.vhd
@@ -280,7 +281,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file mem_ctr
     Info (12022): Found design unit 1: mem_ctrl_3-one_seg_wrong_arch
     Info (12023): Found entity 1: mem_ctrl_3
 Info (12021): Found 2 design units, including 1 entities, in source file mem_ctrl_4.vhd
-    Info (12022): Found design unit 1: mem_ctrl_4-state_assign_arch
+    Info (12022): Found design unit 1: mem_ctrl_4-cleaver_state_assign_arch
     Info (12023): Found entity 1: mem_ctrl_4
 Info (12021): Found 2 design units, including 1 entities, in source file mem_ctrl_5.vhd
     Info (12022): Found design unit 1: mem_ctrl_5-plain_buffer_arch
@@ -301,8 +302,8 @@ Info (21057): Implemented 18 device resources after synthesis - the final resour
     Info (21061): Implemented 10 logic cells
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 426 megabytes
-    Info: Processing ended: Mon Jun 10 14:16:10 2019
-    Info: Elapsed time: 00:00:09
+    Info: Processing ended: Mon Jun 17 13:21:38 2019
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:03
 
 
