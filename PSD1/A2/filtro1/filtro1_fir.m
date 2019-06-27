@@ -25,26 +25,16 @@ wc = wc1;
 
 if ExecutarAjuste
     % primeiro ajuste
-    G0 = 0.5; % db
-
-%     % segundo ajuste M (n/2)
-%     wp2 = 0.5741*pi; ws2 = 0.6375*pi;
-%     Dw2 = ws2 - wp2;
-%     M2 = ceil(M1*Dw2/Dw1); % nova ordem do filtro 2*M2
-%     M = M2;
-% 
-%     % ajuste deslocamento
-%     wc2 = wc1 - ((0.0075+0.0077)/2)*pi;
-%     wc = wc2;
+    G0 = 0.056; % db
 
     % segundo ajuste M (n/2)
-    wp2 = 0.5688*pi; ws2 = 0.6373*pi;
+    wp2 = 0.5741*pi; ws2 = 0.6375*pi;
     Dw2 = ws2 - wp2;
     M2 = ceil(M1*Dw2/Dw1); % nova ordem do filtro 2*M2
     M = M2;
-    
+
     % ajuste deslocamento
-    wc2 = wc1 - ((0.0044+0.003)/2)*pi;
+    wc2 = wc1 - ((0.0075+0.0077)/2)*pi;
     wc = wc2;
 end
     

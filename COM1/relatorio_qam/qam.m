@@ -39,26 +39,19 @@ xlabel('tempo (s)'); ylabel('Amplitude (V)');
 xlim([0 3e-3]);
 subplot(414)
 plot(t, sinal_tx)
-title('Sinal Modulado')
+title('Sinal Modulado com Seno e Cosseno')
 xlabel('tempo (s)'); ylabel('Amplitude (V)');
 xlim([0 3e-3]);
 
-sinal_tx_exp = real(info_mod.*exp(j*wc*t));
-
 figure(2)
-subplot(311)
+subplot(211)
 plot(t, abs(info_mod))
 title('Sinal Informacao 16-QAM')
 xlabel('tempo (s)'); ylabel('Amplitude (V)');
 xlim([0 3e-3]);
-subplot(312)
+subplot(212)
 plot(t, sinal_tx)
 title('Sinal Modulado com Seno e Cosseno')
-xlabel('tempo (s)'); ylabel('Amplitude (V)');
-xlim([0 3e-3]);
-subplot(313)
-plot(t, sinal_tx_exp)
-title('Sinal Modulado com Exponencial')
 xlabel('tempo (s)'); ylabel('Amplitude (V)');
 xlim([0 3e-3]);
 

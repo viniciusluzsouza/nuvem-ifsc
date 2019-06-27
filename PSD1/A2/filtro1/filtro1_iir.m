@@ -1,3 +1,17 @@
+% ordem 5 - bits 11
+% multipliers: 11
+% adders: 10
+% states: 5
+%     delta = (3200-3164)/2;
+%     Apk = Ap - 0.5;
+%     Ask = As;
+%     G0 = 10^(-0.4/20);
+
+% ordem 6 - bits 9
+% multipliers: 13
+% adders: 12
+% states: 6
+
 % Projeto filtro 1
 % LP - (fa = 10000 Hz, f1 = 2800 Hz; f2 = 3200 Hz, Ap = 1 dB, As = 40 dB, GdB = 0 dB)
 
@@ -23,31 +37,9 @@ Op_espec = 1;
 
 % Ajustes
 if ExecutarAjuste
-    delta = 0;
-%     delta = (3200-3102)/2;
-
-% ordem 5 - bits 11
-% multipliers: 11
-% adders: 10
-% states: 5
-%     delta = (3200-3164)/2;
-%     Apk = Ap - 0.5;
-%     Ask = As;
-%     G0 = 10^(-0.4/20);
-
-% ordem 6 - bits 9
-% multipliers: 13
-% adders: 12
-% states: 6
-    delta = (3200-3126)/2;
-    Apk = Ap - 0.7;
-    Ask = As + 10;
-    G0 = 10^(-0.4/20);
+    delta = (3200-3102)/2;
 else
     delta = 0;
-    Ask = Ask;
-    Apk = Ap;
-    G0 = 1;
 end
 
 fa = fa_espec;  wa = wa_espec;
@@ -62,10 +54,9 @@ Os = lambda_s/lambda_p;
 Op = 1;
 
 %% IIR Eliptico
-[n, Wn] = ellipord(Op, Os, Apk, Ask,'s');
+[n, Wn] = ellipord(Op, Os, Ap, As,'s');
 % n = n - 1;
-[b,a] = ellip(n,Apk,Ask, Wn, 's');
-b = b*G0;
+[b,a] = ellip(n,Ap,As, Wn, 's');
 
 %% Primeiro plot
 figure(1)

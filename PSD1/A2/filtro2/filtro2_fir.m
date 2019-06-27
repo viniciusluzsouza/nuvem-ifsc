@@ -12,6 +12,8 @@ fa = 10000; fs = 2800; fp = 3200;
 Ap = 0.5; As = 20; GdB = 0;
 wp = fp/fa*(2*pi); ws = fs/fa*(2*pi);
 
+%
+
 wc1 = sqrt(wp*ws); % media geometrica
 Dw1 = wp - ws;
 G0 = GdB;
@@ -21,7 +23,9 @@ Dw = Dw1;
 wc = wc1;
 Ask = As;
 if ExecutarAjuste
-    Ask = Ask + 9; % Ajuste BP
+  %  Ask = Ask + 9; % Ajuste BP
+  Ask = Ask +15;
+  
 end
 
 betha = 0.5842*(Ask-21)^0.4 + 0.07886*(Ask-21);
