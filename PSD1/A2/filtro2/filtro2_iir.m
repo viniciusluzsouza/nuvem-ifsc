@@ -21,11 +21,26 @@ Op_espec = 1;
 % Ajustes
 delta = 0;
 if ExecutarAjuste
+% sem ajustes:
+%     ordem 13 - bits 15
+%     multipliers: 27
+%     adders: 26
+%     states: 13
     delta = -(2812-2800)/2;
+    fp = fp_espec + delta; fs = fs_espec + delta;
+    Apk = Ap; Ask = As;
+%     G0 = 10^(-0.045/20);
+%     G0 = 10^(-0.18/20);
+    G0 = 10^(-0.43/20);
+    
+%     fp = fp_espec;
+%     fs = fs_espec + 20;
+%     Apk = Ap - 0.2;
+%     Ask = As;
+%     G0 = 10^(-0.15/20);
 end
 
 fa = fa_espec;  wa = wa_espec;
-fp = fp_espec + delta; fs = fs_espec + delta;
 wp = 2*pi*fp; ws = 2*pi*fs;
 Wp = wp_espec; Ws = wp/ws;
 tetha_s = ws/(wa/2);
@@ -40,12 +55,13 @@ Op = 1;
 % [b1, a1] = butter(n1, Wn1, 's');
 
 % calculo na mao
-epson = sqrt((10^(0.1*Ap))-1);
-n = ceil(log(((10^(0.1*As))-1)/epson) / (2*log(Os_espec)));
+epson = sqrt((10^(0.1*Apk))-1);
+n = ceil(log(((10^(0.1*Ask))-1)/epson) / (2*log(Os_espec)));
 n = n + 2;
 k = 1:n;
 pk = (epson^(-1/n))*exp((1j*(2*k+n-1)/(2*n))*pi);
 b = 1/epson;
+b = b*G0;
 a = poly(pk); a = real(a);
 
 
