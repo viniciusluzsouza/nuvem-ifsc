@@ -23,8 +23,8 @@ Dw = Dw1;
 wc = wc1;
 Ask = As;
 if ExecutarAjuste
-  %  Ask = Ask + 9; % Ajuste BP
-  Ask = Ask +15;
+   Ask = Ask + 9; % Ajuste BP
+%   Ask = Ask +15;
   
 end
 
