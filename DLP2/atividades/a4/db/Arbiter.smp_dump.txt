@@ -1,0 +1,11 @@
+
+State Machine - |arbiter4|state_reg
+Name state_reg.grant0 state_reg.grant1 state_reg.grant2 state_reg.grant3 state_reg.waitr0 state_reg.waitr1 state_reg.waitr2 state_reg.waitr3 
+state_reg.waitr3 0 0 0 0 0 0 0 0 
+state_reg.waitr2 0 0 0 0 0 0 1 1 
+state_reg.waitr1 0 0 0 0 0 1 0 1 
+state_reg.waitr0 0 0 0 0 1 0 0 1 
+state_reg.grant3 0 0 0 1 0 0 0 1 
+state_reg.grant2 0 0 1 0 0 0 0 1 
+state_reg.grant1 0 1 0 0 0 0 0 1 
+state_reg.grant0 1 0 0 0 0 0 0 1 
