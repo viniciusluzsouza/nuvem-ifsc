@@ -46,6 +46,8 @@ delta_fs1 = 0;
 delta_fs2 = 0;
 if ExecutarAjuste
     delta_fp2 = (3423-fp2_espec)/2;
+    % Ajuste para quantizacao:
+    G0 = 10^((GdB-0.5)/20);
 end
 
 fa_ajust = fa_espec;

@@ -20,14 +20,15 @@ w = fcuts/fa*(2*pi);
 ws1 = w(1)/pi; wp1 = w(2)/pi; wp2 = w(3)/pi; ws2 = w(4)/pi;
 
 mags = [0 1 0];
-devs_As = 10^(-(As+1.6)/20);
-devs_Ap = 1-10^(-Ap/20);
+devs_As = 10^(-As/20);
+devs_Ap = 1-10^(-(Ap-1.3)/20);
 devs = [devs_As devs_Ap devs_As];
 G0 = GdB;
 
 % calculo da ordem com firpmord
 if ExecutarAjuste
-    fcuts = fcuts + [0 -15 10 0];
+    G0 = G0 - 1;
+%     fcuts = fcuts + [0 -15 10 0];
 end
 
 [n,f0,a0,w0] = firpmord(fcuts,mags,devs,fa);
@@ -46,9 +47,9 @@ title('a) Resposta em Frequencia')
 xlim([0 fa/2]);ylim([-60 -5]);
 hold on;
 Amin = 80;
-As = As - G0;
-Ap = Ap + G0;
-plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+As = As - GdB;
+Ap = Ap + GdB - 2;
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-2, Ap-2, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
@@ -63,7 +64,7 @@ subplot(3,2,3:4)
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('c) Banda Passagem')
 grid on; hold on;
-plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-2, Ap-2, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
 xlim([3150 3450]); ylim([-20 -5]);
 xlabel('Frequencia (Hz)');
@@ -73,7 +74,7 @@ subplot(3,2,5)
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('d) Banda de Rejeicao')
 grid on; hold on;
-plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-2, Ap-2, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
 xlim([2950 3050]); ylim([-50 -30]);
 xlabel('Frequencia (Hz)');
@@ -83,7 +84,7 @@ subplot(3,2,6)
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('e) Banda de Rejeicao')
 grid on; hold on;
-plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-2, Ap-2, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
 xlim([3450 3550]); ylim([-50 -30]);
 xlabel('Frequencia (Hz)');
@@ -120,7 +121,7 @@ hold on;
 title('a) Resposta em Frequencia')
 ylim([-60 -5])
 Amin = 80;
-plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-4, Ap-4, -Amin], '-r')
+plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-2, Ap-2, -Amin], '-r')
 plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
 xlim([0 fa/2])
 xlabel('Frequencia (Hz)');
