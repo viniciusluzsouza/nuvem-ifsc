@@ -1,3 +1,5 @@
+% clear Num h w
+
 figure(3)
 [h, w] = freqz(Num, 1, linspace(0,pi,10000));
 % plot(w/pi, abs(h)); grid on;

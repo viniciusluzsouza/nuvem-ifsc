@@ -5,10 +5,10 @@ figure(3)
 % plot(w/pi, abs(h)); grid on;
 plot(w*fa/2/pi,20*log10(abs(h))); grid on;
 title('a) Resposta em Frequencia')
-xlim([0 fa/2]);ylim([-60 -5]);
+xlim([1100 1500]); ylim([-80 5]);
 hold on;
 Amin = 80;
-plot([wp1, wp1, wp2, wp2]*fa/2, [-Amin, Ap-2, Ap-2, -Amin], '-r')
-plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [-As, -As, Ap, Ap, -As,-As], '-m')
+plot([0, ws1, ws1, ws2, ws2, 1]*fa/2, [0, 0, -As, -As, 0,0], '-m')
+plot([0, wp1, wp1, wp2, wp2, 1]*fa/2, [-Ap, -Ap, -120, -120, -Ap, -Ap], '-r')
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');

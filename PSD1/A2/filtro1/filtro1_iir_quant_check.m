@@ -1,3 +1,7 @@
+% clear Num Den SOS G
+
+[Num, Den] = sos2tf(SOS, G);
+
 figure(5)
 % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
 escala = fa/2;

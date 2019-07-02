@@ -6,7 +6,7 @@ close all;
 clear all;
 clc;
 
-ExecutarAjuste = 0;
+ExecutarAjuste = 1;
 
 %% Especificacoes
 Ap = 0.5; As = 60; GdB = 0;
@@ -46,14 +46,19 @@ delta_fp1 = 0;
 delta_fp2 = 0;
 delta_fs1 = 0;
 delta_fs2 = 0;
+Apk = 0;
+G0 = 10^(GdB/20);
 if ExecutarAjuste
+    Apk = Ap - 0.1;
     delta_fp2 = 0;
+    G0 = 10^(-(0.1/2)/20);
 end
 
 
 %% Chebyshev I
-n = cheb1ord(Op, Os, Ap, As,'s');
-[b, a] = cheby1(n,Ap, Op, 's');
+n = cheb1ord(Op, Os, Apk, As,'s');
+[b, a] = cheby1(n,Apk, Op, 's');
+b = b*G0;
 
 %% Primeiro plot
 figure(1)

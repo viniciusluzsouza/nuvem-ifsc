@@ -1,3 +1,5 @@
+% clear SOS G Num Den hz wz
+
 [Num, Den] = sos2tf(SOS, G);
 
 figure(5)
