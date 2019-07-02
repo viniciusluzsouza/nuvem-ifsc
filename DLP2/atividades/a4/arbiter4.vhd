@@ -23,13 +23,13 @@ begin
          state_reg <= waitr3;
       elsif (clk'event and clk='1') then
          state_reg <= state_next;
+			g_out <= g;
       end if;
    end process;
 	
    -- next-state and output logic
    process(state_reg,r,t)
    begin
-      g <= "0000";    -- default values
       case state_reg is
          when waitr3 =>
             if r(3)='1' then
@@ -86,38 +86,51 @@ begin
             else
                state_next <= grant3;
             end if;
-            g(3) <= '1';
          when grant2 =>
             if (t='1' or r(2)='0') then
                state_next <= waitr1;
             else
                state_next <= grant2;
             end if;
-            g(2) <= '1';
          when grant1 =>
             if (t='1' or r(1)='0') then
                state_next <= waitr0;
             else
                state_next <= grant1;
             end if;
-            g(1) <= '1';
          when grant0 =>
             if (t='1' or r(0)='0') then
                state_next <= waitr3;
             else
                state_next <= grant0;
             end if;
-            g(0) <= '1';
       end case;
    end process;
 
-   -- look-a-head
-   process(clk,reset)
+   process(state_next)
    begin
-      if (reset='1') then
-         g_out <= "0000";
-      elsif (clk'event and clk='1') then
-         g_out <= g;
-      end if;
+      g <= "0000";    -- default values
+      case state_next is
+         when grant3 =>
+            g(3) <= '1';
+         when grant2 =>
+            g(2) <= '1';
+         when grant1 =>
+            g(1) <= '1';
+         when grant0 =>
+            g(0) <= '1';
+			when others =>
+				g <= "0000";
+      end case;
    end process;
+	
+   -- look-a-head
+--   process(clk,reset)
+--   begin
+--      if (reset='1') then
+--         g_out <= "0000";
+--      elsif (clk'event and clk='1') then
+--         g_out <= g;
+--      end if;
+--   end process;
 end rotated_prio_arch;

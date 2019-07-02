@@ -1,5 +1,5 @@
 Analysis & Synthesis report for arbiter4
-Sat Jun 29 00:15:23 2019
+Mon Jul  1 13:33:01 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 29 00:15:23 2019            ;
+; Analysis & Synthesis Status        ; Successful - Mon Jul  1 13:33:01 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; arbiter4                                         ;
 ; Top-level Entity Name              ; arbiter4                                         ;
@@ -238,9 +238,9 @@ Encoding Type:  One-Hot
 ; Total registers                              ; 12    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 12    ;
+; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 4     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -260,7 +260,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sat Jun 29 00:15:14 2019
+    Info: Processing started: Mon Jul  1 13:32:55 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Arbiter -c arbiter4
 Info (11104): Parallel Compilation has detected 40 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 20 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file arbiter4.vhd
@@ -270,14 +270,14 @@ Info (12127): Elaborating entity "arbiter4" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 37 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 41 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 26 logic cells
+    Info (21061): Implemented 30 logic cells
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 426 megabytes
-    Info: Processing ended: Sat Jun 29 00:15:23 2019
-    Info: Elapsed time: 00:00:09
+    Info: Processing ended: Mon Jul  1 13:33:01 2019
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:03
 
 

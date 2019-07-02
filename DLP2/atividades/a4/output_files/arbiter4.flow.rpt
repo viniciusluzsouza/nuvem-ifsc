@@ -1,5 +1,5 @@
 Flow report for arbiter4
-Sat Jun 29 00:16:22 2019
+Mon Jul  1 13:33:58 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,14 +40,14 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Sat Jun 29 00:16:22 2019            ;
+; Flow Status                        ; Successful - Mon Jul  1 13:33:57 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; arbiter4                                         ;
 ; Top-level Entity Name              ; arbiter4                                         ;
 ; Family                             ; Cyclone IV E                                     ;
 ; Device                             ; EP4CE115F29C7                                    ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 26 / 114,480 ( < 1 % )                           ;
+; Total logic elements               ; 23 / 114,480 ( < 1 % )                           ;
 ;     Total combinational functions  ; 22 / 114,480 ( < 1 % )                           ;
 ;     Dedicated logic registers      ; 12 / 114,480 ( < 1 % )                           ;
 ; Total registers                    ; 12                                               ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/29/2019 00:15:15 ;
+; Start date & time ; 07/01/2019 13:32:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; arbiter4            ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 11373243925442.156176731524708 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 11373243925442.156198797661652 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)         ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
@@ -93,12 +93,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 426 MB              ; 00:00:03                           ;
-; Fitter                    ; 00:00:28     ; 4.4                     ; 1002 MB             ; 00:00:47                           ;
-; Assembler                 ; 00:00:08     ; 1.0                     ; 345 MB              ; 00:00:08                           ;
-; TimeQuest Timing Analyzer ; 00:00:09     ; 1.0                     ; 501 MB              ; 00:00:04                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 319 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:53     ; --                      ; --                  ; 00:01:03                           ;
+; Analysis & Synthesis      ; 00:00:05     ; 1.0                     ; 426 MB              ; 00:00:03                           ;
+; Fitter                    ; 00:00:26     ; 4.4                     ; 997 MB              ; 00:00:40                           ;
+; Assembler                 ; 00:00:10     ; 1.0                     ; 349 MB              ; 00:00:08                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 500 MB              ; 00:00:04                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 314 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:50     ; --                      ; --                  ; 00:00:56                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

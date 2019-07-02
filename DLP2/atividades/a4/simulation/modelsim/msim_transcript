@@ -41,3 +41,4 @@ do test_arbiter.do
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.arbiter4(rotated_prio_arch)
+# WARNING: No extended dataflow license exists

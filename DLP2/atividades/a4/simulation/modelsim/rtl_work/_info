@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 d/home/vinicius.ls/DLP2/atividades/a4/simulation/modelsim
 Earbiter4
-Z1 w1561765534
+Z1 w1561987970
 Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
@@ -18,7 +18,7 @@ VM<G9Lk]FazLOjfPIG5Qo72
 Z8 OV;C;10.1d;51
 31
 !i10b 1
-Z9 !s108 1561767438.425128
+Z9 !s108 1561988059.811662
 Z10 !s90 -reportprogress|300|-93|-work|work|../../arbiter4.vhd|
 Z11 !s107 ../../arbiter4.vhd|
 Z12 o-93 -work work -O0
@@ -30,8 +30,8 @@ R4
 Z14 DEx4 work 8 arbiter4 0 22 M<G9Lk]FazLOjfPIG5Qo72
 l18
 L14
-Z15 VCE0NSTWgDbJglH>PJ?n840
-Z16 !s100 ngIUlMGj]OI_;20:KR]Pn3
+Z15 VKafOEbj86A3dc?;a6ILW90
+Z16 !s100 [9[m6Q_;ejOH<7<IDEmSC3
 R8
 31
 !i10b 1
