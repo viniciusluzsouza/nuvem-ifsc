@@ -123,14 +123,5 @@ begin
 				g <= "0000";
       end case;
    end process;
-	
-   -- look-a-head
---   process(clk,reset)
---   begin
---      if (reset='1') then
---         g_out <= "0000";
---      elsif (clk'event and clk='1') then
---         g_out <= g;
---      end if;
---   end process;
+
 end rotated_prio_arch;
