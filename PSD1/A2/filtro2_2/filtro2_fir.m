@@ -87,92 +87,87 @@ b = b.*wk*10^(-G0/20); % janela de keiser
 
 %%
 figure(1)
-subplot(221)
+escala = fa/2;
+subplot(2,2,[1 2])
 [h, w] = freqz(b, 1, linspace(0,pi,100000));
 % plot(w/pi, abs(h)); grid on;
-plot(w/pi, 20*log10(abs(h))); grid on;
+plot(w/pi*escala, 20*log10(abs(h))); grid on;
 title('a) Resposta em frequencia')
 ylim([-40 5])
 hold on;
-plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-plot([0,ws/pi,ws/pi,1],[-As,-As,0,0], '-red')
+plot([pi,wp,wp]/pi*escala,[-Ap,-Ap,-80], '-red')
+plot([0,ws/pi,ws/pi,1]*escala,[-As,-As,0,0], '-red')
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
-subplot(222)
-zplane(b, 1); axis([-2 2 -2 2]);
-title('b) Diagrama de polos e zeros')
-xlabel('Real');
-ylabel('Imaginario');
-
 subplot(223)
-plot(w/pi, 20*log10(abs(h)));
-title('c) Banda Passagem')
+plot(w/pi*escala, 20*log10(abs(h)));
+title('b) Banda Passagem')
 grid on; hold on;
-plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-plot([0,ws/pi,ws/pi,1],[-As,-As,0,0], '-red')
-xlim([0.62 0.7]); ylim([-2 1]);
+plot([pi,wp,wp]/pi*escala,[-Ap,-Ap,-80], '-red')
+plot([0,ws/pi,ws/pi,1]*escala,[-As,-As,0,0], '-red')
+xlim([0.62 0.7]*escala); ylim([-2 1]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
 subplot(224)
-plot(w/pi, 20*log10(abs(h)));
-title('d) Banda de Rejeicao')
+plot(w/pi*escala, 20*log10(abs(h)));
+title('c) Banda de Rejeicao')
 grid on; hold on;
-plot([pi,wp,wp]/pi,[-Ap,-Ap,-80], '-red')
-plot([0,ws/pi,ws/pi,1],[-As,-As,0,0], '-red')
-xlim([0.5 0.65]); ylim([-25 -18]);
+plot([pi,wp,wp]/pi*escala,[-Ap,-Ap,-80], '-red')
+plot([0,ws/pi,ws/pi,1]*escala,[-As,-As,0,0], '-red')
+xlim([0.5 0.65]*escala); ylim([-25 -18]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
 %%
-figure(2)
-%suptitle(['HP FIR ' num2str(fs) '-' num2str(fp) ' Ordem: ' num2str(N)])
-
-escala = fa/2;
-subplot(3,2,[4 6])
-zplane(b, 1);
-axis([-2 2 -2 2])
-title('e) Diagrama de polos (x) e zeros (o)')
-xlabel('Real');
-ylabel('Imaginario');
-
-clear h w
-[h, w] = freqz(b, 1, 'whole');
-
-subplot(322)
-x_imp = [0:length(b)-1]/fa*1000;
-stem(x_imp, b); grid on;
-title('Resposta ao impulso')
-xlabel('Amostras (ms)');
-ylabel('Amplitude (adm)');
-
-subplot(321)
-[h, w] = freqz(b, 1, linspace(0,pi,10000));
-% plot(w/pi, abs(h)); grid on;
-plot(w/pi*escala, 20*log10(abs(h))); grid on;
-hold on;
-title('a) Resposta em Frequencia')
-ylim([-40 5])
-Amin = 80;
-plot([0,fs,fs,fa/2],[-As,-As,0,0], 'r')
-plot([fa/2,fp,fp,],[-Ap,-Ap,-80], 'r')
-xlim([0 fa/2])
-xlabel('Frequencia (Hz)');
-ylabel('Magnitude (dB)');
-
-subplot(323)
-plot(w/pi*escala, unwrap(angle(h))/pi); grid on;
-title('c) Resposta de Fase')
-xlabel('Frequencia (Hz)');
-ylabel('Fase (rad)');
-
-subplot(325)
-[del_y, del_x] = grpdelay(b, 1);
-plot(del_x/pi*fa/2, del_y/fa*1000);
-title('d) Atraso de grupo')
-xlabel('Frequencia (Hz)');
-ylabel('Tempo (ms)');
+% figure(2)
+% %suptitle(['HP FIR ' num2str(fs) '-' num2str(fp) ' Ordem: ' num2str(N)])
+% 
+% escala = fa/2;
+% subplot(3,2,[4 6])
+% zplane(b, 1);
+% axis([-2 2 -2 2])
+% title('e) Diagrama de polos (x) e zeros (o)')
+% xlabel('Real');
+% ylabel('Imaginario');
+% 
+% clear h w
+% [h, w] = freqz(b, 1, 'whole');
+% 
+% subplot(322)
+% x_imp = [0:length(b)-1]/fa*1000;
+% stem(x_imp, b); grid on;
+% title('Resposta ao impulso')
+% xlabel('Amostras (ms)');
+% ylabel('Amplitude (adm)');
+% 
+% subplot(321)
+% [h, w] = freqz(b, 1, linspace(0,pi,10000));
+% % plot(w/pi, abs(h)); grid on;
+% plot(w/pi*escala, 20*log10(abs(h))); grid on;
+% hold on;
+% title('a) Resposta em Frequencia')
+% ylim([-40 5])
+% Amin = 80;
+% plot([0,fs,fs,fa/2],[-As,-As,0,0], 'r')
+% plot([fa/2,fp,fp,],[-Ap,-Ap,-80], 'r')
+% xlim([0 fa/2])
+% xlabel('Frequencia (Hz)');
+% ylabel('Magnitude (dB)');
+% 
+% subplot(323)
+% plot(w/pi*escala, unwrap(angle(h))/pi); grid on;
+% title('c) Resposta de Fase')
+% xlabel('Frequencia (Hz)');
+% ylabel('Fase (rad)');
+% 
+% subplot(325)
+% [del_y, del_x] = grpdelay(b, 1);
+% plot(del_x/pi*fa/2, del_y/fa*1000);
+% title('d) Atraso de grupo')
+% xlabel('Frequencia (Hz)');
+% ylabel('Tempo (ms)');
 
 %%
 syms z
