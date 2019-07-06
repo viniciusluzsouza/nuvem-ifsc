@@ -27,6 +27,14 @@ legend('Referencia', 'Quantizado');
 
 %%
 figure(2)
+subplot(2,2,[2 4])
+zplane(Num, 1); axis([-2 2 -2 2]);
+title('b) Diagrama de polos (x) e zeros (o) - Quantizado')
+xlabel('Real');
+ylabel('Imaginario');
+
+%%
+figure(3)
 %suptitle(['LP FIR ' num2str(fp) '-' num2str(fs) ' Ordem: ' num2str(2*M+1)])
 
 escala = fa/2;

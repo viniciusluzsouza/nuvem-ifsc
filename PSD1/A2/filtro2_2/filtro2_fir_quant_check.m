@@ -19,11 +19,19 @@ legend('Referencia', 'Quantizado');
 
 %%
 figure(2)
+subplot(2,2,[2 4])
+zplane(Num, 1);
+title('b) Diagrama de polos (x) e zeros (o) - Quantizado')
+xlabel('Real');
+ylabel('Imaginario');
+
+%%
+figure(3)
 %suptitle(['HP FIR ' num2str(fs) '-' num2str(fp) ' Ordem: ' num2str(N)])
 
 escala = fa/2;
 subplot(3,2,[4 6])
-zplane(b, 1);
+zplane(Num, 1);
 axis([-2 2 -2 2])
 title('e) Diagrama de polos (x) e zeros (o)')
 xlabel('Real');
@@ -36,7 +44,7 @@ clear hq wq
 subplot(322)
 x_imp = [0:length(Num)-1]/fa*1000;
 stem(x_imp, Num); grid on;
-title('Resposta ao impulso')
+title('b) Resposta ao impulso')
 xlabel('Amostras (ms)');
 ylabel('Amplitude (adm)');
 legend('Quantizado');

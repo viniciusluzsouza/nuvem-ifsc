@@ -228,6 +228,12 @@ ylabel('Magnitude (dB)');
 % eixos.Visible = 'off';
 % titulo.Visible = 'on';
 
+figure(2)
+subplot(2,2,[1 3])
+zplane(bzn, azn);
+title('a) Diagrama de polos (x) e zeros (o) - Referencia')
+xlabel('Real');
+ylabel('Imaginario');
 %%
 % figure(4)
 % % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])

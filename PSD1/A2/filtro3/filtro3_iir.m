@@ -273,6 +273,14 @@ plot([fp1_espec,fp1_espec,fp2_espec, fp2_espec],[-60,-Ap,-Ap,-60], 'g')
 xlim([3350 3600]); ylim([-45 -35]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
+
+figure(2)
+subplot(2,2,[1 3])
+zplane(bzn, azn);
+title('a) Diagrama de polos (x) e zeros (o) - Referencia')
+xlabel('Real');
+ylabel('Imaginario');
+
 %%
 % figure(4)   
 % % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])

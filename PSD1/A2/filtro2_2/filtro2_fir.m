@@ -120,6 +120,12 @@ xlim([0.5 0.65]*escala); ylim([-25 -18]);
 xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 
+figure(2)
+subplot(2,2,[1 3])
+zplane(b, 1);
+title('a) Diagrama de polos (x) e zeros (o) - Referencia')
+xlabel('Real');
+ylabel('Imaginario');
 %%
 % figure(2)
 % %suptitle(['HP FIR ' num2str(fs) '-' num2str(fp) ' Ordem: ' num2str(N)])

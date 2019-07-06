@@ -33,8 +33,15 @@ xlabel('Frequencia (Hz)');
 ylabel('Magnitude (dB)');
 legend('Referencia', 'Quantizado');
 
-%%
 figure(2)
+subplot(2,2,[2 4])
+zplane(Num, Den); axis([-1.15 1.15 -1.15 1.15]);
+title('b) Diagrama de polos (x) e zeros (o) - Quantizado')
+xlabel('Real');
+ylabel('Imaginario');
+
+%%
+figure(3)
 % suptitle(['LP IIR ' num2str(fp_espec) '-' num2str(fs_espec) ' Ordem: ' num2str(n)])
 
 subplot(321)
