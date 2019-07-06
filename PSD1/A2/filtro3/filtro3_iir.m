@@ -83,6 +83,9 @@ Os = Os_ajust;
 Op = Op_ajust;
 fa = fa_espec;
 
+spf = 1;
+Ta = 1/fa;
+
 %% Chebyshev II
 n = cheb2ord(Op, Os, Ap, As,'s');
 [b, a] = cheby2(n,As, Os, 's');

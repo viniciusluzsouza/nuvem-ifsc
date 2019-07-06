@@ -6,7 +6,7 @@
 figure(1)
 %suptitle('Transforma????o anal??gico -> digital')
 subplot(3,2,[1 2])
-[hzq, wzq] = freqz(Num, Den, linspace(0, pi, 100000));
+[hzq, wzq] = freqz(Num, Den, linspace(0, pi, 1000000));
 plot(wzq/pi*fa/2, 20*log10(abs(hzq)));
 title('a) H(z)')
 xlabel('Frequencia (Hz)');
