@@ -1,0 +1,3 @@
+ --> Filtro_FIR_HP_8bits_pkg
+filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits/filter --> filter
+filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits --> Filtro_FIR_HP_8bits

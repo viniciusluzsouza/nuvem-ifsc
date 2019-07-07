@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://www.mathworks.com/help/schema/MathWorksDocPage">
+<head>
+<title>HDL Check Report for 'filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="file:///opt/MATLAB/R2015a/help/matlab/docstyle.css" type="text/css">
+
+<script type="text/javascript" src="file:///opt/MATLAB/R2015a/toolbox/hdlcoder/hdlcommon/icons/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="file:///opt/MATLAB/R2015a/help/matlab/docscripts.js"></script>
+        
+        
+        
+        <script type="text/javascript">
+
+$(document).ready(function () {
+                   $(".expandAllLink").trigger('click');
+            });
+
+            var suggestionsObj;
+            $(function() {
+            var searchField = $('#docsearch');
+            suggestionsObj = new Suggestions(getSuggestions, getMore, searchField);
+            });
+            
+            function getSuggestions() {
+            var text = suggestionsObj.searchField.val();
+            document.location='docsuggestion:' + text;
+            }
+            
+            function getMore(type) {
+            var text = suggestionsObj.searchField.val();
+            document.location='docsuggestion:' + type + ':' + text;
+            }
+        </script>
+        
+        <link href="file:///opt/MATLAB/R2015a/help/includes/product/css/ice_960.css" rel="stylesheet" type="text/css">
+        <link href="file:///opt/MATLAB/R2015a/toolbox/hdlcoder/hdlcommon/icons/HDLsite5.css" rel="stylesheet" type="text/css">
+        <link href="file:///opt/MATLAB/R2015a/help/includes/product/css/ice_doc_center.css" rel="stylesheet" type="text/css">
+        <link href="file:///opt/MATLAB/R2015a/help/includes/product/css/ice_doc_center_installed.css" rel="stylesheet" type="text/css">
+        <link href="file:///opt/MATLAB/R2015a/help/includes/product/css/ice_doc_center_print.css" rel="stylesheet" type="text/css" media="print">
+        <script type="text/javascript">
+            if (navigator.appName != "ICEbrowser") {
+            var cssStyleSheets = $("link").filter(function(){
+            var href = $(this).attr('href');
+            return $(this).attr('href') != "docstyle.css"  && href.indexOf("ice_doc_center_print.css") == -1});
+            var hrefElements = $.map(cssStyleSheets, function(elem) {
+            var href = $(elem).attr('href');
+            var hrefArray = href.split("/");
+            hrefArray[hrefArray.length - 1] = hrefArray[hrefArray.length - 1].replace("ice_", "");
+            return {
+            href: hrefArray.join("/"),
+            media: $(elem).attr('media')
+            };
+            });
+            cssStyleSheets.remove();
+            for (var i = 0; i < hrefElements.length; i++) {
+            if ($.browser.msie && $.browser.version <= 8) {
+            document.createStyleSheet(hrefElements[i].href);
+            } else {
+            var link = $('<link rel="stylesheet" href=' + hrefElements[i].href + ' type="text/css" />');
+            if (hrefElements[i].media) {
+            link.attr('media', hrefElements[i].media);
+            }
+            $('head').append(link);
+            }
+            }
+            }
+    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container_192">
+<div class="grid_192">
+ <div class="page_container"><div class="content_frame">
+<h1>HDL Code Generation Check Report for 'filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits'
+<a href="matlab:open_system('filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits');">open model 'filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits'</a><BR>
+Generated on 2019-07-06 23:28:14</h1>
+<H2>The following table describes blocks for which errors, warnings or messages were reported.</H2><BR>
+<TABLE>
+<TR><TD> <B>Simulink Blocks and resources</B> </TD><TD> <B>Level</B> </TD><TD> <B>Description</B> </TD></TR><TR><TD>
+<a alt="hdlcoder:engine:MultirateMultiTasking" href="matlab:hilite(get_param(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97]),'object'),'none');open_system(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97]))">filtro2_fir_sim_r2015a</a>
+</TD>
+<TD>Warning</TD>
+<TD>When you specify HDL optimizations that can result in overclocking, such as streaming, resource sharing, or clock-rate pipelining, set the "Multitask rate transition" and "Single task rate transition" options to "Error". You can set these options in Simulation -> Configuration Parameters -> Diagnostics -> Sample Time. If you do not use these settings, the generated model and validation may fail to update (Ctrl+D), you may be unable to generate an HDL testbench, and you may have differences in the expected results during validation and verification.</TD>
+</TR>
+<TR><TD>
+<a alt="HDLShared:hdlshared:cpefamilynotspecified" href="matlab:hilite(get_param(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97]),'object'),'none');open_system(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97]))">filtro2_fir_sim_r2015a</a>
+</TD>
+<TD>Warning</TD>
+<TD>SynthesisToolChipFamily not specified. Using default value, SynthesisToolChipFamily=virtex7, for critical path estimation.</TD>
+</TR>
+<TR><TD>
+<a alt="HDLShared:hdlshared:cpespeednotspecified" href="matlab:hilite(get_param(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97]),'object'),'none');open_system(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97]))">filtro2_fir_sim_r2015a</a>
+</TD>
+<TD>Warning</TD>
+<TD>SynthesisToolSpeedValue not specified. Using default values, SynthesisToolSpeedValue=-1, for critical path estimation.</TD>
+</TR>
+<TR><TD>
+<a alt="hdlcoder:makehdl:CharacterizationNotFound" href="matlab:hilite(get_param(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97]),'object'),'none');open_system(char([102 105 108 116 114 111 50 95 102 105 114 95 115 105 109 95 114 50 48 49 53 97 47 70 105 108 116 114 111 95 70 73 82 95 72 80 95 56 98 105 116 115]))">filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits</a>
+</TD>
+<TD>Warning</TD>
+<TD>Timing characterization data not found for block ntwk_instance_comp.</TD>
+</TR>
+<TR><TD>
+<a alt="hdlcoder:hdldisp:GeneratingCPEHiliteScript" href="matlab:run('/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/criticalPathEstimated')">/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/criticalPathEstimated.m</a>
+</TD>
+<TD>Message</TD>
+<TD>Estimated critical path for design: <a href="matlab:run('/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/criticalPathEstimated')">/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/criticalPathEstimated.m</a></TD>
+</TR>
+<TR><TD>
+<a alt="hdlcoder:hdldisp:GeneratingBlocksWithNoCharacterizationHighlightScript" href="matlab:run('/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/highlightCriticalPathEstimationOffendingBlocks')">/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/highlightCriticalPathEstimationOffendingBlocks.m</a>
+</TD>
+<TD>Message</TD>
+<TD>Blocks that are not characterized for Critical Path Estimation: <a href="matlab:run('/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/highlightCriticalPathEstimationOffendingBlocks')">/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc/filtro2_fir_sim_r2015a/highlightCriticalPathEstimationOffendingBlocks.m</a></TD>
+</TR>
+</TABLE>
+<BR><BR> </div></div></div></div>
+                    <div class="grid_192">
+                        <div class="footer_container">
+                            <div class="footer">
+                                <ul class="footernav">
+                                    <li class="footernav_trademarks"><a href="/opt/MATLAB/R2015a/help/acknowledgments.html">Acknowledgments</a></li>
+                                    <li class="footernav_trademarks"><a href="/opt/MATLAB/R2015a/trademarks.txt">Trademarks</a></li>
+                                    <li class="footernav_patents"><a href="/opt/MATLAB/R2015a/patents.txt">Patents</a></li>
+                                    <li class="footernav_help"><a href="/opt/MATLAB/R2015a/license_agreement.txt">Terms of Use</a></li>
+                                </ul>
+                                <div class="copyright">&copy; 1994-2019 The MathWorks, Inc.</div>
+                            </div>
+                        </div>
+                    </div>
+
+        <script type="text/javascript">
+
+$(document).ready( setTimeout( function () {
+                   $(".expandAllLink").trigger('click');
+            }, 50 ) );
+
+            var suggestionsObj;
+            $(function() {
+            var searchField = $('#docsearch');
+            suggestionsObj = new Suggestions(getSuggestions, getMore, searchField);
+            });
+            
+            function getSuggestions() {
+            var text = suggestionsObj.searchField.val();
+            document.location='docsuggestion:' + text;
+            }
+            
+            function getMore(type) {
+            var text = suggestionsObj.searchField.val();
+            document.location='docsuggestion:' + type + ':' + text;
+            }
+        </script>
+        
+</body>
+</html>

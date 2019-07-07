@@ -1,0 +1,13 @@
+open_system('gm_filtro2_fir_sim_r2015a');
+cs.HiliteType = 'user1';
+cs.ForegroundColor = 'black';
+cs.BackgroundColor = 'blue';
+set_param(0, 'HiliteAncestorsData', cs);
+hilite_system('gm_filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits/filter', 'user1');
+annotate_port('gm_filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits/filter', 1, 1, 'cp : 1.7075 ns');
+cs.HiliteType = 'user1';
+cs.ForegroundColor = 'black';
+cs.BackgroundColor = 'blue';
+set_param(0, 'HiliteAncestorsData', cs);
+hilite_system('gm_filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits/Input Quantizer', 'user1');
+annotate_port('gm_filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits/Input Quantizer', 0, 1, 'cp : 1.7075 ns');

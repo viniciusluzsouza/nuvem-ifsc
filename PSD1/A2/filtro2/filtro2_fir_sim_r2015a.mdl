@@ -1,12 +1,13 @@
 Model {
   Name			  "filtro2_fir_sim_r2015a"
   Version		  8.5
-  SavedCharacterEncoding  "UTF-8"
+  MdlSubVersion		  0
+  SavedCharacterEncoding  "US-ASCII"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3"
+    ComputedModelVersion    "1.4"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -15,14 +16,32 @@ Model {
     $ObjectID		    1
     Array {
       Type		      "Cell"
-      Dimension		      2
+      Dimension		      20
+      Cell		      "CriticalPathEstimation"
+      Cell		      "on"
+      Cell		      "GenerateWebview"
+      Cell		      "on"
       Cell		      "HDLSubsystem"
-      Cell		      "filtro2_fir_sim_r2015a"
+      Cell		      "filtro2_fir_sim_r2015a/Filtro_FIR_HP_8bits"
+      Cell		      "InitializeTestBenchInputs"
+      Cell		      "on"
+      Cell		      "InlineMATLABBlockCode"
+      Cell		      "on"
+      Cell		      "MultifileTestBench"
+      Cell		      "on"
+      Cell		      "OptimizationReport"
+      Cell		      "on"
+      Cell		      "ResourceReport"
+      Cell		      "on"
+      Cell		      "TargetDirectory"
+      Cell		      "/home/vinicius.ls/PSD1/A2/filtro2/projeto_hdl/hdlsrc"
+      Cell		      "Traceability"
+      Cell		      "on"
       PropName		      "mdlProps"
     }
   }
   ScopeRefreshTime	  0.035000
-  OverrideScopeRefreshTime on
+  OverrideScopeRefreshTime off
   DisableAllScopes	  off
   DataTypeOverride	  "UseLocalSettings"
   DataTypeOverrideAppliesTo "AllNumericTypes"
@@ -63,9 +82,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1023.0, 560.0]
+	Extents			[1025.0, 578.0]
 	ZoomFactor		[0.94671741198858228]
-	Offset			[5.2120603015075631, -148.75879396984925]
+	Offset			[3.1088545403290189, -103.75879396984925]
       }
     }
   }
@@ -73,11 +92,12 @@ Model {
   Creator		  "vini"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "vini"
+  LastModifiedBy	  "vinicius.ls"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 06 17:52:05 2019"
-  RTWModifiedTimeStamp	  484336325
-  ModelVersionFormat	  "1.%<AutoIncrement:3>"
+  LastModifiedDate	  "Sat Jul 06 23:29:48 2019"
+  RTWModifiedTimeStamp	  484356422
+  ModelVersionFormat	  "1.%<AutoIncrement:4>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -117,7 +137,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    8
+    $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "filtro2_fir_sim_r2015a"
     overrideMode_	    [0.0]
@@ -182,19 +202,20 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      9
+      $ObjectID		      8
       Version		      "1.15.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  10
+	  $ObjectID		  9
 	  Version		  "1.15.0"
 	  StartTime		  "0.0"
 	  StopTime		  "1"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -222,7 +243,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  11
+	  $ObjectID		  10
 	  Version		  "1.15.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -255,7 +276,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  12
+	  $ObjectID		  11
 	  Version		  "1.15.0"
 	  Array {
 	    Type		    "Cell"
@@ -270,10 +291,10 @@ Model {
 	    Cell		    "UseSpecifiedMinMax"
 	    PropName		    "DisabledProps"
 	  }
-	  BlockReduction	  on
+	  BlockReduction	  off
 	  BooleanDataType	  on
-	  ConditionallyExecuteInputs on
-	  InlineParams		  off
+	  ConditionallyExecuteInputs off
+	  InlineParams		  on
 	  UseDivisionForNetSlopeComputation "off"
 	  UseFloatMulNetSlope	  off
 	  DefaultUnderspecifiedDataType	"double"
@@ -312,7 +333,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  13
+	  $ObjectID		  12
 	  Version		  "1.15.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -322,7 +343,7 @@ Model {
 	  ReadBeforeWriteMsg	  "UseLocalSettings"
 	  WriteAfterWriteMsg	  "UseLocalSettings"
 	  WriteAfterReadMsg	  "UseLocalSettings"
-	  AlgebraicLoopMsg	  "warning"
+	  AlgebraicLoopMsg	  "error"
 	  ArtificialAlgebraicLoopMsg "warning"
 	  SaveWithDisabledLinksMsg "warning"
 	  SaveWithParameterizedLinksMsg	"warning"
@@ -340,6 +361,7 @@ Model {
 	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "none"
 	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
 	  MultiTaskDSMMsg	  "error"
 	  MultiTaskCondExecSysMsg "error"
 	  MultiTaskRateTransMsg	  "error"
@@ -400,7 +422,7 @@ Model {
 	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  14
+	  $ObjectID		  13
 	  Version		  "1.15.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -409,15 +431,15 @@ Model {
 	  ProdBitPerLongLong	  64
 	  ProdBitPerFloat	  32
 	  ProdBitPerDouble	  64
-	  ProdBitPerPointer	  64
+	  ProdBitPerPointer	  32
 	  ProdLargestAtomicInteger "Char"
-	  ProdLargestAtomicFloat  "Float"
-	  ProdIntDivRoundTo	  "Zero"
-	  ProdEndianess		  "LittleEndian"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
 	  ProdWordSize		  32
 	  ProdShiftRightIntArith  on
 	  ProdLongLongMode	  off
-	  ProdHWDeviceType	  "Specified"
+	  ProdHWDeviceType	  "ASIC/FPGA->ASIC/FPGA"
 	  TargetBitPerChar	  8
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
@@ -437,10 +459,10 @@ Model {
 	  TargetPreprocMaxBitsUint 32
 	  TargetHWDeviceType	  "Specified"
 	  TargetUnknown		  off
-	  ProdEqTarget		  on
+	  ProdEqTarget		  off
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  15
+	  $ObjectID		  14
 	  Version		  "1.15.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -455,8 +477,9 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  16
+	  $ObjectID		  15
 	  Version		  "1.15.0"
+	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
 	  SimCtrlC		  on
 	  SimIntegrity		  on
@@ -467,7 +490,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  17
+	  $ObjectID		  16
 	  Version		  "1.15.0"
 	  Array {
 	    Type		    "Cell"
@@ -496,9 +519,12 @@ Model {
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  PackageGeneratedCodeAndArtifacts off
+	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
 	  PostCodeGenCommand	  ""
+	  Description		  ""
 	  GenerateReport	  off
+	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
 	  ProfileTLC		  off
@@ -507,6 +533,13 @@ Model {
 	  TLCAssert		  off
 	  RTWUseLocalCustomCode	  on
 	  RTWUseSimCustomCode	  off
+	  CustomSourceCode	  ""
+	  CustomHeaderCode	  ""
+	  CustomInclude		  ""
+	  CustomSource		  ""
+	  CustomLibrary		  ""
+	  CustomInitializer	  ""
+	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
 	  BuildConfiguration	  "Faster Builds"
 	  IncludeHyperlinkInReport off
@@ -537,7 +570,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      18
+	      $ObjectID		      17
 	      Version		      "1.15.0"
 	      Array {
 		Type			"Cell"
@@ -577,14 +610,17 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -610,7 +646,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      19
+	      $ObjectID		      18
 	      Version		      "1.15.0"
 	      Array {
 		Type			"Cell"
@@ -641,6 +677,7 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -655,6 +692,7 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -696,7 +734,7 @@ Model {
 	  }
 	}
 	hdlcoderui.hdlcc {
-	  $ObjectID		  21
+	  $ObjectID		  19
 	  Version		  "1.15.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
@@ -712,17 +750,17 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 145, 177, 1135, 847 ]
+      ConfigPrmDlgPosition     [ 145, 177, 1135, 847 ] 
     }
     PropName		    "ConfigurationSets"
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    9
+    $ObjectID		    8
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    22
+    $ObjectID		    20
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -861,19 +899,10 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
-      OutputWhenUnConnected   off
-    }
-    Block {
-      BlockType		      Scope
     }
     Block {
       BlockType		      SpectrumAnalyzer
       DefaultConfigurationName "spbscopes.SpectrumAnalyzerBlockCfg"
-      IsFrequencyInputMode    "0"
-      FrequencyVectorPort     "0"
-      FrequencyVectorFromPort "0"
-      FrequencyInputRBWPort   "0"
-      FrequencyInputRBWFromPort	"0"
     }
     Block {
       BlockType		      SubSystem
@@ -883,6 +912,7 @@ Model {
       TreatAsAtomicUnit	      off
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
+      CheckFcnCallInpInsideContextMsg off
       SystemSampleTime	      "-1"
       RTWSystemCode	      "Auto"
       RTWFcnNameOpts	      "Auto"
@@ -906,11 +936,16 @@ Model {
       ContentPreviewEnabled   off
       IsWebBlock	      off
     }
+    Block {
+      BlockType		      TimeScope
+      DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
+      Floating		      off
+    }
   }
   System {
     Name		    "filtro2_fir_sim_r2015a"
     Location		    [377, 180, 1438, 922]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -929,9 +964,9 @@ Model {
       Name		      "Chirp"
       SID		      "1"
       Ports		      [0, 1]
-      Position		      [205, 120, 245, 160]
+      Position		      [205, 165, 245, 205]
       ZOrder		      70
-      LibraryVersion	      "1.799"
+      LibraryVersion	      "1.753"
       SourceBlock	      "dspsrcs4/Chirp"
       SourceType	      "Chirp"
       sweep		      "Linear"
@@ -947,19 +982,23 @@ Model {
       Port {
 	PortNumber		1
 	Name			"x[n]"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion1"
       SID		      "22"
-      Position		      [505, 143, 580, 177]
+      Position		      [505, 188, 580, 222]
       ZOrder		      75
       RndMeth		      "Floor"
       SaturateOnIntegerOverflow	off
       Port {
 	PortNumber		1
 	Name			"Sinal Nao Filtrado"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -967,9 +1006,10 @@ Model {
       Name		      "Filter\nRealization\nWizard"
       SID		      "44"
       Ports		      []
-      Position		      [20, 42, 125, 105]
+      Position		      [70, 17, 175, 80]
       ZOrder		      90
-      LibraryVersion	      "1.433"
+      Commented		      "on"
+      LibraryVersion	      "1.332"
       SourceBlock	      "dsparch4/Filter\nRealization\nWizard"
       SourceType	      "Filter Realization Wizard"
       ContentPreviewEnabled   on
@@ -980,12 +1020,14 @@ Model {
       SID		      "45"
       Tag		      "BlockMethodSubSystem"
       Ports		      [1, 1]
-      Position		      [685, 165, 760, 205]
+      Position		      [685, 210, 760, 250]
       ZOrder		      91
       RequestExecContextInheritance off
       Port {
 	PortNumber		1
 	Name			"Sinal FIltrado"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       System {
 	Name			"Filtro_FIR_HP_8bits"
@@ -1078,12 +1120,13 @@ Model {
       BlockType		      ManualSwitch
       Name		      "Manual Switch3"
       SID		      "33"
-      Position		      [400, 142, 430, 178]
+      Position		      [400, 187, 430, 223]
       ZOrder		      80
-      CurrentSetting	      "0"
       Port {
 	PortNumber		1
 	Name			"x[n]"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1091,7 +1134,7 @@ Model {
       Name		      "Matrix\nConcatenate"
       SID		      "28"
       Ports		      [2, 1]
-      Position		      [860, 116, 940, 209]
+      Position		      [860, 161, 940, 254]
       ZOrder		      74
       Mode		      "Multidimensional array"
       ConcatenateDimension    "2"
@@ -1101,9 +1144,9 @@ Model {
       Name		      "Random\nSource"
       SID		      "32"
       Ports		      [0, 1]
-      Position		      [210, 206, 245, 244]
+      Position		      [210, 251, 245, 289]
       ZOrder		      79
-      LibraryVersion	      "1.799"
+      LibraryVersion	      "1.753"
       UserDataPersistent      on
       UserData		      "DataTag0"
       SourceBlock	      "dspsrcs4/Random\nSource"
@@ -1126,6 +1169,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"n[n]"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1133,9 +1178,10 @@ Model {
       Name		      "Sine Wave1"
       SID		      "38"
       Ports		      [0, 1]
-      Position		      [20, 138, 65, 182]
+      Position		      [20, 183, 65, 227]
       ZOrder		      85
-      LibraryVersion	      "1.799"
+      Commented		      "on"
+      LibraryVersion	      "1.753"
       SourceBlock	      "dspsrcs4/Sine Wave"
       SourceType	      "Sine Wave"
       Amplitude		      "1"
@@ -1163,9 +1209,10 @@ Model {
       Name		      "Sine Wave3"
       SID		      "40"
       Ports		      [0, 1]
-      Position		      [20, 208, 65, 252]
+      Position		      [20, 253, 65, 297]
       ZOrder		      87
-      LibraryVersion	      "1.799"
+      Commented		      "on"
+      LibraryVersion	      "1.753"
       SourceBlock	      "dspsrcs4/Sine Wave"
       SourceType	      "Sine Wave"
       Amplitude		      "1"
@@ -1193,48 +1240,39 @@ Model {
       Name		      "Spectrum\nAnalyzer1"
       SID		      "30"
       Ports		      [1]
-      Position		      [1015, 139, 1060, 191]
+      Position		      [1015, 184, 1060, 236]
       ZOrder		      73
       ScopeSpecificationString "spbscopes.SpectrumAnalyzerBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(ext"
       "mgr.Configuration('Core','General UI',true,'FigureColor',[1 1 1]),extmgr.Configuration('Core','Source UI',true),"
-      "extmgr.Configuration('Sources','Workspace',false),extmgr.Configuration('Sources','File',false),extmgr.Configurat"
-      "ion('Sources','Simulink',false),extmgr.Configuration('Sources','SPTool',false),extmgr.Configuration('Sources','S"
-      "treaming',false),extmgr.Configuration('Sources','WiredSimulink',true),extmgr.Configuration('Visuals','Constellat"
-      "ion',false),extmgr.Configuration('Visuals','Eye Diagram',false),extmgr.Configuration('Visuals','Matrix',false),e"
-      "xtmgr.Configuration('Visuals','Array Plot',false),extmgr.Configuration('Visuals','Time Domain',false),extmgr.Con"
-      "figuration('Visuals','Spectrum',true,'AxesProperties',struct('Color',[1 1 1],'XColor',[0 0 0],'YColor',[0 0 0],'"
-      "ZColor',[0 0 0],'XGrid','on','YGrid','on','ZGrid','off','Box','on','XScale','linear','YScale','linear','ZScale',"
-      "'linear','XDir','normal','YDir','normal','ZDir','normal','XTickMode','auto','YTickMode','auto','ZTickMode','auto"
-      "','XTickLabelMode','manual','YTickLabelMode','auto','ZTickLabelMode','manual','XTickLabel',['  0';'0.5';'  1';'1"
-      ".5';'  2';'2.5';'  3';'3.5';'  4';'4.5';'  5'],'ZTickLabel','','FontName','Helvetica','FontSize',8.5,'FontUnits'"
-      ",'points','FontWeight','normal','Title','','XLabel','Frequency (kHz)','YLabel',' dBm','ZLabel',''),'LineProperti"
-      "es',struct('DisplayName',{'',''},'Color',{[1 0 0],[0.0745098039215686 0.623529411764706 1]},'LineStyle',{'-','-'"
-      "},'LineWidth',{0.5,0.5},'Marker',{'none','none'},'MarkerSize',{6,6},'MarkerEdgeColor',{'auto','auto'},'MarkerFac"
-      "eColor',{'none','none'},'Visible',{'on','on'}),'Legend',true,'MinYLim','-80.433349702072362675','MaxYLim','35.41"
-      "5924971783191211','SampleRate','10000','Span','4000','CenterFrequency','2000','StartFrequency','0','StopFrequenc"
-      "y','5000','TwoSidedSpectrum',false,'IsSpanValuesValid',true,'TraceOptionsPanelToggleState',1,'IsSpanCFSettingDir"
-      "ty',true,'ShowSettingsDialog',true,'FrequencyInputSampleRate','10000','SpectralMaskProperties',struct('EnabledMa"
-      "sks','None','UpperMask',Inf,'LowerMask',-Inf,'ReferenceLevel','Custom','CustomReferenceLevel',0,'SelectedChannel"
-      "',1,'MaskFrequencyOffset',0),'SpectrumType','Power'),extmgr.Configuration('Tools','Instrumentation Sets',false),"
-      "extmgr.Configuration('Tools','Measurements',true,'Measurements',struct('spectrumsettings',[]),'Version','2018b')"
-      ",extmgr.Configuration('Tools','Plot Navigation',true,'AutoscaleMode','Manual','OnceAtStop',false),extmgr.Configu"
-      "ration('Sources','SimulinkEvent',false),extmgr.Configuration('Visuals','TimeVisual',false),extmgr.Configuration("
-      "'Tools','Requirement viewer',false),extmgr.Configuration('Tools','Check block zoom',false),extmgr.Configuration("
-      "'Tools','Response Optimization',false),extmgr.Configuration('Visuals','Fixed-Point Histogram',false),extmgr.Conf"
-      "iguration('Tools','Image Tool',false),extmgr.Configuration('Tools','Pixel Region',false),extmgr.Configuration('T"
-      "ools','Image Navigation Tools',false),extmgr.Configuration('Visuals','Video',false),extmgr.Configuration('Visual"
-      "s','BodeVisual',false),extmgr.Configuration('Visuals','PZMapVisual',false),extmgr.Configuration('Visuals','Nicho"
-      "lsVisual',false),extmgr.Configuration('Visuals','MarginsVisual',false),extmgr.Configuration('Visuals','SigmaVisu"
-      "al',false),extmgr.Configuration('Visuals','LinearStepVisual',false),extmgr.Configuration('Visuals','PhasedMatrix"
-      "',false),extmgr.Configuration('Visuals','IntensityVisual',false),extmgr.Configuration('Visuals','ScenarioVisual'"
-      ",false)),'Version','2018b','Position',[281 151 1366 607],'VisibleAtModelOpen','on')"
+      "extmgr.Configuration('Sources','WiredSimulink',true),extmgr.Configuration('Sources','File',false),extmgr.Configu"
+      "ration('Sources','SPTool',false),extmgr.Configuration('Sources','Simulink',false),extmgr.Configuration('Sources'"
+      ",'Workspace',false),extmgr.Configuration('Sources','Streaming',false),extmgr.Configuration('Visuals','Spectrum',"
+      "true,'AxesProperties',struct('Color',[1 1 1],'XColor',[0 0 0],'YColor',[0 0 0],'ZColor',[0 0 0],'XGrid','on','YG"
+      "rid','on','ZGrid','off','Box','on','XScale','linear','YScale','linear','ZScale','linear','XDir','normal','YDir',"
+      "'normal','ZDir','normal','XTickMode','auto','YTickMode','auto','ZTickMode','auto','XTickLabelMode','manual','YTi"
+      "ckLabelMode','auto','ZTickLabelMode','manual','XTickLabel',['  0';'0.5';'  1';'1.5';'  2';'2.5';'  3';'3.5';'  4"
+      "';'4.5';'  5'],'ZTickLabel','','FontName','Helvetica','FontSize',8.5,'FontUnits','points','FontWeight','normal',"
+      "'Title','','XLabel','Frequency (kHz)','YLabel',' dBm','ZLabel',''),'LineProperties',struct('DisplayName',{'',''}"
+      ",'Color',{[1 1 0.0666666666666667],[0.0745098039215686 0.623529411764706 1]},'LineStyle',{'-','-'},'LineWidth',{"
+      "0.5,0.5},'Marker',{'none','none'},'MarkerSize',{6,6},'MarkerEdgeColor',{'auto','auto'},'MarkerFaceColor',{'none'"
+      ",'none'},'Visible',{'on','on'}),'Legend',true,'MinYLim','-80.433349702072362675','MaxYLim','35.41592497178319121"
+      "1','SampleRate','10000','Span','4000','CenterFrequency','2000','StartFrequency','0','StopFrequency','5000','TwoS"
+      "idedSpectrum',false,'IsSpanValuesValid',true,'TraceOptionsPanelToggleState',1,'IsSpanCFSettingDirty',true,'ShowS"
+      "ettingsDialog',true,'FrequencyInputSampleRate','10000','SpectralMaskProperties',struct('EnabledMasks','None','Up"
+      "perMask',Inf,'LowerMask',-Inf,'ReferenceLevel','Custom','CustomReferenceLevel',0,'SelectedChannel',1,'MaskFreque"
+      "ncyOffset',0)),extmgr.Configuration('Visuals','Array Plot',false),extmgr.Configuration('Visuals','Time Domain',f"
+      "alse),extmgr.Configuration('Visuals','Constellation',false),extmgr.Configuration('Visuals','Eye Diagram',false),"
+      "extmgr.Configuration('Visuals','Matrix',false),extmgr.Configuration('Tools','Plot Navigation',true,'AutoscaleMod"
+      "e','Manual','OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Measurements',struct('spectrum"
+      "settings',[]),'Version','2015a'),extmgr.Configuration('Tools','Instrumentation Sets',false)),'Version','2015a','"
+      "Position',[281 62 1366 637],'VisibleAtModelOpen','on')"
     }
     Block {
       BlockType		      TimeScope
       Name		      "Time\nScope"
       SID		      "50"
       Ports		      [1]
-      Position		      [1040, 44, 1070, 76]
+      Position		      [1040, 89, 1070, 121]
       ZOrder		      92
       UserDataPersistent      on
       DefaultConfigurationName "spbscopes.TimeScopeBlockCfg"
@@ -1256,9 +1294,8 @@ Model {
       "5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',2,'LineNames',{{'Sinal Nao Filtrad"
       "o','Sinal FIltrado'}},'ShowContent',true,'Placement',1)}),extmgr.Configuration('Tools','Plot Navigation',true,'O"
       "nceAtStop',false,'PreviousZoomMode','ZoomX','PreviousAutoscale','X'),extmgr.Configuration('Tools','Measurements'"
-      ",true,'Version','2018b')),'Version','2018b','Position',[634 224 1013 607])"
+      ",true,'Version','2015a')),'Version','2015a','Position',[634 193 1013 607])"
       NumInputPorts	      "1"
-      Floating		      off
     }
     Line {
       Name		      "Sinal Nao Filtrado"
