@@ -1,2 +1,0 @@
-Filtro_IIR_BP_20bits_signed/filter --> filter
-filtro3_iir_sim_r2015a/Filtro_IIR_BP_20bits_signed --> Filtro_IIR_BP_20bits_signed
