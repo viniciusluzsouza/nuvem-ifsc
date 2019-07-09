@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.10"
+    ComputedModelVersion    "1.11"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -101,7 +101,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [309.0, 117.0, 1152.0, 778.0]
+      Location		      [241.0, 138.0, 1152.0, 778.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -161,15 +161,15 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "vini"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 07 11:07:55 2019"
-  RTWModifiedTimeStamp	  484398362
-  ModelVersionFormat	  "1.%<AutoIncrement:10>"
-  SampleTimeColors	  on
+  LastModifiedDate	  "Mon Jul 08 22:49:22 2019"
+  RTWModifiedTimeStamp	  484526923
+  ModelVersionFormat	  "1.%<AutoIncrement:11>"
+  SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
-  ShowLineDimensions	  on
-  ShowPortDataTypes	  on
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
   ShowAllPropagatedSignalLabels	off
   PortDataTypeDisplayFormat "AliasTypeOnly"
   ShowEditTimeErrors	  on
@@ -1236,7 +1236,7 @@ Model {
   }
   System {
     Name		    "filtro3_iir_sim"
-    Location		    [309, 117, 1461, 895]
+    Location		    [241, 138, 1393, 916]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off

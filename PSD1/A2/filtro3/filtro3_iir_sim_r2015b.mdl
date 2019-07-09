@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.11"
+    ComputedModelVersion    "1.12"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -61,7 +61,7 @@ Model {
       $ObjectID		      3
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [171.0, 137.0, 1152.0, 778.0]
+      Location		      [241.0, 138.0, 1152.0, 778.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		4
@@ -97,15 +97,15 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "vini"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 07 11:09:01 2019"
-  RTWModifiedTimeStamp	  484398541
-  ModelVersionFormat	  "1.%<AutoIncrement:11>"
-  SampleTimeColors	  on
+  LastModifiedDate	  "Mon Jul 08 22:51:26 2019"
+  RTWModifiedTimeStamp	  484527085
+  ModelVersionFormat	  "1.%<AutoIncrement:12>"
+  SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
-  ShowLineDimensions	  on
-  ShowPortDataTypes	  on
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
   ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -987,7 +987,7 @@ Model {
   }
   System {
     Name		    "filtro3_iir_sim_r2015b"
-    Location		    [171, 137, 1323, 915]
+    Location		    [241, 138, 1393, 916]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -3828,31 +3828,30 @@ Model {
       " 0],'YColor',[0 0 0],'ZColor',[0 0 0],'XGrid','on','YGrid','on','ZGrid','off','Box','on','XScale','linear','YSca"
       "le','linear','ZScale','linear','XDir','normal','YDir','normal','ZDir','normal','XTickMode','auto','YTickMode','a"
       "uto','ZTickMode','auto','XTickLabelMode','manual','YTickLabelMode','auto','ZTickLabelMode','manual','XTickLabel'"
-      ",['     0';'0.0001';'0.0002';'0.0003';'0.0004';'0.0005';'0.0006';'0.0007';'0.0008';'0.0009';' 0.001'],'ZTickLabe"
-      "l','','FontName','Helvetica','FontSize',8.5,'FontUnits','points','FontWeight','normal','Title','','XLabel','Freq"
-      "uency (kHz)','YLabel',' dBm','ZLabel',''),'LineProperties',struct('DisplayName',{'',''},'Color',{[1 0 0],[0.0745"
-      "098039215686 0.623529411764706 1]},'LineStyle',{'-','-'},'LineWidth',{0.5,0.5},'Marker',{'none','none'},'MarkerS"
-      "ize',{6,6},'MarkerEdgeColor',{'auto','auto'},'MarkerFaceColor',{'none','none'},'Visible',{'on','on'}),'Legend',t"
-      "rue,'MinYLim','-101.09154925652306645','MaxYLim','15.059199776570645568','SampleRate','10000','Span','4000','Cen"
-      "terFrequency','2000','StartFrequency','0','StopFrequency','5000','TwoSidedSpectrum',false,'IsSpanValuesValid',tr"
-      "ue,'TraceOptionsPanelToggleState',1,'IsSpanCFSettingDirty',true,'ShowSettingsDialog',true,'FrequencyInputSampleR"
-      "ate','10000','WindowOptionsPanelToggleState',1,'SpectralMaskProperties',struct('EnabledMasks','None','UpperMask'"
-      ",Inf,'LowerMask',-Inf,'ReferenceLevel','Custom','CustomReferenceLevel',0,'SelectedChannel',1,'MaskFrequencyOffse"
-      "t',0),'SpectrumType','Power'),extmgr.Configuration('Visuals','Constellation',false),extmgr.Configuration('Visual"
-      "s','Eye Diagram',false),extmgr.Configuration('Visuals','Matrix',false),extmgr.Configuration('Visuals','Array Plo"
-      "t',false),extmgr.Configuration('Visuals','Time Domain',false),extmgr.Configuration('Visuals','TimeVisual',false)"
-      ",extmgr.Configuration('Visuals','Fixed-Point Histogram',false),extmgr.Configuration('Visuals','Video',false),ext"
-      "mgr.Configuration('Visuals','BodeVisual',false),extmgr.Configuration('Visuals','PZMapVisual',false),extmgr.Confi"
-      "guration('Visuals','NicholsVisual',false),extmgr.Configuration('Visuals','MarginsVisual',false),extmgr.Configura"
-      "tion('Visuals','SigmaVisual',false),extmgr.Configuration('Visuals','LinearStepVisual',false),extmgr.Configuratio"
-      "n('Visuals','PhasedMatrix',false),extmgr.Configuration('Visuals','IntensityVisual',false),extmgr.Configuration('"
-      "Visuals','ScenarioVisual',false),extmgr.Configuration('Tools','Plot Navigation',true,'AutoscaleMode','Manual','O"
-      "nceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Measurements',struct('spectrumsettings',[]),"
-      "'Version','2018b'),extmgr.Configuration('Tools','Instrumentation Sets',false),extmgr.Configuration('Tools','Requ"
-      "irement viewer',false),extmgr.Configuration('Tools','Check block zoom',false),extmgr.Configuration('Tools','Resp"
-      "onse Optimization',false),extmgr.Configuration('Tools','Pixel Region',false),extmgr.Configuration('Tools','Image"
-      " Navigation Tools',false),extmgr.Configuration('Tools','Image Tool',false)),'Version','2018b','Position',[220 16"
-      "3 1346 607])"
+      ",['  0';'0.5';'  1';'1.5';'  2';'2.5';'  3';'3.5';'  4';'4.5';'  5'],'ZTickLabel','','FontName','Helvetica','Fon"
+      "tSize',8.5,'FontUnits','points','FontWeight','normal','Title','','XLabel','Frequency (kHz)','YLabel',' dBm','ZLa"
+      "bel',''),'LineProperties',struct('DisplayName',{'',''},'Color',{[1 0 0],[0.0745098039215686 0.623529411764706 1]"
+      "},'LineStyle',{'-','-'},'LineWidth',{0.5,0.5},'Marker',{'none','none'},'MarkerSize',{6,6},'MarkerEdgeColor',{'au"
+      "to','auto'},'MarkerFaceColor',{'none','none'},'Visible',{'on','on'}),'Legend',true,'MinYLim','-101.0915492565230"
+      "6645','MaxYLim','15.059199776570645568','SampleRate','10000','Span','4000','CenterFrequency','2000','StartFreque"
+      "ncy','0','StopFrequency','5000','TwoSidedSpectrum',false,'IsSpanValuesValid',true,'TraceOptionsPanelToggleState'"
+      ",1,'IsSpanCFSettingDirty',true,'ShowSettingsDialog',true,'FrequencyInputSampleRate','10000','WindowOptionsPanelT"
+      "oggleState',1,'SpectralMaskProperties',struct('EnabledMasks','None','UpperMask',Inf,'LowerMask',-Inf,'ReferenceL"
+      "evel','Custom','CustomReferenceLevel',0,'SelectedChannel',1,'MaskFrequencyOffset',0),'SpectrumType','Power'),ext"
+      "mgr.Configuration('Visuals','Constellation',false),extmgr.Configuration('Visuals','Eye Diagram',false),extmgr.Co"
+      "nfiguration('Visuals','Matrix',false),extmgr.Configuration('Visuals','Array Plot',false),extmgr.Configuration('V"
+      "isuals','Time Domain',false),extmgr.Configuration('Visuals','TimeVisual',false),extmgr.Configuration('Visuals','"
+      "Fixed-Point Histogram',false),extmgr.Configuration('Visuals','Video',false),extmgr.Configuration('Visuals','Bode"
+      "Visual',false),extmgr.Configuration('Visuals','PZMapVisual',false),extmgr.Configuration('Visuals','NicholsVisual"
+      "',false),extmgr.Configuration('Visuals','MarginsVisual',false),extmgr.Configuration('Visuals','SigmaVisual',fals"
+      "e),extmgr.Configuration('Visuals','LinearStepVisual',false),extmgr.Configuration('Visuals','PhasedMatrix',false)"
+      ",extmgr.Configuration('Visuals','IntensityVisual',false),extmgr.Configuration('Visuals','ScenarioVisual',false),"
+      "extmgr.Configuration('Tools','Plot Navigation',true,'AutoscaleMode','Manual','OnceAtStop',false),extmgr.Configur"
+      "ation('Tools','Measurements',true,'Measurements',struct('spectrumsettings',[]),'Version','2018b'),extmgr.Configu"
+      "ration('Tools','Instrumentation Sets',false),extmgr.Configuration('Tools','Requirement viewer',false),extmgr.Con"
+      "figuration('Tools','Check block zoom',false),extmgr.Configuration('Tools','Response Optimization',false),extmgr."
+      "Configuration('Tools','Pixel Region',false),extmgr.Configuration('Tools','Image Navigation Tools',false),extmgr."
+      "Configuration('Tools','Image Tool',false)),'Version','2018b','Position',[220 163 1346 607])"
     }
     Block {
       BlockType		      Scope
